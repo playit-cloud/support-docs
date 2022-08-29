@@ -1,0 +1,1 @@
+{{- with .Site.GetPage (.Get 0) }}{{ if .Params.hidden }}<a class="disabled"><span>{{ .Title }}</span> (WIP)</a>{{ else }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}{{ end }}

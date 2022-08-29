@@ -1,0 +1,7 @@
+baseURL = "https://playit.gg/support"
+languageCode = "en-us"
+title = "playit.gg - support pages"
+theme = "kiss"
+
+[Params]
+playitVersion = "0.9.3"
