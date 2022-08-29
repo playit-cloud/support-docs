@@ -8,7 +8,7 @@ hidden = true
 
 A LAN address (short for local area network) is a network closed off from the internet. This is often times the network in your house that your devices connect to. LAN addresses are assigned to devices to communicate with your router and to each other within the network.
 
-## How to find your compputer's LAN address
+## How to find your computer's LAN address
 
 # Windows
 
