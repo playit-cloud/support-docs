@@ -3,10 +3,12 @@ title = "Setup a PaperMC Minecraft Server"
 tags = ["minecraft", "java", "papermc", "plugins"]
 +++
 
-PaperMC is a Minecraft server based on Spigot with extra performance improvements. It also supports Spigot Plugins like {{< named-link "add-dynmap-to-minecraft" "dynmap" >}}!
+PaperMC is a Minecraft Server that lets you run plugins! It's based on Spigot which is based on CraftBukkit, there's a long history :). It's a good Minecraft server choice that balances performance and features.
+
+Let's setup our server!
 
 # Step 1. Download PaperMC
-[Click here](https://papermc.io/downloads) to visit the PaperMC Download page. Click the latest build (highlighted in red in the below image) to begin the download.
+[Click here](https://papermc.io/downloads) to visit the PaperMC Download page. Click the latest build (the build with biggest number) to start the download.
 
 ![papermc download]({{< static "post-img/papermc-download-page.png" >}})
 
@@ -39,6 +41,7 @@ Now double click the newly created `run.bat` file to start the PaperMC server. I
 
 Before you can run the Minecraft server you must first accept the Eula. This can be done be editing the `eula.txt` document and setting `eula=false` to `eula=true` and saving the file.
 
+> If the eula.txt file doesn't get created, you might need to install / upgrade Java.
 
 ![eula edit]({{< static "post-img/windows-eula-edit.png" >}})
 ![eula highlight]({{< static "post-img/windows-eula-highlight.png" >}})
@@ -52,9 +55,8 @@ With the eula now accepted you should be able to run the server again and have i
 
 As long as the command line is open, your server should be running. At this point you should try connecting to the server using `127.0.0.1:25565` in Minecraft.
 
-
 # Step 6. Making the server public with Playit.gg
 
-Now that you have your server running, let's make it public so friends can connect. You can get started by following the guide [found here](https://playit.gg/guides/minecraft).
+Your server is now running but people outside of your network / home won't be able to join. Instead of using Port Forwarding or using Hamachi we'll use [playit.gg](https://playit.gg). This is now super easy with our [Minecraft Plugin](https://www.spigotmc.org/resources/playit-gg.105566/).
 
-![playit start mc guide]({{< static "post-img/playit-start-mc-guide.png" >}})
+{{< youtube QQYRdgBL-4o  >}}
