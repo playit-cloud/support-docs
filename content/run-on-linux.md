@@ -35,7 +35,7 @@ chmod +x playit-{{< latest-version >}}
 To download and run the playit program you can use
 
 ```bash
-wget https://playit.gg/downloads/playit-{{< latest-version >}}
+wget https://github.com/playit-cloud/playit-agent/releases/download/v{{< latest-version >}}/playit-{{< latest-version >}}
 chmod +x playit-{{< latest-version >}}
 ./playit-{{< latest-version >}}
 ```
