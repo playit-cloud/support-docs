@@ -3,7 +3,7 @@ title = "How to setup a Minecraft Java Server"
 tags = ["minecraft", "guide"]
 +++
 
-When making a Minecraft server there's lots of options. This guides currently covers setting up a Survival Multiplayer Server without mods. We'll be releasing more guides in the future on how to start a server with mods.
+When making a Minecraft server there are a lot of options. This guides currently covers setting up a Survival Multiplayer Server without mods. We'll be releasing more guides in the future on how to start a server with mods.
 
 ## Create a Vanilla Survival Multiplayer Server (MSP)
 Follow these steps and you should have a public Minecraft Java server up in no time.
