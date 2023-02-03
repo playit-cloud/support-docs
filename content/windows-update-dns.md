@@ -52,6 +52,28 @@ On the bottom of the newly opened window select `Use the following DNS server ad
 
 Once done, press `OK` to save your DNS for IPv6.
 
+
+## Check that your DNS is set properly
+Just to make sure everything is set properly we can do a little test. This will let us know what our computer is actually using as the DNS server.
+
+**Open the command prompt**
+Search for the `Command Prompt` program. You can also enter `cmd` into the run program.
+
+
+#### Run in command prompt
+
+```
+ipconfig /all | findstr "DNS\ Servers"
+```
+
+The output will look like
+
+```
+DNS Servers ...........: <DNS SERVER>
+```
+
+If the `<DNS SERVER>` doesn't match what you entered earlier, something went wrong. Give this guide another try from the top. There can be multiple lines showing the multiple DNS servers you have set.
+
 ## Flush your DNS (optional)
 DNS records are often saved on your computer. Somtimes upto 24 hours. You can clear these records by running `ipconfig /flushdns` in the command line.
 
