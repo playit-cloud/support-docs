@@ -4,4 +4,4 @@ title = "playit.gg - support pages"
 theme = "kiss"
 
 [Params]
-playitVersion = "0.9.3"
+playitVersion = "0.15.0"

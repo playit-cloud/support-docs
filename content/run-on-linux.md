@@ -6,8 +6,8 @@ tags = ["linux"]
 If you're running on a Ubuntu or Debian based operating system to you can use `apt`.
 
 ```
-curl -SsL https://playit-cloud.github.io/ppa/key.gpg | sudo apt-key add -
-sudo curl -SsL -o /etc/apt/sources.list.d/playit-cloud.list https://playit-cloud.github.io/ppa/playit-cloud.list
+curl -SsL https://playit-cloud.github.io/ppa/key.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/playit.gpg >/dev/null
+echo "deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.github.io/ppa/data ./" | sudo tee /etc/apt/sources.list.d/playit-cloud.list
 sudo apt update
 sudo apt install playit
 ```
@@ -28,16 +28,16 @@ You'll need to make the program runnable on linux. You can do this by running `c
 
 ```bash
 cd ~/Downloads # cd into the folder where the playit program is located
-chmod +x playit-{{< latest-version >}}
-./playit-{{< latest-version >}}
+chmod +x playit-linux-amd64
+./playit-linux-amd64
 ```
 
 To download and run the playit program you can use
 
 ```bash
-wget https://github.com/playit-cloud/playit-agent/releases/download/v{{< latest-version >}}/playit-{{< latest-version >}}
-chmod +x playit-{{< latest-version >}}
-./playit-{{< latest-version >}}
+wget https://github.com/playit-cloud/playit-agent/releases/download/v{{< latest-version >}}/playit-linux-amd64
+chmod +x playit-linux-amd64
+./playit-linux-amd64
 ```
 
 If you're interested in running playit 24/7 on a linux computer/server, see {{< link "host-247-with-playit" >}}
