@@ -28,7 +28,7 @@ Once your server is running, you should be able to visit [http://localhost:8123]
 
 
 # Step 5 (optional). Making your Dynmap webpage public
-Visit [playit.gg/manage](https://playit.gg/manage) and press `Add Tunnel` on the `Custom TCP` banner.
+Visit [playit.gg/account/tunnels](https://playit.gg/account/tunnels) and press `Add Tunnel` on the `Custom TCP` banner.
 
 ![playit custom tcp tunnel]({{< static "post-img/playit-custom-tcp-tunnel.png" >}})
 
