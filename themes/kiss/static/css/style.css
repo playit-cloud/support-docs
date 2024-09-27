@@ -6472,7 +6472,7 @@ html {
 .content h5:not(:first-child),
 .content h6:not(:first-child),
 article+article {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .content {
@@ -6754,4 +6754,27 @@ div.subtitle.tags {
 .content a.disabled:hover {
   color: #2077b2;
   border-color: #d3d6db;
+}
+
+
+.margin-bottom {
+  margin-bottom: 20px !important;
+}
+
+blockquote.green {
+  border-color: #bcf7bc !important;
+  background-color: #f1fff1;
+}
+
+blockquote.green a {
+  color: #008a00 !important;
+}
+
+blockquote.blue {
+  border-color: #bcbdf7 !important;
+  background-color: #f1f8ff;
+}
+
+blockquote code {
+  background: #ececec;
 }

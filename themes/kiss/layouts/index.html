@@ -19,12 +19,15 @@
         </div>
         <h1 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}{{ partial "taxonomies_count" . }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
         <div class="content">
-          {{ .Summary | plainify | safeHTML }}
-          {{ if .Truncated }}
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+              {{ index $summarySplits 1 | plainify | safeHTML | truncate 200 }}
+          {{ else }}
+              {{ .Summary| plainify | safeHTML | truncate 200 }}
+          {{ end }}
           <a class="button is-link" href="{{ .RelPermalink }}" style="height:28px">
             Read more
           </a>
-          {{ end }}
         </div>
       </article>
       {{ end }}

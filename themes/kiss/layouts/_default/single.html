@@ -3,13 +3,13 @@
 <div class="page-center">
   <section class="section">
     <div class="container">
-      <div class="subtitle tags is-6 is-pulled-right">
+      <div class="subtitle tags is-6 is-pulled-right margin-bottom">
         {{ if .Params.tags }}
         {{ partial "tags" .Params.tags }}
         {{ end }}
       </div>
-      {{if not .Date.IsZero }}<h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>{{ end }}
       <h1 class="title">{{ .Title }}</h1>
+      {{if not .Date.IsZero }}<h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>{{ end }}
       {{ if and (.Site.Params.Info.adsense) (.Params.adsenseTop) }}
       {{ partial "adsense" . }}
       {{ end }}
