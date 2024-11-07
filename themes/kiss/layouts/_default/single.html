@@ -13,7 +13,7 @@
       {{ if and (.Site.Params.Info.adsense) (.Params.adsenseTop) }}
       {{ partial "adsense" . }}
       {{ end }}
-      <div class="content">
+      <div class="content article">
         {{ .Content }}
         {{ if .Site.Params.Info.related }}
         <div class="related">{{ partial "related" . }}</div>

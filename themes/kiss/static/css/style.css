@@ -1349,6 +1349,10 @@ a.box:active {
   position: absolute !important;
 }
 
+.article {
+  margin-top: 60px;
+}
+
 .content a:not(.button) {
   border-bottom: 1px solid #d3d6db;
 }
