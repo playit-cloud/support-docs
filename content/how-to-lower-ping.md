@@ -99,14 +99,16 @@ Like everything, this is complicated. Some game servers will be greedy and brust
 **Some examples with Minecraft Java**
 
 With a Vanilla Minecraft Java server here's how much data is sent to a connecting player based on view-distance:
-* view-distance: **4** => ~0.68MB
-* view-distance: **10** => ~2.34MB
-* view-distance: **32** => ~3.26MB
+
+ * view-distance: **4** => ~0.68MB
+ * view-distance: **10** => ~2.34MB
+ * view-distance: **32** => ~3.26MB
 
 **Worst case scenario** with a 10Mbps upload speed (very common), a new player joining can temporarily spike the ping for all players on your server by the following MS (milliseconds). This can be even worse with multiple players joining at the same time.
-* view-distance: **4** => ~500ms
-* view-distance: **10** => ~1900ms
-* view-distance: **32** => ~2600ms
+
+ * view-distance: **4** => ~500ms
+ * view-distance: **10** => ~1900ms
+ * view-distance: **32** => ~2600ms
 
 > Most home internet routers have some form of Quaility of Service (QoS) prioritization applied to the upload bandwidth to lower how much one greedy
 > connection can block others. Your router being smart* does help lower the affect but not elimiate it. It's also possible your router is doing a bad
