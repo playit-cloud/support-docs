@@ -37,7 +37,7 @@ Playit has tunnel servers distributed across the world. When your game server is
 
 ![playit-hops]({{< static "post-img/playit-hops.png" >}})
 
-1. **Hop 1**: Data is sent to a playit tunnel server. The datacenter that your player gets routed to is dependent on many factors. Ultimately your ISP (and your players' ISPs) decide which datacenter to send traffic to. We try to tune the network so your ISP sends you to the closest datacenter but that doesn't always happen. That's why we offer regional tunnels with {{< link "playit-premium" >}}.
+1. **Hop 1**: Data is sent to a playit tunnel server. The datacenter that your player gets routed to is dependent on many factors. Ultimately your player's ISP (and the ISPs your ISP use, turtles all the way down) decide which datacenter to send traffic to. We try to tune the network so your ISP sends you to the closest datacenter but that doesn't always happen. That's why we offer regional tunnels with {{< link "playit-premium" >}}.
 
 2. **Hop 2**: The tunnel server that received the player's (client's) data then forwards that data to the playit agent running on the game server.
 
