@@ -75,7 +75,7 @@ This requires playit premium. With playit premium you can create regional tunnel
 ping ping.gl.ply.gg # Free Tunnel
 ping ping.na.ply.gg # North America Tunnel
 ping ping.eu.ply.gg # Europe Tunnel
-ping ping.as.ply.gg # South America Tunnel
+ping ping.sa.ply.gg # South America Tunnel
 ping ping.in.ply.gg # India Tunnel
 ping ping.as.ply.gg # Asia Tunnel
 ```
