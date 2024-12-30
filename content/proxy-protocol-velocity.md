@@ -10,7 +10,7 @@ date = 2024-12-30T21:30:00+01:00
 > The Proxy Protocol provides a way for your server to receive your client's true IP.
 {.green}
 
-## Enable The Proxy Protocol on your PaperMC Server
+## Enable The Proxy Protocol on your Velocity Server
 
 <!--start-summary-->
 
