@@ -8,3 +8,5 @@ If you have [playit premium](https://playit.gg/account/billing/shop/premium) you
 ## Guides for specific Domain Registars
 
 * {{< link "external-domain-namecheap" >}}
+* {{< link "external-domain-porkbun" >}}
+* {{< link "external-domain-spaceship" >}}
