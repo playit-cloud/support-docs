@@ -30,11 +30,14 @@ Minecraft, Terraria, Valheim, Vintage Story, Project Zomboid, and hundreds more.
 
 If you're building something fun, learning to host a service, or experimenting with a web app and it works just like a standard server with normal user interactions, you're in the clear.
 
-### Tools that help your own local device
+### Tools that allow you to manage your devices*
 
 Examples: an SSH server, (S)FTP, modpack helpers, web dashboards, etc.
 
-If the service involves **you running something on your own PC for your own use**, it's almost always fine.
+If you are connecting over a Playit tunnel to manage **a device you own**, it's almost always fine.
+
+If devices are connecting over a Playit tunnel so that they can be controlled, automated, or instructed by you, that crosses into behavior that resembles command-and-control systems. Even if the devices are yours, traffic patterns where you are issuing commands outward to connected clients are not permitted.
+
 
 # What is **not allowed** on playit
 
