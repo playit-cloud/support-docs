@@ -1389,13 +1389,19 @@ a.box:active {
 
 .content h1,
 .content h2,
-.content h3,
 .content h4,
 .content h5,
 .content h6 {
   color: #b52323;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.content h3 {
+  color: #b52323;
+  font-weight: 300;
+  margin-bottom: 10px !important;
+  margin-top: 40px !important;
 }
 
 .content blockquote {
