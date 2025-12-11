@@ -81,6 +81,7 @@ It only becomes a problem when encryption or obfuscation is used with the purpos
 ### 4. Malware distribution, loaders, droppers, or software that spreads itself
 
 This includes:
+
 * hosting malware payloads
 * controlling compromised devices
 * updating agents or bots on other computers
