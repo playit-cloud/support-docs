@@ -18,7 +18,7 @@ To protect the community, we're introducing a clearer explanation of what's allo
 
 Let’s break it down in simple terms.
 
-# What is **allowed** on playit
+# What is **allowed** on Playit
 
 Playit is designed for normal user-driven applications, especially:
 
@@ -38,8 +38,20 @@ If you are connecting over a Playit tunnel to manage **a device you own**, it's 
 
 If devices are connecting over a Playit tunnel so that they can be controlled, automated, or instructed by you, that crosses into behavior that resembles command-and-control systems. Even if the devices are yours, traffic patterns where you are issuing commands outward to connected clients are not permitted.
 
+## Examples of software **allowed** on Playit’s network
 
-# What is **not allowed** on playit
+Below is a list of software that is generally allowed on Playit’s network and that our community has asked about. This is not an exhaustive list of software that may be permitted.
+
+* Multiplayer Game Servers
+* SSH Server
+* Remote Desktop Protocol (please use our Firewall feature)
+* VPN server to access your network
+* FTP / sFTP if used for managing your files and **not** for coordinating remote computers
+* Website dashboards (ex AMP / Pterodactyl / Dynmap / BlueMap)
+* Hobby Websites
+
+
+# What is **not allowed** on Playit
 
 We have recently updated [Terms](https://playit.gg/terms) to make prohibited usage more explicit. In short, Playit cannot be used for anything that resembles malware, remote-control frameworks, or C2 systems. Even if the person using it claims it's for "education." These patterns result in Playit's IPs being blocklisted and cause real harm to the service.
 
@@ -109,3 +121,19 @@ If traffic causes:
 * abuse reports from third parties
 
 Playit may disable and/or delete the your tunnel to protect everyone else.
+
+## Examples of software **not allowed** on Playit's network
+
+Below is a list of software that is not allowed on Playit's network and that our community has asked about. This is **not an exhaustive list** of software that may be restricted.
+
+We recognize that there are legitimate and legal reasons to use the software listed below. However, we have chosen not to allow this software on our network because it may exhibit network behavior similar to command-and-control (C2), botnet, or large-scale remote management traffic. Allowing this type of traffic would make it significantly harder for us to detect and ban malicious users.
+
+Playit is focused on helping users make game servers public. For the software listed here, private peer-to-peer VPN solutions such as Tailscale are generally better suited for these use cases.
+
+**Not Allowed List (not exhaustive)**
+* AsyncRAT
+* QuasarRat
+* Remote Access Trojan Variants
+* XWorm
+* XMEye
+* USB Redirector
