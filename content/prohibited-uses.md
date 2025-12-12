@@ -131,6 +131,7 @@ We recognize that there are legitimate and legal reasons to use the software lis
 Playit is focused on helping users make game servers public. For the software listed here, private peer-to-peer VPN solutions such as Tailscale are generally better suited for these use cases.
 
 **Not Allowed List (not exhaustive)**
+
 * AsyncRAT
 * QuasarRat
 * Remote Access Trojan Variants
