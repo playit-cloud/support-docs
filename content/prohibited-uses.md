@@ -47,8 +47,9 @@ Below is a list of software that is generally allowed on Playit’s network and 
 * Remote Desktop Protocol (please use our Firewall feature)
 * VPN server to access your network
 * FTP / sFTP if used for managing your files and **not** for coordinating remote computers
-* Website dashboards (ex AMP / Pterodactyl / Dynmap / BlueMap)
+* Website dashboards (ex [AMP](https://cubecoders.com/AMP) / [Pterodactyl](https://pterodactyl.io/) / [Dynmap](https://modrinth.com/plugin/dynmap) / [BlueMap](https://bluemap.bluecolored.de/))
 * Hobby Websites
+* [Immich](https://immich.app/)
 
 
 # What is **not allowed** on Playit
