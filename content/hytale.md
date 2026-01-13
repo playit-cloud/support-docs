@@ -94,7 +94,7 @@ Once authorized, the server will be fully functional.
 Players can connect to your server using either:
 
 * You can find it in your tunnel information
-![Tunnel information](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-address.png?raw=true)
+![Tunnel information](https://github.com/coderrquitsreality/playit-support-docs/blob/master/static/post-img/playit-hytale-address.png?raw=true)
 
 
 * The provided **domain name**:
@@ -107,8 +107,8 @@ yourdomain.gl.at.ply.gg
 * Or the **numeric IP address and port** shown in the playit tunnel details
 Both methods work identically.
 
-![Join with domain](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-joinwithdomain.png?raw=true)
-![Join with address](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-joinwithaddress.png?raw=true)
+![Join with domain](https://github.com/coderrquitsreality/playit-support-docs/blob/master/static/post-img/playit-hytale-joinwithdomain.png?raw=true)
+![Join with address](https://github.com/coderrquitsreality/playit-support-docs/blob/master/static/post-img/playit-hytale-joinwithaddress.png?raw=true)
 ---
 
 ## Done
