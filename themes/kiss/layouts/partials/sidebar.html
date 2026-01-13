@@ -1,7 +1,8 @@
 {{ $allPages := where .Site.RegularPages "Params.hidden" "ne" true }}
 {{ $currentPage := . }}
 
-<aside class="w-64 border-r border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 overflow-y-auto">
+<!-- Sidebar -->
+<aside id="sidebar" class="hidden lg:block w-full lg:w-64 shrink-0 border-r border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 overflow-y-auto fixed lg:relative inset-0 lg:inset-auto z-50 lg:z-auto top-[63px] lg:top-0 h-[calc(100vh-49px)] lg:h-auto">
   <div class="p-4 space-y-6">
     <!-- Search -->
     <div class="relative">
