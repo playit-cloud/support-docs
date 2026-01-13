@@ -35,13 +35,6 @@
   // Initialize icon based on current state (dark class already set by inline script)
   updateThemeIcon(getCurrentTheme());
 
-  // Enable smooth transitions after initial render
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      html.classList.add('transitions-enabled');
-    });
-  });
-
   // Toggle theme on button click
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {

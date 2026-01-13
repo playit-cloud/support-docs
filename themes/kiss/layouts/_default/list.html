@@ -12,8 +12,8 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {{ range $pages }}
       {{ if ne .Params.hidden true }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
-        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green ">
           {{ .Title }}
         </h3>
         <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">

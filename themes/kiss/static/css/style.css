@@ -12,13 +12,6 @@
   color: currentColor;
 }
 
-/* Smooth transitions for theme switching - only after page load */
-.transitions-enabled * {
-  transition-property: background-color, border-color, color;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-}
-
 /* Code block styling enhancements */
 pre {
   position: relative;
@@ -263,8 +256,6 @@ hr {
 .article-content a {
   color: #16a34a;
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
 }
 
 .dark .article-content a {

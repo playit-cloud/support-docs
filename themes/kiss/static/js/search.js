@@ -62,7 +62,7 @@
       const snippet = result.content.substring(0, 150) + (result.content.length > 150 ? '...' : '');
       
       return `
-        <a href="${result.url}" class="block p-3 text-left hover:bg-terminal-green/5 dark:hover:bg-terminal-green/10 border-b border-terminal-green/10 dark:border-terminal-green/10 last:border-0 transition-colors">
+        <a href="${result.url}" class="block p-3 text-left hover:bg-terminal-green/5 dark:hover:bg-terminal-green/10 border-b border-terminal-green/10 dark:border-terminal-green/10 last:border-0">
           <div class="font-heading font-medium text-[#1a1f1c] dark:text-[#e0e6e3] text-sm">${title}</div>
           <div class="text-xs text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 mt-1 line-clamp-2">${snippet}</div>
         </a>
