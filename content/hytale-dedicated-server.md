@@ -99,23 +99,12 @@ Once authorized, the server will be fully functional.
 Players can connect to your server using either:
 
 * You can find it in your tunnel information
-![Tunnel information](https://github.com/coderrquitsreality/playit-support-docs/blob/master/static/post-img/playit-hytale-address.png?raw=true)
+![Tunnel information]({{< static "post-img/playit-hytale-address.png" >}})
 
-
-* The provided **domain name**:
-
-```text
-yourdomain.gl.joinmc.link
-yourdomain.gl.at.ply.gg
-```
-
-* Or the **numeric IP address and port** shown in the playit tunnel details
-Both methods work identically.
-
-![Join with domain](https://github.com/coderrquitsreality/playit-support-docs/blob/master/static/post-img/playit-hytale-joinwithdomain.png?raw=true)
-![Join with address](https://github.com/coderrquitsreality/playit-support-docs/blob/master/static/post-img/playit-hytale-joinwithaddress.png?raw=true)
----
+From the screenshot, your address is `half-throw.gl.at.ply.gg:19490`. For you, this address will be different.
 
 ## Done
 
-Your Hytale dedicated server should now be online and accessible to players!
+You and your players can then enter this address in Hytale to connect
+
+![Join hytale with domain]({{< static "post-img/playit-hytale-joinwithdomain.png" >}})
