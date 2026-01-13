@@ -1,17 +1,17 @@
 {{ define "main" }}
 <div class="max-w-7xl mx-auto px-6 py-12">
   <!-- Hero Section -->
-  <div class="mb-12 text-center">
+  <div class="mb-12">
     <h1 class="text-5xl font-heading font-bold mb-4 text-[#1e293b] dark:text-[#e2e8f0]">
-      playit<span class="text-playit-orange dark:text-playit-orange">.gg</span> support
+      Support Docs
     </h1>
     <p class="text-lg text-[#1e293b]/70 dark:text-[#e2e8f0]/70 mb-8">
-      Documentation and guides for hosting game servers
+      Documentation to help you get up and running with your self hosted server and <span class="text-playit-orange">playit</span>.gg
     </p>
     
     <!-- Search -->
-    <div class="max-w-2xl mx-auto relative">
-      <div class="flex items-center gap-2 px-4 py-3 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded">
+    <div class="relative">
+      <label class="flex items-center gap-2 px-4 py-3 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded">
         <span class="text-playit-orange dark:text-playit-orange">$</span>
         <input 
           type="text" 
@@ -19,7 +19,7 @@
           placeholder="search docs..."
           class="flex-1 bg-transparent border-none outline-none text-[#1e293b] dark:text-[#e2e8f0] placeholder-[#1a1f1c]/40 dark:placeholder-[#e0e6e3]/40"
         />
-      </div>
+      </label>
       <div id="home-search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
     </div>
   </div>
