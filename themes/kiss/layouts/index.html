@@ -24,167 +24,51 @@
     </div>
   </div>
 
-  <!-- Articles by Category -->
+  <!-- Articles by Category (from data/categories.yaml) -->
   {{ $allPages := where .Site.RegularPages "Params.hidden" "ne" true }}
+  {{ $categoriesData := .Site.Data.categories }}
   
-  <!-- Minecraft -->
-  {{ $minecraft := where $allPages "Params.tags" "intersect" (slice "minecraft") }}
-  {{ if $minecraft }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">Minecraft</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {{ range $minecraft }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
-          {{ .Title }}
-        </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
-          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
-          {{ if ge (len $summarySplits) 2 }}
-            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML | truncate 120 }}
-          {{ end }}
-        </p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
+  <!-- Dynamic Categories -->
+  {{ $allCategoryTags := slice }}
+  {{ range $categoriesData.categories }}
+    {{ $category := . }}
+    {{ $categoryPages := where $allPages "Params.tags" "intersect" $category.tags }}
+    {{ if $categoryPages }}
+    <section class="mb-12">
+      <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">{{ $category.name }}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {{ range $categoryPages }}
+        <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
+          <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange">
+            {{ .Title }}
+          </h3>
+          <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
+            {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+            {{ if ge (len $summarySplits) 2 }}
+              {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+            {{ else }}
+              {{ .Summary | plainify | safeHTML | truncate 120 }}
+            {{ end }}
+          </p>
+        </a>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+    <!-- Collect all category tags for "Other" section -->
+    {{ range $category.tags }}
+      {{ $allCategoryTags = $allCategoryTags | append . }}
+    {{ end }}
   {{ end }}
 
-  <!-- Platforms -->
-  {{ $platforms := where $allPages "Params.tags" "intersect" (slice "windows" "linux" "macos") }}
-  {{ if $platforms }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">Platforms</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {{ range $platforms }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
-          {{ .Title }}
-        </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
-          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
-          {{ if ge (len $summarySplits) 2 }}
-            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML | truncate 120 }}
-          {{ end }}
-        </p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-  <!-- Networking -->
-  {{ $networking := where $allPages "Params.tags" "intersect" (slice "dns" "proxy-protocol" "port forwarding" "networking" "how it works") }}
-  {{ if $networking }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">Networking</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {{ range $networking }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
-          {{ .Title }}
-        </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
-          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
-          {{ if ge (len $summarySplits) 2 }}
-            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML | truncate 120 }}
-          {{ end }}
-        </p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-  <!-- playit.gg -->
-  {{ $playit := where $allPages "Params.tags" "intersect" (slice "playit" "playit.gg") }}
-  {{ if $playit }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">playit.gg</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {{ range $playit }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
-          {{ .Title }}
-        </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
-          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
-          {{ if ge (len $summarySplits) 2 }}
-            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML | truncate 120 }}
-          {{ end }}
-        </p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-  <!-- External Domain -->
-  {{ $externalDomain := where $allPages "Params.tags" "intersect" (slice "external-domain") }}
-  {{ if $externalDomain }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">External Domain</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {{ range $externalDomain }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
-          {{ .Title }}
-        </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
-          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
-          {{ if ge (len $summarySplits) 2 }}
-            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML | truncate 120 }}
-          {{ end }}
-        </p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-  <!-- Guides -->
-  {{ $guides := where $allPages "Params.tags" "intersect" (slice "guide") }}
-  {{ if $guides }}
-  <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">Guides</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {{ range $guides }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
-          {{ .Title }}
-        </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
-          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
-          {{ if ge (len $summarySplits) 2 }}
-            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
-          {{ else }}
-            {{ .Summary | plainify | safeHTML | truncate 120 }}
-          {{ end }}
-        </p>
-      </a>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
-
-  <!-- Other -->
-  {{ $categoryTags := slice "minecraft" "windows" "linux" "macos" "dns" "proxy-protocol" "port forwarding" "networking" "how it works" "playit" "playit.gg" "external-domain" "guide" }}
+  <!-- Other (uncategorized articles) -->
+  {{ if $categoriesData.showOther }}
   {{ $others := slice }}
   {{ range $allPages }}
     {{ $hasCategoryTag := false }}
     {{ if .Params.tags }}
       {{ range .Params.tags }}
-        {{ if in $categoryTags . }}
+        {{ if in $allCategoryTags . }}
           {{ $hasCategoryTag = true }}
         {{ end }}
       {{ end }}
@@ -199,7 +83,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {{ range $others }}
       <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange ">
+        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange">
           {{ .Title }}
         </h3>
         <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
@@ -214,6 +98,7 @@
       {{ end }}
     </div>
   </section>
+  {{ end }}
   {{ end }}
 </div>
 {{ end }}

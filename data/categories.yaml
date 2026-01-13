@@ -1,0 +1,37 @@
+# Categories configuration for sidebar and homepage
+# Each category has a name and a list of tags that articles must have to appear in that category
+
+categories:
+  - name: Minecraft
+    tags:
+      - minecraft
+
+  - name: Platforms
+    tags:
+      - windows
+      - linux
+      - macos
+
+  - name: Networking
+    tags:
+      - dns
+      - proxy-protocol
+      - port forwarding
+      - networking
+      - how it works
+
+  - name: playit.gg
+    tags:
+      - playit
+      - playit.gg
+
+  - name: External Domain
+    tags:
+      - external-domain
+
+  - name: Guides
+    tags:
+      - guide
+
+# Set to true to show an "Other" section for uncategorized articles
+showOther: true

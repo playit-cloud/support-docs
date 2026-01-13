@@ -1,5 +1,6 @@
 {{ $allPages := where .Site.RegularPages "Params.hidden" "ne" true }}
 {{ $currentPage := . }}
+{{ $categoriesData := .Site.Data.categories }}
 
 <!-- Sidebar -->
 <aside id="sidebar" class="hidden lg:block w-full lg:w-64 shrink-0 border-r border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 overflow-y-auto fixed lg:relative inset-0 lg:inset-auto z-50 lg:z-auto top-[63px] lg:top-0 h-[calc(100vh-49px)] lg:h-auto">
@@ -15,116 +16,39 @@
       <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/10 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
     </div>
 
-    <!-- Minecraft -->
-    {{ $minecraft := where $allPages "Params.tags" "intersect" (slice "minecraft") }}
-    {{ if $minecraft }}
-    <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Minecraft</h2>
-      <ul class="space-y-1">
-        {{ range $minecraft }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
+    <!-- Dynamic Categories from data/categories.yaml -->
+    {{ $allCategoryTags := slice }}
+    {{ range $categoriesData.categories }}
+      {{ $category := . }}
+      {{ $categoryPages := where $allPages "Params.tags" "intersect" $category.tags }}
+      {{ if $categoryPages }}
+      <div>
+        <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">{{ $category.name }}</h2>
+        <ul class="space-y-1">
+          {{ range $categoryPages }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+      <!-- Collect all category tags for "Other" section -->
+      {{ range $category.tags }}
+        {{ $allCategoryTags = $allCategoryTags | append . }}
+      {{ end }}
     {{ end }}
 
-    <!-- Platforms -->
-    {{ $platforms := where $allPages "Params.tags" "intersect" (slice "windows" "linux" "macos") }}
-    {{ if $platforms }}
-    <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Platforms</h2>
-      <ul class="space-y-1">
-        {{ range $platforms }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
-
-    <!-- Networking -->
-    {{ $networking := where $allPages "Params.tags" "intersect" (slice "dns" "proxy-protocol" "port forwarding" "networking" "how it works") }}
-    {{ if $networking }}
-    <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Networking</h2>
-      <ul class="space-y-1">
-        {{ range $networking }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
-
-    <!-- playit.gg -->
-    {{ $playit := where $allPages "Params.tags" "intersect" (slice "playit" "playit.gg") }}
-    {{ if $playit }}
-    <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">playit.gg</h2>
-      <ul class="space-y-1">
-        {{ range $playit }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
-
-    <!-- External Domain -->
-    {{ $externalDomain := where $allPages "Params.tags" "intersect" (slice "external-domain") }}
-    {{ if $externalDomain }}
-    <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">External Domain</h2>
-      <ul class="space-y-1">
-        {{ range $externalDomain }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
-
-    <!-- Guides -->
-    {{ $guides := where $allPages "Params.tags" "intersect" (slice "guide") }}
-    {{ if $guides }}
-    <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Guides</h2>
-      <ul class="space-y-1">
-        {{ range $guides }}
-        <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
-            {{ .Title }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
-
-    <!-- Other -->
-    {{ $categoryTags := slice "minecraft" "windows" "linux" "macos" "dns" "proxy-protocol" "port forwarding" "networking" "how it works" "playit" "playit.gg" "external-domain" "guide" }}
+    <!-- Other (uncategorized articles) -->
+    {{ if $categoriesData.showOther }}
     {{ $others := slice }}
     {{ range $allPages }}
       {{ $hasCategoryTag := false }}
       {{ if .Params.tags }}
         {{ range .Params.tags }}
-          {{ if in $categoryTags . }}
+          {{ if in $allCategoryTags . }}
             {{ $hasCategoryTag = true }}
           {{ end }}
         {{ end }}
@@ -146,6 +70,7 @@
         {{ end }}
       </ul>
     </div>
+    {{ end }}
     {{ end }}
   </div>
 </aside>
