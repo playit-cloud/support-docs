@@ -11,7 +11,7 @@ echo "
     <script>window.location = '/support';</script>
   </head>
   <body>
-    <p>Please follow <a href=\"/support\">this link</a>.</p>
+    <p>Please follow <a href=\"/support\">this link</a> to view support docs.</p>
   </body>
 </html>
 " > out/index.html
