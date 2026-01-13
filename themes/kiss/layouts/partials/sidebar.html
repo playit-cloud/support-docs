@@ -1,7 +1,7 @@
 {{ $allPages := where .Site.RegularPages "Params.hidden" "ne" true }}
 {{ $currentPage := . }}
 
-<aside class="w-64 border-r border-terminal-green/30 dark:border-terminal-green/20 bg-white dark:bg-[#141a17] overflow-y-auto">
+<aside class="w-64 border-r border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 overflow-y-auto">
   <div class="p-4 space-y-6">
     <!-- Search -->
     <div class="relative">
@@ -9,20 +9,20 @@
         type="text" 
         id="search-input"
         placeholder="$ search docs..."
-        class="w-full px-3 py-2 bg-[#f5f7f6] dark:bg-[#0a0f0d] border border-terminal-green/30 dark:border-terminal-green/20 rounded text-sm focus:outline-none focus:border-[#16a34a] dark:focus:border-terminal-green focus:ring-1 focus:ring-[#16a34a] dark:focus:ring-terminal-green"
+        class="w-full px-3 py-2 bg-[#f1f5f9] dark:bg-navy-900 border border-playit-orange/20 dark:border-playit-orange/10 rounded text-sm focus:outline-none focus:border-playit-orange dark:focus:border-playit-orange focus:ring-1 focus:ring-playit-orange"
       />
-      <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
+      <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/10 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
     </div>
 
     <!-- Minecraft -->
     {{ $minecraft := where $allPages "Params.tags" "intersect" (slice "minecraft") }}
     {{ if $minecraft }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">Minecraft</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Minecraft</h2>
       <ul class="space-y-1">
         {{ range $minecraft }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>
@@ -35,11 +35,11 @@
     {{ $platforms := where $allPages "Params.tags" "intersect" (slice "windows" "linux" "macos") }}
     {{ if $platforms }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">Platforms</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Platforms</h2>
       <ul class="space-y-1">
         {{ range $platforms }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>
@@ -52,11 +52,11 @@
     {{ $networking := where $allPages "Params.tags" "intersect" (slice "dns" "proxy-protocol" "port forwarding" "networking" "how it works") }}
     {{ if $networking }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">Networking</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Networking</h2>
       <ul class="space-y-1">
         {{ range $networking }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>
@@ -69,11 +69,11 @@
     {{ $playit := where $allPages "Params.tags" "intersect" (slice "playit" "playit.gg") }}
     {{ if $playit }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">playit.gg</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">playit.gg</h2>
       <ul class="space-y-1">
         {{ range $playit }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>
@@ -86,11 +86,11 @@
     {{ $externalDomain := where $allPages "Params.tags" "intersect" (slice "external-domain") }}
     {{ if $externalDomain }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">External Domain</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">External Domain</h2>
       <ul class="space-y-1">
         {{ range $externalDomain }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>
@@ -103,11 +103,11 @@
     {{ $guides := where $allPages "Params.tags" "intersect" (slice "guide") }}
     {{ if $guides }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">Guides</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Guides</h2>
       <ul class="space-y-1">
         {{ range $guides }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>
@@ -134,11 +134,11 @@
     {{ end }}
     {{ if $others }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-[#16a34a] dark:text-terminal-green uppercase tracking-wider mb-2">Other</h2>
+      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Other</h2>
       <ul class="space-y-1">
         {{ range $others }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-[#16a34a] dark:text-terminal-green bg-terminal-green/5 dark:bg-terminal-green/10 border-l-2 border-[#16a34a] dark:border-terminal-green{{ else }}text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 hover:text-[#16a34a] dark:hover:text-terminal-green hover:bg-terminal-green/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
             {{ .Title }}
           </a>
         </li>

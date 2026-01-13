@@ -1,4 +1,4 @@
-/* Terminal-inspired custom styles */
+/* playit.gg documentation styles */
 
 /* Cursor blink animation for terminal elements */
 @keyframes blink {
@@ -27,23 +27,23 @@ pre code {
   line-height: 1.6;
 }
 
-/* Terminal-style scrollbar */
+/* Scrollbar - navy theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(34, 197, 94, 0.1);
+  background: rgba(255, 107, 53, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(34, 197, 94, 0.3);
+  background: rgba(255, 107, 53, 0.3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(34, 197, 94, 0.5);
+  background: rgba(255, 107, 53, 0.5);
 }
 
 /* Line clamp utility */
@@ -56,7 +56,7 @@ pre code {
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #22c55e;
+  outline: 2px solid #ff6b35;
   outline-offset: 2px;
 }
 
@@ -81,14 +81,14 @@ pre code {
 .article-content h4 {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
-  color: #1a1f1c;
+  color: #1e293b;
 }
 
 .dark .article-content h1,
 .dark .article-content h2,
 .dark .article-content h3,
 .dark .article-content h4 {
-  color: #e0e6e3;
+  color: #e2e8f0;
 }
 
 .article-content h1 {
@@ -104,7 +104,7 @@ pre code {
   margin-bottom: 1.25rem;
   line-height: 1.35;
   padding-bottom: 0.625rem;
-  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.2);
 }
 
 .article-content h3 {
@@ -135,7 +135,7 @@ pre code {
   height: auto;
   margin: 2rem 0;
   border-radius: 8px;
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(255, 107, 53, 0.2);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   max-height: 450px;
   width: auto;
@@ -152,12 +152,12 @@ table {
 table th,
 table td {
   padding: 0.875rem 1rem;
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(255, 107, 53, 0.2);
   text-align: left;
 }
 
 table th {
-  background-color: rgba(34, 197, 94, 0.1);
+  background-color: rgba(255, 107, 53, 0.1);
   font-weight: 600;
 }
 
@@ -189,8 +189,8 @@ table th {
 .article-content blockquote {
   margin: 2rem 0;
   padding: 1rem 1.5rem;
-  border-left: 4px solid #22c55e;
-  background-color: rgba(34, 197, 94, 0.05);
+  border-left: 4px solid #ff6b35;
+  background-color: rgba(255, 107, 53, 0.05);
   border-radius: 0 8px 8px 0;
   font-style: normal;
 }
@@ -210,7 +210,7 @@ table th {
 /* Horizontal rule */
 hr {
   border: none;
-  border-top: 1px solid rgba(34, 197, 94, 0.2);
+  border-top: 1px solid rgba(255, 107, 53, 0.2);
   margin: 3rem 0;
 }
 
@@ -219,51 +219,51 @@ hr {
   padding: 0.2rem 0.5rem;
   font-size: 0.875em;
   border-radius: 4px;
-  background-color: #f5f7f6;
-  color: #16a34a;
+  background-color: #f1f5f9;
+  color: #e85d2c;
   font-family: 'JetBrains Mono', monospace;
 }
 
 .dark .article-content code:not(pre code) {
-  background-color: #141a17;
-  color: #22c55e;
+  background-color: #161b22;
+  color: #ff6b35;
 }
 
 /* Code blocks */
 .article-content pre {
-  background-color: #f5f7f6;
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background-color: #f1f5f9;
+  border: 1px solid rgba(255, 107, 53, 0.2);
   border-radius: 8px;
   margin: 1.75rem 0;
 }
 
 .dark .article-content pre {
-  background-color: #0a0f0d;
-  border-color: rgba(34, 197, 94, 0.2);
+  background-color: #0d1117;
+  border-color: rgba(255, 107, 53, 0.1);
 }
 
 /* Strong/bold text */
 .article-content strong {
   font-weight: 600;
-  color: #1a1f1c;
+  color: #1e293b;
 }
 
 .dark .article-content strong {
-  color: #e0e6e3;
+  color: #e2e8f0;
 }
 
 /* Links */
 .article-content a {
-  color: #16a34a;
+  color: #e85d2c;
   text-decoration: none;
 }
 
 .dark .article-content a {
-  color: #22c55e;
+  color: #ff6b35;
 }
 
 .article-content a:hover {
-  border-bottom-color: currentColor;
+  text-decoration: underline;
 }
 
 /* Ensure images in paragraphs get proper spacing */

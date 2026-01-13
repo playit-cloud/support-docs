@@ -19,7 +19,7 @@
   function highlightMatch(text, query) {
     if (!query) return text;
     const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return text.replace(regex, '<mark class="bg-terminal-green/30 text-inherit">$1</mark>');
+    return text.replace(regex, '<mark class="bg-playit-orange/30 text-inherit">$1</mark>');
   }
 
   function search(query) {
@@ -52,7 +52,7 @@
     if (!container) return;
 
     if (results.length === 0) {
-      container.innerHTML = '<div class="p-3 text-sm text-left text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60">No results found</div>';
+      container.innerHTML = '<div class="p-3 text-sm text-left text-[#1e293b]/60 dark:text-[#e2e8f0]/60">No results found</div>';
       container.classList.remove('hidden');
       return;
     }
@@ -62,9 +62,9 @@
       const snippet = result.content.substring(0, 150) + (result.content.length > 150 ? '...' : '');
       
       return `
-        <a href="${result.url}" class="block p-3 text-left hover:bg-terminal-green/5 dark:hover:bg-terminal-green/10 border-b border-terminal-green/10 dark:border-terminal-green/10 last:border-0">
-          <div class="font-heading font-medium text-[#1a1f1c] dark:text-[#e0e6e3] text-sm">${title}</div>
-          <div class="text-xs text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 mt-1 line-clamp-2">${snippet}</div>
+        <a href="${result.url}" class="block p-3 text-left hover:bg-playit-orange/5 dark:hover:bg-playit-orange/10 border-b border-playit-orange/10 last:border-0">
+          <div class="font-heading font-medium text-[#1e293b] dark:text-[#e2e8f0] text-sm">${title}</div>
+          <div class="text-xs text-[#1e293b]/60 dark:text-[#e2e8f0]/60 mt-1 line-clamp-2">${snippet}</div>
         </a>
       `;
     }).join('');
