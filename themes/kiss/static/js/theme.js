@@ -4,13 +4,9 @@
   const themeIconDark = document.getElementById('theme-icon-dark');
   const html = document.documentElement;
 
-  // Get theme from localStorage or system preference
-  function getInitialTheme() {
-    const stored = localStorage.getItem('theme');
-    if (stored) {
-      return stored;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  // Get current theme
+  function getCurrentTheme() {
+    return html.classList.contains('dark') ? 'dark' : 'light';
   }
 
   // Set theme
@@ -26,6 +22,7 @@
 
   // Update theme icon visibility
   function updateThemeIcon(theme) {
+    if (!themeIconDark || !themeIconLight) return;
     if (theme === 'dark') {
       themeIconDark.classList.remove('hidden');
       themeIconLight.classList.add('hidden');
@@ -35,9 +32,15 @@
     }
   }
 
-  // Initialize theme
-  const initialTheme = getInitialTheme();
-  setTheme(initialTheme);
+  // Initialize icon based on current state (dark class already set by inline script)
+  updateThemeIcon(getCurrentTheme());
+
+  // Enable smooth transitions after initial render
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      html.classList.add('transitions-enabled');
+    });
+  });
 
   // Toggle theme on button click
   if (themeToggle) {
