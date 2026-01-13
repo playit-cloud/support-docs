@@ -1,3 +1,8 @@
++++
+title = "Hytale Dedicated Server Guide"
+tags = ["hytale"]
++++
+
 # Hytale Dedicated Server Setup Guide
 
 This guide walks you through setting up a Hytale server using the files bundled with the official Hytale launcher, and then sharing it to the internet using playit.
