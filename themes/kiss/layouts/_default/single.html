@@ -1,32 +1,42 @@
-{{ partial "header" . }}
-{{ partial "nav" . }}
-<div class="page-center">
-  <section class="section">
-    <div class="container">
-      <div class="subtitle tags is-6 is-pulled-right margin-bottom">
-        {{ if .Params.tags }}
-        {{ partial "tags" .Params.tags }}
-        {{ end }}
-      </div>
-      <h1 class="title">{{ .Title }}</h1>
-      {{if not .Date.IsZero }}<h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>{{ end }}
-      {{ if and (.Site.Params.Info.adsense) (.Params.adsenseTop) }}
-      {{ partial "adsense" . }}
+{{ define "main" }}
+<div class="max-w-4xl mx-auto px-6 py-8">
+  <!-- Breadcrumb -->
+  <nav class="mb-6 text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60">
+    <a href="/" class="hover:text-[#16a34a] dark:hover:text-terminal-green transition-colors">~/support</a>
+    <span class="mx-2">></span>
+    <span class="text-[#16a34a] dark:text-terminal-green">{{ .Title }}</span>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="mb-8 pb-6 border-b border-terminal-green/30 dark:border-terminal-green/20">
+    <h1 class="text-4xl font-heading font-bold mb-4 text-[#1a1f1c] dark:text-[#e0e6e3]">
+      {{ .Title }}
+    </h1>
+    {{ if .Params.tags }}
+    <div class="flex flex-wrap gap-2">
+      {{ range .Params.tags }}
+      <span class="px-2 py-1 text-xs font-mono bg-terminal-green/5 dark:bg-terminal-green/10 text-[#16a34a] dark:text-terminal-green border border-terminal-green/30 dark:border-terminal-green/20 rounded">
+        {{ . }}
+      </span>
       {{ end }}
-      <div class="content article">
-        {{ .Content }}
-        {{ if .Site.Params.Info.related }}
-        <div class="related">{{ partial "related" . }}</div>
-        {{ end }}
-      </div>
-      {{ if and (.Site.Params.Info.adsense)  (.Params.adsenseBottom) }}
-      {{ partial "adsense" . }}
-      {{ end}}
     </div>
-  </section>
-  {{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
-      <script src="/js/copycode.js"></script>
+    {{ end }}
+  </header>
+
+  <!-- Article Content -->
+  <article class="prose dark:prose-invert prose-headings:font-heading prose-headings:text-[#1a1f1c] dark:prose-headings:text-[#e0e6e3] prose-p:text-[#1a1f1c]/90 dark:prose-p:text-[#e0e6e3]/90 prose-a:text-[#16a34a] dark:prose-a:text-terminal-green prose-a:no-underline hover:prose-a:underline prose-strong:text-[#1a1f1c] dark:prose-strong:text-[#e0e6e3] prose-code:text-[#16a34a] dark:prose-code:text-terminal-green prose-code:bg-[#f5f7f6] dark:prose-code:bg-[#141a17] prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-[#f5f7f6] dark:prose-pre:bg-[#0a0f0d] prose-pre:border prose-pre:border-terminal-green/30 dark:prose-pre:border-terminal-green/20 prose-blockquote:border-l-[#16a34a] dark:prose-blockquote:border-l-terminal-green prose-blockquote:text-[#1a1f1c]/80 dark:prose-blockquote:text-[#e0e6e3]/80 max-w-none">
+    {{ .Content }}
+  </article>
+
+  <!-- Related Articles -->
+  {{ if .Site.Params.Info.related }}
+  <div class="mt-12 pt-8 border-t border-terminal-green/30 dark:border-terminal-green/20">
+    {{ partial "related" . }}
+  </div>
   {{ end }}
-  {{ partial "disqus" . }}
-  {{ partial "footer" . }}
 </div>
+
+{{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
+<script src="{{ "js/copycode.js" | relURL }}"></script>
+{{ end }}
+{{ end }}

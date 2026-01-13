@@ -1,38 +1,219 @@
-{{ partial "header" . }}
-{{ partial "nav" . }}
-<div class="page-center">
-  <section class="section">
-    <div class="container">
-      {{- $pages := . -}}
-      {{- if .IsHome -}}
-      {{- $pages = .Site.RegularPages -}}
-      {{- else -}}
-      {{ $pages = .Pages -}}
-      {{- end -}}
-      {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
-      {{ range sort .Paginator.Pages }}
-      <article>
-        <div class="subtitle tags is-6 is-pulled-right">
-          {{ if .Params.tags }}
-          {{ partial "tags" .Params.tags }}
-          {{ end }}
-        </div>
-        <h1 class="title"><a href="{{ .RelPermalink }}">{{ .Title }}{{ partial "taxonomies_count" . }}</a>{{ if .Draft }} ::Draft{{ end }}</h1>
-        <div class="content">
+{{ define "main" }}
+<div class="max-w-7xl mx-auto px-6 py-12">
+  <!-- Hero Section -->
+  <div class="mb-12 text-center">
+    <h1 class="text-5xl font-heading font-bold mb-4 text-[#1a1f1c] dark:text-[#e0e6e3]">
+      playit<span class="text-[#16a34a] dark:text-terminal-green">.gg</span> support
+    </h1>
+    <p class="text-lg text-[#1a1f1c]/70 dark:text-[#e0e6e3]/70 mb-8">
+      Documentation and guides for hosting game servers
+    </p>
+    
+    <!-- Search -->
+    <div class="max-w-2xl mx-auto relative">
+      <div class="flex items-center gap-2 px-4 py-3 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded">
+        <span class="text-[#16a34a] dark:text-terminal-green">$</span>
+        <input 
+          type="text" 
+          id="home-search-input"
+          placeholder="search docs..."
+          class="flex-1 bg-transparent border-none outline-none text-[#1a1f1c] dark:text-[#e0e6e3] placeholder-[#1a1f1c]/40 dark:placeholder-[#e0e6e3]/40"
+        />
+      </div>
+      <div id="home-search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- Articles by Category -->
+  {{ $allPages := where .Site.RegularPages "Params.hidden" "ne" true }}
+  
+  <!-- Minecraft -->
+  {{ $minecraft := where $allPages "Params.tags" "intersect" (slice "minecraft") }}
+  {{ if $minecraft }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">Minecraft</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $minecraft }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
           {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
           {{ if ge (len $summarySplits) 2 }}
-              {{ index $summarySplits 1 | plainify | safeHTML | truncate 200 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
           {{ else }}
-              {{ .Summary| plainify | safeHTML | truncate 200 }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
           {{ end }}
-          <a class="button is-link" href="{{ .RelPermalink }}" style="height:28px">
-            Read more
-          </a>
-        </div>
-      </article>
+        </p>
+      </a>
       {{ end }}
     </div>
   </section>
-  {{ partial "pager" . }}
-  {{ partial "footer" . }}
+  {{ end }}
+
+  <!-- Platforms -->
+  {{ $platforms := where $allPages "Params.tags" "intersect" (slice "windows" "linux" "macos") }}
+  {{ if $platforms }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">Platforms</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $platforms }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Networking -->
+  {{ $networking := where $allPages "Params.tags" "intersect" (slice "dns" "proxy-protocol" "port forwarding" "networking" "how it works") }}
+  {{ if $networking }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">Networking</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $networking }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- playit.gg -->
+  {{ $playit := where $allPages "Params.tags" "intersect" (slice "playit" "playit.gg") }}
+  {{ if $playit }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">playit.gg</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $playit }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- External Domain -->
+  {{ $externalDomain := where $allPages "Params.tags" "intersect" (slice "external-domain") }}
+  {{ if $externalDomain }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">External Domain</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $externalDomain }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Guides -->
+  {{ $guides := where $allPages "Params.tags" "intersect" (slice "guide") }}
+  {{ if $guides }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">Guides</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $guides }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Other -->
+  {{ $categoryTags := slice "minecraft" "windows" "linux" "macos" "dns" "proxy-protocol" "port forwarding" "networking" "how it works" "playit" "playit.gg" "external-domain" "guide" }}
+  {{ $others := slice }}
+  {{ range $allPages }}
+    {{ $hasCategoryTag := false }}
+    {{ if .Params.tags }}
+      {{ range .Params.tags }}
+        {{ if in $categoryTags . }}
+          {{ $hasCategoryTag = true }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if not $hasCategoryTag }}
+      {{ $others = $others | append . }}
+    {{ end }}
+  {{ end }}
+  {{ if $others }}
+  <section class="mb-12">
+    <h2 class="text-2xl font-heading font-semibold text-[#16a34a] dark:text-terminal-green mb-4 uppercase tracking-wider">Other</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range $others }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-[#141a17] border border-terminal-green/30 dark:border-terminal-green/20 rounded hover:border-terminal-green/50 transition-colors group">
+        <h3 class="font-heading font-semibold text-[#1a1f1c] dark:text-[#e0e6e3] mb-2 group-hover:text-[#16a34a] dark:group-hover:text-terminal-green transition-colors">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1a1f1c]/60 dark:text-[#e0e6e3]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
 </div>
+{{ end }}
