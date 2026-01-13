@@ -1,2 +1,0 @@
-{{ $value := (.Get 1) }}
-{{- with .Site.GetPage (.Get 0) }}<a href="{{ .RelPermalink }}">{{ $value }}</a>{{ end }}

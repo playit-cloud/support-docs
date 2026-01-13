@@ -1,4 +1,4 @@
-hugo
+npm run build
 
 rm -rf out
 mkdir out
@@ -16,5 +16,5 @@ echo "
 </html>
 " > out/index.html
 
-mv public out/support
+mv build out/support
 
