@@ -94,7 +94,7 @@ Once authorized, the server will be fully functional.
 Players can connect to your server using either:
 
 * You can find it in your tunnel information
-* ![Tunnel information](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-address.png?raw=true)
+![Tunnel information](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-address.png?raw=true)
 
 
 * The provided **domain name**:
