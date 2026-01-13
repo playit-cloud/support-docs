@@ -1,1 +1,32 @@
-{{ template "index.html" . }}
+{{ define "main" }}
+<div class="max-w-7xl mx-auto px-6 py-12">
+  <h1 class="text-4xl font-heading font-bold mb-8 text-[#1e293b] dark:text-[#e2e8f0]">
+    {{ .Title }}
+  </h1>
+
+  {{ $pages := .Pages }}
+  {{ if .IsHome }}
+    {{ $pages = .Site.RegularPages }}
+  {{ end }}
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {{ range $pages }}
+      {{ if ne .Params.hidden true }}
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/10 rounded hover:border-playit-orange/40 group">
+        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange">
+          {{ .Title }}
+        </h3>
+        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
+          {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
+          {{ if ge (len $summarySplits) 2 }}
+            {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
+          {{ else }}
+            {{ .Summary | plainify | safeHTML | truncate 120 }}
+          {{ end }}
+        </p>
+      </a>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

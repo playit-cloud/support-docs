@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html {{ with .Site.LanguageCode }}lang="{{ . }}"{{ end }} class="h-full">
+<head>
+  {{ partial "header" . }}
+</head>
+<body class="h-full bg-[#f8fafc] dark:bg-navy-900 text-[#1e293b] dark:text-[#e2e8f0] font-sans antialiased">
+  <div class="min-h-full flex flex-col">
+    {{ partial "nav" . }}
+    <div class="flex flex-1">
+      {{ if not .IsHome }}
+        {{ partial "sidebar" . }}
+      {{ end }}
+      <main class="flex-1 overflow-auto">
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+    {{ partial "footer" . }}
+  </div>
+  <script src="{{ "js/theme.js" | relURL }}"></script>
+  
+  <!-- Search Index -->
+  {{ $pages := where .Site.RegularPages "Params.hidden" "ne" true }}
+  {{ $searchData := slice }}
+  {{ range $pages }}
+    {{ $entry := dict "title" .Title "url" .RelPermalink "content" (.Plain | truncate 500) "tags" (.Params.tags | default (slice)) }}
+    {{ $searchData = $searchData | append $entry }}
+  {{ end }}
+  <script>
+    window.searchIndex = {{ $searchData | jsonify | safeJS }};
+  </script>
+  <script src="{{ "js/search.js" | relURL }}"></script>
+</body>
+</html>

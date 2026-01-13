@@ -1,32 +1,35 @@
-{{ partial "header" . }}
-{{ partial "nav" . }}
-<div class="page-center">
-  <section class="section">
-    <div class="container">
-      <div class="subtitle tags is-6 is-pulled-right margin-bottom">
-        {{ if .Params.tags }}
-        {{ partial "tags" .Params.tags }}
-        {{ end }}
-      </div>
-      <h1 class="title">{{ .Title }}</h1>
-      {{if not .Date.IsZero }}<h2 class="subtitle is-6">{{ .Date.Format "January 2, 2006" }}</h2>{{ end }}
-      {{ if and (.Site.Params.Info.adsense) (.Params.adsenseTop) }}
-      {{ partial "adsense" . }}
+{{ define "main" }}
+<div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+  <!-- Article Header -->
+  <header class="mb-6 sm:mb-10 pb-6 sm:pb-8 border-b border-playit-orange/20 dark:border-playit-orange/10">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 sm:mb-5 text-[#1e293b] dark:text-[#e2e8f0] leading-tight">
+      {{ .Title }}
+    </h1>
+    {{ if .Params.tags }}
+    <div class="flex flex-wrap gap-2 mt-4">
+      {{ range .Params.tags }}
+      <span class="px-2.5 py-1 text-xs font-mono bg-playit-orange/10 dark:bg-playit-orange/5 text-playit-orange border border-playit-orange/20 dark:border-playit-orange/10 rounded">
+        {{ . }}
+      </span>
       {{ end }}
-      <div class="content article">
-        {{ .Content }}
-        {{ if .Site.Params.Info.related }}
-        <div class="related">{{ partial "related" . }}</div>
-        {{ end }}
-      </div>
-      {{ if and (.Site.Params.Info.adsense)  (.Params.adsenseBottom) }}
-      {{ partial "adsense" . }}
-      {{ end}}
     </div>
-  </section>
-  {{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
-      <script src="/js/copycode.js"></script>
+    {{ end }}
+  </header>
+
+  <!-- Article Content -->
+  <article class="article-content text-[#1e293b]/90 dark:text-[#e2e8f0]/90">
+    {{ .Content }}
+  </article>
+
+  <!-- Related Articles -->
+  {{ if .Site.Params.Info.related }}
+  <div class="mt-12 pt-8 border-t border-playit-orange/20 dark:border-playit-orange/10">
+    {{ partial "related" . }}
+  </div>
   {{ end }}
-  {{ partial "disqus" . }}
-  {{ partial "footer" . }}
 </div>
+
+{{ if (and (.Site.Params.Info.codeCopy) (findRE "<pre" .Content 1)) }}
+<script src="{{ "js/copycode.js" | relURL }}"></script>
+{{ end }}
+{{ end }}

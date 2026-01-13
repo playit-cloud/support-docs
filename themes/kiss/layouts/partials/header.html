@@ -1,19 +1,65 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" {{ with .Site.LanguageCode }} lang="{{ . }}"{{ end }}>
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ .Title }} | {{ .Site.Title }}</title>
+<script>
+  // Prevent flash of wrong theme - runs before any rendering
+  (function() {
+    var theme = localStorage.getItem('theme');
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}">
+
 {{ if .Site.Params.Info.enableSocial }}
 {{- partial "social/opengraph" . -}}
 {{ end }}
+
 {{ if .Site.Params.rss }}
 <link href="{{ with .Site.Home.OutputFormats.Get "rss" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
 {{ end }}
+
+<!-- Google Fonts: Inter & JetBrains Mono (for code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          'mono': ['JetBrains Mono', 'monospace'],
+        },
+        colors: {
+          'playit': {
+            'orange': '#ff6b35',
+            'coral': '#e85d2c',
+          },
+          'navy': {
+            '900': '#0d1117',
+            '800': '#161b22',
+            '700': '#1e2633',
+            '600': '#2d3748',
+          },
+        },
+      },
+    },
+  }
+</script>
+
+<!-- Custom CSS -->
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 {{- range .Site.Params.Assets.customCSS -}}
 <link rel='stylesheet' href='{{ . | absURL }}'>
 {{- end -}}
+
+<!-- Favicons -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,14 +67,14 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159351898-1"></script>
+<meta name="theme-color" content="#0d1117">
+
+{{ if .Site.Config.Services.GoogleAnalytics.ID }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Config.Services.GoogleAnalytics.ID }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'UA-159351898-1');
+  gtag('config', '{{ .Site.Config.Services.GoogleAnalytics.ID }}');
 </script>
-</head>
-<body>
+{{ end }}
