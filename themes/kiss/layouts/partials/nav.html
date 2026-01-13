@@ -1,10 +1,12 @@
-<nav class="border-b border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 px-4 py-3">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <div class="flex items-center gap-6">
+<nav class="border-b border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 py-3">
+  {{ if .IsHome }}
+  <!-- Home page: centered nav matching body content width -->
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <div class="flex items-center gap-3">
       <a href="https://playit.gg" class="text-playit-orange dark:text-playit-orange font-heading text-xl font-semibold hover:opacity-80">
         playit<span class="text-[#1e293b] dark:text-[#e2e8f0]">.gg</span>
       </a>
-      <a href="{{ "/support" | relURL }}" class="text-sm text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange dark:hover:text-playit-orange">
+      <a href="{{ "/" | relURL }}" class="text-sm text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange dark:hover:text-playit-orange">
         support docs
       </a>
     </div>
@@ -17,4 +19,27 @@
       </svg>
     </button>
   </div>
+  {{ else }}
+  <!-- Article pages: left section matches sidebar width -->
+  <div class="flex items-center">
+    <div class="w-64 shrink-0 px-4 flex items-center gap-3">
+      <a href="https://playit.gg" class="text-playit-orange dark:text-playit-orange font-heading text-xl font-semibold hover:opacity-80">
+        playit<span class="text-[#1e293b] dark:text-[#e2e8f0]">.gg</span>
+      </a>
+      <a href="{{ "/" | relURL }}" class="text-sm text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange dark:hover:text-playit-orange">
+        support docs
+      </a>
+    </div>
+    <div class="flex-1 flex justify-end px-4">
+      <button id="theme-toggle" class="p-2 rounded border border-playit-orange/20 dark:border-playit-orange/10 hover:border-playit-orange/40 dark:hover:border-playit-orange/30" aria-label="Toggle theme">
+        <svg id="theme-icon-light" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg id="theme-icon-dark" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  {{ end }}
 </nav>
