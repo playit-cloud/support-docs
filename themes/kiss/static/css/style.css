@@ -22,6 +22,7 @@
 /* Code block styling enhancements */
 pre {
   position: relative;
+  margin: 1.5rem 0 !important;
 }
 
 pre code {
@@ -30,7 +31,7 @@ pre code {
   overflow-x: auto;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Terminal-style scrollbar */
@@ -66,22 +67,98 @@ pre code {
   outline-offset: 2px;
 }
 
-/* Ensure images are responsive */
-img {
+/* ===== ARTICLE CONTENT SPACING ===== */
+
+/* Base typography */
+.article-content {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+/* Paragraphs */
+.article-content p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Headings */
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: #1a1f1c;
+}
+
+.dark .article-content h1,
+.dark .article-content h2,
+.dark .article-content h3,
+.dark .article-content h4 {
+  color: #e0e6e3;
+}
+
+.article-content h1 {
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.article-content h2 {
+  font-size: 1.625rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.35;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.article-content h3 {
+  font-size: 1.375rem;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.article-content h4 {
+  font-size: 1.125rem;
+  margin-top: 2rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.45;
+}
+
+/* First element after heading shouldn't have top margin */
+.article-content h1 + p,
+.article-content h2 + p,
+.article-content h3 + p,
+.article-content h4 + p {
+  margin-top: 0;
+}
+
+/* Images */
+.article-content img {
   max-width: 100%;
   height: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: 450px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Table styling */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 }
 
 table th,
 table td {
-  padding: 0.75rem;
+  padding: 0.875rem 1rem;
   border: 1px solid rgba(34, 197, 94, 0.2);
   text-align: left;
 }
@@ -92,26 +169,114 @@ table th {
 }
 
 /* List styling */
-ul, ol {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
+.article-content ul,
+.article-content ol {
+  margin: 1.5rem 0;
+  padding-left: 1.75rem;
 }
 
-li {
+.article-content li {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+}
+
+.article-content li p {
+  margin: 0.5rem 0;
+}
+
+/* Nested lists */
+.article-content ul ul,
+.article-content ol ol,
+.article-content ul ol,
+.article-content ol ul {
   margin: 0.5rem 0;
 }
 
 /* Blockquote styling */
-blockquote {
-  margin: 1.5rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid #22c55e;
-  font-style: italic;
+.article-content blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #22c55e;
+  background-color: rgba(34, 197, 94, 0.05);
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+}
+
+.article-content blockquote p {
+  margin: 0.5rem 0;
+}
+
+.article-content blockquote p:first-child {
+  margin-top: 0;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 /* Horizontal rule */
 hr {
   border: none;
   border-top: 1px solid rgba(34, 197, 94, 0.2);
-  margin: 2rem 0;
+  margin: 3rem 0;
+}
+
+/* Inline code */
+.article-content code:not(pre code) {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.875em;
+  border-radius: 4px;
+  background-color: #f5f7f6;
+  color: #16a34a;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.dark .article-content code:not(pre code) {
+  background-color: #141a17;
+  color: #22c55e;
+}
+
+/* Code blocks */
+.article-content pre {
+  background-color: #f5f7f6;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  margin: 1.75rem 0;
+}
+
+.dark .article-content pre {
+  background-color: #0a0f0d;
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+/* Strong/bold text */
+.article-content strong {
+  font-weight: 600;
+  color: #1a1f1c;
+}
+
+.dark .article-content strong {
+  color: #e0e6e3;
+}
+
+/* Links */
+.article-content a {
+  color: #16a34a;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.dark .article-content a {
+  color: #22c55e;
+}
+
+.article-content a:hover {
+  border-bottom-color: currentColor;
+}
+
+/* Ensure images in paragraphs get proper spacing */
+.article-content p img {
+  display: block;
+  margin: 1.5rem auto;
 }
