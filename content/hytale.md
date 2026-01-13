@@ -107,6 +107,8 @@ yourdomain.gl.at.ply.gg
 * Or the **numeric IP address and port** shown in the playit tunnel details
 Both methods work identically.
 
+![Join with domain](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-joinwithdomain.png?raw=true)
+![Join with address](https://github.com/coderrquitsreality/playit-support-docs/blob/docusaurus/static/img/playit-hytale-joinwithaddress.png?raw=true)
 ---
 
 ## Done
