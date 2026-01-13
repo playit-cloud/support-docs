@@ -20,10 +20,10 @@
 <link href="{{ with .Site.Home.OutputFormats.Get "rss" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
 {{ end }}
 
-<!-- Google Fonts: JetBrains Mono & IBM Plex Mono -->
+<!-- Google Fonts: Inter & JetBrains Mono (for code) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -33,8 +33,8 @@
     theme: {
       extend: {
         fontFamily: {
+          'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           'mono': ['JetBrains Mono', 'monospace'],
-          'heading': ['IBM Plex Mono', 'monospace'],
         },
         colors: {
           'playit': {
