@@ -17,5 +17,17 @@
     {{ partial "footer" . }}
   </div>
   <script src="{{ "js/theme.js" | relURL }}"></script>
+  
+  <!-- Search Index -->
+  {{ $pages := where .Site.RegularPages "Params.hidden" "ne" true }}
+  {{ $searchData := slice }}
+  {{ range $pages }}
+    {{ $entry := dict "title" .Title "url" .RelPermalink "content" (.Plain | truncate 500) "tags" (.Params.tags | default (slice)) }}
+    {{ $searchData = $searchData | append $entry }}
+  {{ end }}
+  <script>
+    window.searchIndex = {{ $searchData | jsonify | safeJS }};
+  </script>
+  <script src="{{ "js/search.js" | relURL }}"></script>
 </body>
 </html>
