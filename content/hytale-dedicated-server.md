@@ -61,6 +61,13 @@ Follow the on-screen instructions to complete device authorization using your Hy
 
 Once authorized, the server will be fully functional.
 
+If you don't want to authorize your device every time you start the server (spoiler, most people don't) you can run this command:
+
+```text
+/auth persistence Encrypted
+```
+This makes it keep the authorization token in an encrypted file in the server.
+
 ## Share the Server Using playit
 ### Create a playit Agent
 
