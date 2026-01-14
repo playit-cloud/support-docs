@@ -13,7 +13,7 @@ Failed to connect to server
 connection timed out
 ```
 
-![minecraft connection timeout]({{< static "post-img/minecraft-connection-timeout.png" >}})
+{{< image src="post-img/minecraft-connection-timeout.png" alt="minecraft connection timeout" >}}
 
 ## Possible issues and how to fix
 

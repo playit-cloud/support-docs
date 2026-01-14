@@ -18,14 +18,14 @@ In this guide I will be adding the domain `olumpu.com` to playit.gg, your domain
 
 Visit your namecheap dashboard to enter your domain's manage page.
 
-![manage domain]({{< static "post-img/namcheap-manage-domain.png" >}})
+{{< image src="post-img/namcheap-manage-domain.png" alt="manage domain" >}}
 
 
 ## 2. Use Custom DNS under the Nameservers section
 
 Find the section titled **NAMESERVERS** and select **Custom DNS**.
 
-![namecheap nameservers custom dns]({{< static "post-img/namecheap-nameservers-custom-dns.png" >}})
+{{< image src="post-img/namecheap-nameservers-custom-dns.png" alt="namecheap nameservers custom dns" >}}
 
 ## 3. Enter playit's DNS nameservers
 
@@ -38,7 +38,7 @@ ns2.playit-dns.com
 
 and press the green checkmark to save your changes.
 
-![manage domain]({{< static "post-img/namecheap-custom-dns-playit.png" >}})
+{{< image src="post-img/namecheap-custom-dns-playit.png" alt="manage domain" >}}
 
 
 ## 4. Add your external domain to playit.gg
@@ -47,11 +47,11 @@ Visit [https://playit.gg/account/settings/domains/add-external](https://playit.g
 
 Make sure the domain name you enter matches the domain name that you updated on Namecheap. In this example it is `olumpu.com`. For you it will be different.
 
-![playit add external domain]({{< static "post-img/playit-add-external-domain.png" >}})
+{{< image src="post-img/playit-add-external-domain.png" alt="playit add external domain" >}}
 
 You're done! You can now assign your domain to your tunnel.
 
-![playit domain added]({{< static "post-img/playit-domain-added.png" >}})
+{{< image src="post-img/playit-domain-added.png" alt="playit domain added" >}}
 
 ---
 
@@ -63,11 +63,11 @@ Instead of adding our entire `olumpu.com` domain to playit.gg, we will instead t
 
 Visit your namecheap dashboard to enter your domain's manage page.
 
-![manage domain]({{< static "post-img/namcheap-manage-domain.png" >}})
+{{< image src="post-img/namcheap-manage-domain.png" alt="manage domain" >}}
 
 ## 2. Go to the DNS settings for the domain
 
-![domain settings]({{< static "post-img/namecheap-domain-settings.png" >}})
+{{< image src="post-img/namecheap-domain-settings.png" alt="domain settings" >}}
 
 ## 3. Add a new record
 
@@ -77,7 +77,7 @@ Visit your namecheap dashboard to enter your domain's manage page.
 
 Then press the green checkmark to save the record.
 
-![namecheap add ns record]({{< static "post-img/namecheap-add-ns-record.png" >}})
+{{< image src="post-img/namecheap-add-ns-record.png" alt="namecheap add ns record" >}}
 
 
 ## 4. Add your external sub domain to playit.gg
@@ -86,6 +86,6 @@ Visit [https://playit.gg/account/settings/domains/add-external](https://playit.g
 
 Make sure you enter your sub domain. In our case this will be `playit.olumpu.com`.
 
-![playit add sub domain]({{< static "post-img/playit-add-sub-domain.png" >}})
+{{< image src="post-img/playit-add-sub-domain.png" alt="playit add sub domain" >}}
 
 After adding your domain, you should be all set.

@@ -7,15 +7,12 @@ This guide walks you through setting up a Hytale server using the files bundled 
 
 > Official server guide: [Hytale Server Manual](https://support.hytale.com/hc/en-us/articles/45326769420827-Hytale-Server-Manual)
 
----
 
-## Requirements
+### Requirements
 
 * Hytale game launcher installed
 * Java 25 (Adoptium recommended)
 * A Hytale account
-
----
 
 ## Locate the Dedicated Server Files
 
@@ -41,8 +38,6 @@ $XDG_DATA_HOME/Hytale/install/release/package/game/latest
 
 This directory should contain `HytaleServer.jar` and an `Assets.zip` file in the parent directory.
 
----
-
 ## Start the Hytale Dedicated Server
 
 1. Open a terminal or command prompt **inside the server directory**.
@@ -53,8 +48,6 @@ java -jar HytaleServer.jar --assets ../Assets.zip
 ```
 
 The server will start and prompt you for authentication if this is your first run.
-
----
 
 ## Authorize the Server
 
@@ -67,8 +60,6 @@ To authorize the server with your Hytale account, enter the following command in
 Follow the on-screen instructions to complete device authorization using your Hytale account.
 
 Once authorized, the server will be fully functional.
-
----
 
 ## Share the Server Using playit
 ### Create a playit Agent
@@ -90,14 +81,12 @@ Once authorized, the server will be fully functional.
 
 > playit provides a predefined tunnel type for Hytale — use this instead of manually configuring ports.
 
----
-
 ## Connecting to the Server
 
 Players can connect to your server using either:
 
 * You can find it in your tunnel information
-![Tunnel information]({{< static "post-img/playit-hytale-address.png" >}})
+{{< image src="post-img/playit-hytale-address.png" alt="Tunnel information" >}}
 
 From the screenshot, your address is `half-throw.gl.at.ply.gg:19490`. For you, this address will be different.
 
@@ -105,4 +94,4 @@ From the screenshot, your address is `half-throw.gl.at.ply.gg:19490`. For you, t
 
 You and your players can then enter this address in Hytale to connect
 
-![Join hytale with domain]({{< static "post-img/playit-hytale-joinwithdomain.png" >}})
+{{< image src="post-img/playit-hytale-joinwithdomain.png" alt="Join hytale with domain" >}}

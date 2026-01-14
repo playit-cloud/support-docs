@@ -19,7 +19,7 @@ Free tunnels on playit.gg are "Global Anycast". While they work quite well, rout
 
 You can select your region when creating a new tunnel. You won't be able to change an existing tunnel, you will need to create a new tunnel. Do note, you can have two tunnels pointing to the same local address to give your users time to migrate to the new address.
 
-![select-region]({{< static "post-img/new-tunnel-select-region.png" >}})
+{{< image src="post-img/new-tunnel-select-region.png" alt="select-region" >}}
 
 ## .playit.plus domains
 
@@ -27,7 +27,7 @@ Playit Premium comes with 3 custom domains! You can find these on the purchase p
 
 Get started at [playit.gg/account/billing/shop/custom-domain](https://playit.gg/account/billing/shop/custom-domain).
 
-![select-region]({{< static "post-img/playit-plus-custom-domain.png" >}})
+{{< image src="post-img/playit-plus-custom-domain.png" alt="select-region" >}}
 
 ## External Domains
 
@@ -35,7 +35,7 @@ Have an external domain like `example.com` that you would like to add to palyit?
 
 More details can be found at: {{< link "add-external-domain" >}}
 
-![external-domain]({{< static "post-img/external-domain.png" >}})
+{{< image src="post-img/external-domain.png" alt="external-domain" >}}
 
 ## More
 

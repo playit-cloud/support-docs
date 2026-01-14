@@ -22,8 +22,8 @@ ping ping.ply.gg
 
 The ping command will send an ICMP packet (a ping message) to one of playit's global servers and that server will respond with a pong message. The ping command will then tell you how long it took in milliseconds to receive the response.
 
-![ping-response]({{< static "post-img/ping-command-response.png" >}})
-![ping]({{< static "post-img/ping.png" >}})
+{{< image src="post-img/ping-command-response.png" alt="ping-response" >}}
+{{< image src="post-img/ping.png" alt="ping" >}}
 
 # Your ping / latency in game is much more complicated
 
@@ -35,7 +35,7 @@ So what if you've measured your in-game ping / latency, determined it's high, an
 
 Playit has tunnel servers distributed across the world. When your game server is made public with playit.gg, traffic flows through our tunnel servers. For the point of illustration, let's imagine you are hosting a Minecraft server and one of your players is measuring ping to the game server. This is how the traffic (and the ping test) flows through our network:
 
-![playit-hops]({{< static "post-img/playit-hops.png" >}})
+{{< image src="post-img/playit-hops.png" alt="playit-hops" >}}
 
 1. **Hop 1**: Data is sent to a playit tunnel server. The datacenter that your player gets routed to is dependent on many factors. Ultimately your player's ISP (and the ISPs your ISP use, turtles all the way down) decide which datacenter to send traffic to. We try to tune the network so your ISP sends you to the closest datacenter but that doesn't always happen. That's why we offer regional tunnels with {{< link "playit-premium" >}}.
 
@@ -57,13 +57,13 @@ Often the biggest thing you can do to adjust latency is to change where traffic 
 
 On the playit webpage for your agent, you can see the ping from your playit agent to our tunnel servers. This value about `2 * Latency(Hop 3)`. So in my case `Latency(Hop 3) = 7ms`. If I were a connecting to my own game server on playit.gg, `Latency(Hop 3) + Latency(Hop 4) = 14ms`. As a I said, sorta complicated.
 
-![agent-ping]({{< static "post-img/agent-latency.png" >}})
+{{< image src="post-img/agent-latency.png" alt="agent-ping" >}}
 
 You can change which datacenter you're being routed to. Do note, this does not currently work for our Minecraft Plugin and old versions of the playit program. Changing this value will directly influence `Latency(Hop 3) + Latency(Hop 4)` in your players' overall ping. In general, for the best performance you want the reported ping for your playit agent to be as low as possible.
 
 You can also try disabling IPv6, which sadly on some networks improves latency and reliability.
 
-![agent-ping]({{< static "post-img/agent-change-routing.png" >}})
+{{< image src="post-img/agent-change-routing.png" alt="agent-ping" >}}
 
 ### Adjust where client traffic goes
 
@@ -91,7 +91,7 @@ Every internet connection has an upload speed limit. Depending on your upload sp
 **Saturating your upload bandwidth (upload speed limit)**
 When you're sending data to players you need to wait for that data to be sent before you can send more data. It's a queue, if you're trying to send too much data you'll need to wait, this waiting can cause massive in-game ping / latency spikes.
 
-![agent-ping]({{< static "post-img/bandwidth.png" >}})
+{{< image src="post-img/bandwidth.png" alt="agent-ping" >}}
 
 Like everything, this is complicated. Some game servers are greedy and will use all available bandwidth to send data to a new player at the expense of other players.
 

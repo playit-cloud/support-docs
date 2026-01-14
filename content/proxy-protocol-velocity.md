@@ -26,7 +26,7 @@ Details on Velocity's configurations can be found [here](https://docs.papermc.io
 
 Navigate to your tunnel on [playit.gg](https://playit.gg/account/tunnels/). Down the page you should find the attribute "Proxy Protocol" with a button to change.
 
-![select-proxy-protocol]({{< static "post-img/select-proxy-protocol-java.png" >}})
+{{< image src="post-img/select-proxy-protocol-java.png" alt="select-proxy-protocol" >}}
 
 Change the protocol to either `Proxy Protocol Version 1` or `Proxy Protocol Version 2`. We recommend `Proxy Protocol Version 2`.
 

@@ -11,7 +11,7 @@ Assuming you already own Project Zomboid on Steam, you already have access to th
 2. Search for **Project Zomboid** (the server is usually hidden until searched)
 3. Install **Project Zomboid Dedicated Server**
 
-![PZ on Steam]({{< static "post-img/playit-pz-steam.png" >}})
+{{< image src="post-img/playit-pz-steam.png" alt="PZ on Steam" >}}
 
 ## Verify the Server Runs
 
@@ -21,11 +21,11 @@ After installing the server:
 2. Right‑click **Project Zomboid Dedicated Server**
 3. Select **Manage → Browse local files**
 
-![PZ on Steam Options]({{< static "post-img/playit-pz-steambrowsefiles.png" >}})
+{{< image src="post-img/playit-pz-steambrowsefiles.png" alt="PZ on Steam Options" >}}
 
 The server directory will look similar to this:
 
-![PZ Server Files]({{< static "post-img/playit-pz-serverfiles.png" >}})
+{{< image src="post-img/playit-pz-serverfiles.png" alt="PZ Server Files" >}}
 
 Both the 32‑bit and 64‑bit versions work:
 
@@ -51,9 +51,9 @@ Create and configure your tunnel as follows:
 
 * **Type:** Project Zomboid (game)
 
-![playit tunnel config]({{< static "post-img/playit-pz-addtunnel.png" >}})
+{{< image src="post-img/playit-pz-addtunnel.png" alt="playit tunnel config" >}}
 
-At this point, the tunnel will be active, but the game server will **not yet be reachable**. This is because the local server ports must match the tunnel’s assigned public ports.
+At this point, the tunnel will be active, but the game server will **not yet be reachable**. This is because the local server ports must match the tunnel's assigned public ports.
 
 ### Dedicated IP Users
 
@@ -63,7 +63,7 @@ If you are using a **dedicated IP** from playit.gg:
 * Set the local port to `16261`
 * No changes to `servertest.ini` are required unless you want to modify game rules
 
-![playit local address]({{< static "post-img/playit-pz-localaddress.png" >}})
+{{< image src="post-img/playit-pz-localaddress.png" alt="playit local address" >}}
 
 ## Configure Server Ports
 
@@ -75,7 +75,7 @@ C:\Users\User\Zomboid\Server
 
 Inside, you will find files like:
 
-![PZ Server Config Files]({{< static "post-img/playit-pz-configfiles.png" >}})
+{{< image src="post-img/playit-pz-configfiles.png" alt="PZ Server Config Files" >}}
 
 ### Edit `servertest.ini`
 
@@ -92,7 +92,7 @@ Change this to match the **public port assigned by playit.gg**.
 ```ini
 DefaultPort=10233
 ```
-![PZ Config File]({{< static "post-img/playit-pz-configfile.png" >}})
+{{< image src="post-img/playit-pz-configfile.png" alt="PZ Config File" >}}
 
 
 ### Configure the Second Port
@@ -121,7 +121,7 @@ Save the file.
 2. Open your playit.gg tunnel
 3. Copy the **numeric IP address and port**
 
-![playit tunnel address]({{< static "post-img/playit-pz-tunneladdress.png" >}})
+{{< image src="post-img/playit-pz-tunneladdress.png" alt="playit tunnel address" >}}
 
 **Example:**
 
@@ -140,13 +140,13 @@ Save the file.
 Use Steam Relay = unchecked
 ```
 
-![Adding the server]({{< static "post-img/playit-pz-joinserver.png" >}})
+{{< image src="post-img/playit-pz-joinserver.png" alt="Adding the server" >}}
 
 5. Click **Add**
 6. Select the server from the list
 
-![Joining the server]({{< static "post-img/playit-pz-serverlist.png" >}})
-![Joining the server]({{< static "post-img/playit-pz-connecting.png" >}})
+{{< image src="post-img/playit-pz-serverlist.png" alt="Joining the server" >}}
+{{< image src="post-img/playit-pz-connecting.png" alt="Joining the server" >}}
 
 ## Server Is Live
 
@@ -161,7 +161,7 @@ To modify server settings, see the **[Project Zomboid Server Wiki](https://pzwik
 ## Troubleshooting
 
 ### Closed Port Warning
-![Warning: Closed Port]({{< static "post-img/playit-pz-warningclosedport.png" >}})
+{{< image src="post-img/playit-pz-warningclosedport.png" alt="Warning: Closed Port" >}}
 
 If you see a **closed port** warning:
 

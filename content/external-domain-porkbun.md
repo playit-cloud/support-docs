@@ -18,7 +18,7 @@ In this guide I will be adding the domain `olumpu.com` to playit.gg, your domain
 
 Visit Porkbun's [domains dashboard](https://porkbun.com/account/domains) 
 
-![manage domain]({{< static "post-img/porkbun-manage-domain.png" >}})
+{{< image src="post-img/porkbun-manage-domain.png" alt="manage domain" >}}
 
 
 ## 2. DNS under the Nameservers section
@@ -37,7 +37,7 @@ ns2.playit-dns.com
 
 and press the blue Submit button to save your changes.
 
-![edit nameservers]({{< static "post-img/porkbun-edit-nameservers.png" >}})
+{{< image src="post-img/porkbun-edit-nameservers.png" alt="edit nameservers" >}}
 
 
 ## 4. Add your external domain to playit.gg
@@ -46,11 +46,11 @@ Visit [https://playit.gg/account/settings/domains/add-external](https://playit.g
 
 Make sure the domain name you enter matches the domain name that you updated on Porkbun. In this example it is `olumpu.com`. For you it will be different.
 
-![playit add external domain]({{< static "post-img/playit-add-external-domain.png" >}})
+{{< image src="post-img/playit-add-external-domain.png" alt="playit add external domain" >}}
 
 You're done! You can now assign your domain to your tunnel.
 
-![playit domain added]({{< static "post-img/playit-domain-added.png" >}})
+{{< image src="post-img/playit-domain-added.png" alt="playit domain added" >}}
 
 ---
 
@@ -62,7 +62,7 @@ Instead of adding our entire `olumpu.com` domain to playit.gg, we will instead t
 
 Visit Porkbun's [domains dashboard](https://porkbun.com/account/domains) and press on the "dns" button
 
-![manage domain]({{< static "post-img/porkbun-manage-domain.png" >}})
+{{< image src="post-img/porkbun-manage-domain.png" alt="manage domain" >}}
 
 ## 2. Add a new record
 
@@ -73,7 +73,7 @@ Visit Porkbun's [domains dashboard](https://porkbun.com/account/domains) and pre
 
 Then press the Add button to save the record.
 
-![Porkbun add ns record]({{< static "post-img/porkbun-add-ns-record.png" >}})
+{{< image src="post-img/porkbun-add-ns-record.png" alt="Porkbun add ns record" >}}
 
 
 ## 4. Add your external sub domain to playit.gg
@@ -82,6 +82,6 @@ Visit [https://playit.gg/account/settings/domains/add-external](https://playit.g
 
 Make sure you enter your sub domain. In our case this will be `playit.olumpu.com`.
 
-![playit add sub domain]({{< static "post-img/playit-add-sub-domain.png" >}})
+{{< image src="post-img/playit-add-sub-domain.png" alt="playit add sub domain" >}}
 
 After adding your domain, you should be all set.

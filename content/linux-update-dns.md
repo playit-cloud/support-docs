@@ -12,15 +12,15 @@ There's a lot of different Linux distributions so you're solution might vary.
 
 On the top right of your desktop, open the drop down and select either `Wired Settings` or `WiFi Settings`.
 
-![ubuntu wired settings]({{< static "post-img/ubuntu-wired-settings.png" >}})
+{{< image src="post-img/ubuntu-wired-settings.png" alt="ubuntu wired settings" >}}
 
 Next press the gear icon next to the connection.
 
-![ubuntu gear icon]({{< static "post-img/ubuntu-interface-settings.png" >}})
+{{< image src="post-img/ubuntu-interface-settings.png" alt="ubuntu gear icon" >}}
 
 A window should pop up, nagivate to the IPv4 tab, disable `Automatic` in the DNS row and put `8.8.8.8,8.8.4.4` in the text field.
 
-![ubuntu dns settings]({{< static "post-img/ubuntu-set-dns.png" >}})
+{{< image src="post-img/ubuntu-set-dns.png" alt="ubuntu dns settings" >}}
 
 ## Updating DNS by editing "/etc/resolv.conf"
 
@@ -28,7 +28,7 @@ Linux uses the file `/etc/resolv.conf` to define the DNS servers it uses. Howeve
 
 View the contents of `/etc/resolv.conf` by running `cat /etc/resolv.conf`. If you see a warning similar to
 
-![linux resolv conf warning]({{< static "post-img/linux-etc-resolv-conf.png" >}})
+{{< image src="post-img/linux-etc-resolv-conf.png" alt="linux resolv conf warning" >}}
 
 do not edit the file. Instead follow [Updating DNS by editing "/etc/systemd/resolved.conf"](#updating-dns-by-editing-etcsystemdresolvedconf)
 

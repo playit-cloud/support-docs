@@ -14,7 +14,7 @@ If you like technical documents, [here are the details from HAProxy](https://www
 ## Using on playit.gg
 Playit supports both version of the proxy protocol. Please note, proxy protocol v1 is ignored on UDP tunnels. If you want to use the proxy protocol with UDP please select version 2.
 
-![select-proxy-protocol]({{< static "post-img/select-proxy-protocol.png" >}})
+{{< image src="post-img/select-proxy-protocol.png" alt="select-proxy-protocol" >}}
 
 ### Guides
 * **{{< link "proxy-protocol-papermc" >}}**

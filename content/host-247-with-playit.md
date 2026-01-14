@@ -30,7 +30,7 @@ playit setup
 
 For this guide we'll be using `tmux`. To get started, run the `tmux` command in your terminal. You terminal should look like
 
-![linux bad run ubuntu]({{< static "post-img/linux-tmux-terminal.png" >}})
+{{< image src="post-img/linux-tmux-terminal.png" alt="linux bad run ubuntu" >}}
 
 Now inside of the tmux session run the playit program
 

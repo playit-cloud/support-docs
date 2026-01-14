@@ -14,7 +14,7 @@ date = 2024-09-27T12:18:19-07:00
 
 After you PaperMC server has been started, a configuration file for paper should have been generated. This can be found at `./config/paper-global.yml`. Change the `proxies.proxy-protocol` variable from `false` to `true`.
 
-![change-papermc-proxy-protocol]({{< static "post-img/change-papermc-proxy-protocol.png" >}})
+{{< image src="post-img/change-papermc-proxy-protocol.png" alt="change-papermc-proxy-protocol" >}}
 
 Details on PaperMC's configurations can be found [here](https://docs.papermc.io/paper/reference/global-configuration).
 
@@ -26,7 +26,7 @@ Details on PaperMC's configurations can be found [here](https://docs.papermc.io/
 
 Navigate to your tunnel on [playit.gg](https://playit.gg/account/tunnels/). Down the page you should find the attribute "Proxy Protocol" with a button to change.
 
-![select-proxy-protocol]({{< static "post-img/select-proxy-protocol-java.png" >}})
+{{< image src="post-img/select-proxy-protocol-java.png" alt="select-proxy-protocol" >}}
 
 Change the protocol to either `Proxy Protocol Version 1` or `Proxy Protocol Version 2`. We recommend `Proxy Protocol Version 2`.
 

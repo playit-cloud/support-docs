@@ -18,14 +18,14 @@ In this guide I will be adding the domain `olumpu.com` to playit.gg, your domain
 
 Visit Spaceship's [advanced dns page](https://www.spaceship.com/application/advanced-dns-application/) and select the domain you want to use.
 
-![manage domain]({{< static "post-img/spaceship-select-domain.png" >}})
+{{< image src="post-img/spaceship-select-domain.png" alt="manage domain" >}}
 
 
 ## 2. Use Custom DNS under the Nameservers section
 
 Find the section titled **NAMESERVERS** and press the **change** button.
 
-![spaceship nameservers custom dns]({{< static "post-img/spaceship-nameservers-change-button.png" >}})
+{{< image src="post-img/spaceship-nameservers-change-button.png" alt="spaceship nameservers custom dns" >}}
 
 ## 3. Enter playit's DNS nameservers
 
@@ -38,7 +38,7 @@ ns2.playit-dns.com
 
 and press the blue button to save your changes.
 
-![edit nameservers]({{< static "post-img/spaceship-edit-nameservers.png" >}})
+{{< image src="post-img/spaceship-edit-nameservers.png" alt="edit nameservers" >}}
 
 
 ## 4. Add your external domain to playit.gg
@@ -47,11 +47,11 @@ Visit [https://playit.gg/account/settings/domains/add-external](https://playit.g
 
 Make sure the domain name you enter matches the domain name that you updated on Spaceship. In this example it is `olumpu.com`. For you it will be different.
 
-![playit add external domain]({{< static "post-img/playit-add-external-domain.png" >}})
+{{< image src="post-img/playit-add-external-domain.png" alt="playit add external domain" >}}
 
 You're done! You can now assign your domain to your tunnel.
 
-![playit domain added]({{< static "post-img/playit-domain-added.png" >}})
+{{< image src="post-img/playit-domain-added.png" alt="playit domain added" >}}
 
 ---
 
@@ -63,11 +63,11 @@ Instead of adding our entire `olumpu.com` domain to playit.gg, we will instead t
 
 Visit Spaceship's [advanced dns page](https://www.spaceship.com/application/advanced-dns-application/) and select the domain you want to use.
 
-![manage domain]({{< static "post-img/spaceship-select-domain.png" >}})
+{{< image src="post-img/spaceship-select-domain.png" alt="manage domain" >}}
 
 ## 2. Go to the DNS settings for the domain
 
-![domain settings]({{< static "post-img/spaceship-domain-settings.png" >}})
+{{< image src="post-img/spaceship-domain-settings.png" alt="domain settings" >}}
 
 ## 3. Add a new record
 
@@ -78,7 +78,7 @@ Visit Spaceship's [advanced dns page](https://www.spaceship.com/application/adva
 
 Then press the Add button to save the record.
 
-![spaceship add ns record]({{< static "post-img/spaceship-add-ns-record.png" >}})
+{{< image src="post-img/spaceship-add-ns-record.png" alt="spaceship add ns record" >}}
 
 
 ## 4. Add your external sub domain to playit.gg
@@ -87,6 +87,6 @@ Visit [https://playit.gg/account/settings/domains/add-external](https://playit.g
 
 Make sure you enter your sub domain. In our case this will be `playit.olumpu.com`.
 
-![playit add sub domain]({{< static "post-img/playit-add-sub-domain.png" >}})
+{{< image src="post-img/playit-add-sub-domain.png" alt="playit add sub domain" >}}
 
 After adding your domain, you should be all set.

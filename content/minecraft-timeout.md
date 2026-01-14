@@ -5,7 +5,7 @@ tags = ["minecraft", "timeout"]
 
 When hosting a server from home, you may notice that some players get kicked due to timeout.
 
-![minecraft timeout]({{< static "post-img/minecraft-timeout.png" >}})
+{{< image src="post-img/minecraft-timeout.png" alt="minecraft timeout" >}}
 
 
 This happens when the minecraft server is unable to provide data to the player fast enough. There are two ways to fix / improve this:

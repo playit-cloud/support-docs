@@ -19,8 +19,8 @@ Playit also releases raw binaries that you can download and run. You can downloa
 
 When you try to run the program, you might get errors like
 
-![linux bad run ubuntu]({{< static "post-img/linux-run-bad-ubuntu.png" >}})
-![linux bad run cli]({{< static "post-img/linux-run-bad-cli.png" >}})
+{{< image src="post-img/linux-run-bad-ubuntu.png" alt="linux bad run ubuntu" >}}
+{{< image src="post-img/linux-run-bad-cli.png" alt="linux bad run cli" >}}
 
 **The Fix**
 
