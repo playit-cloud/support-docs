@@ -1,10 +1,10 @@
 +++
 title = "Playit Premium"
 tags = ["playit"]
-date = 2024-10-09T00:00:00Z
+date = 2025-12-24T00:00:00Z
 +++
 
-Playit Premium comes with a handful of features:
+Playit Premium costs $3/mo or $30/year and comes with a handful of features:
 
 1. [Regional Tunnels](#regional-tunnels)
 1. [.playit.plus domains (3x)](#playitplus-domains)

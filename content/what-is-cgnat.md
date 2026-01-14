@@ -1,8 +1,10 @@
 +++
 title = "What is CGNAT?"
 tags = ["how it works", "cgnat"]
-hidden = true
 +++
 
+CGNAT stands for **Carrier-Grade NAT**.
 
-First off, CGNAT is an abberviation for "Carrier Grade NAT". You may be familar with what NAT is, we explain it in ({{< link "how-port-forwarding-works" >}}). In simple terms, Carrier Grade NAT is simply your ISP doing NAT with a limited pool of IP addreses. There are a fixed number of IP addresses so it's not always possible for each home to have their own IP address.
+Simply put, CGNAT is NAT done by your Internet Service Provider (ISP) using a shared pool of IP addresses. Because there are only so many IPv4 addresses, not every home can get its own unique public IP. CGNAT lets multiple users share a single public IP, keeping everyone online even with limited addresses.  
+
+For most day-to-day internet use, you probably won’t notice CGNAT. But it can make things like **port forwarding, online gaming, or hosting a server** more complicated. Since multiple users are sharing the same IP, opening ports to your device isn’t as straightforward as it would be on a standard home network. That’s why services that handle port forwarding or NAT traversal can be a very helpful when your ISP uses CGNAT.
