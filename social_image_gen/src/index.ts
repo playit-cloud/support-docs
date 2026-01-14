@@ -172,10 +172,8 @@ function buildPrompt(metadata: {
   // Build topics string from tags
   const topics = tags.length > 0 ? tags.join(", ") : "";
 
-  return `Please create an Open Graph image for our support article.
-Important: The image should contain no text or words. Do not include the playit.gg logo. Include branding from related technologies. If the guide is related to a game, make the background of the image themed for the game in question. Image should be simple and not cluttered.
+  return `Please create an Open Graph image for our support article "${title}". Should be dark theme'd lofi pixel art image with retro terminal vibe. Pixel Art! The image should contain no text or words! No words! Do not include the playit or playit.gg logo. The only text should be official brand logos if they are explicity mentioned in the description! Do not add words! Image should be simple and should look good at 10% zoom. Simple! Image should fill entire canvas, no cropping! If the guide is related to a game, make the background of the image themed for the game in question. Image should be simple and not cluttered!
 Title: ${title}
-Topics: ${topics}
 Description: ${description}`;
 }
 
