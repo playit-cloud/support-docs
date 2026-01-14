@@ -2,6 +2,7 @@
 title = "Setup Proxy Protocol in PaperMC"
 tags = ["minecraft", "java", "papermc", "proxy-protocol"]
 date = 2024-09-27T12:18:19-07:00
+description_file = "descriptions/proxy-protocol-papermc.txt"
 +++
 
 > **{{< link "what-is-proxy-protocol" >}}**

@@ -2,6 +2,7 @@
 title = 'How playit.gg works'
 tags = ["playit"]
 draft = true
+description_file = "descriptions/how-playit-works.txt"
 +++
 
 > **playit.gg** provides free newtorking tunneling so users can host game servers at home.

@@ -1,11 +1,21 @@
 {{- with .Description -}}
   {{- . -}}
 {{- else -}}
-  {{- if .IsPage -}}
-    {{- .Summary -}}
+  {{- with .Params.description_file -}}
+    {{- $file := $.Site.GetPage . -}}
+    {{- if $file -}}
+      {{- $file.Plain | truncate 200 -}}
+    {{- else -}}
+      {{- $content := readFile . -}}
+      {{- $content | truncate 200 -}}
+    {{- end -}}
   {{- else -}}
-    {{- with .Site.Params.Info.description -}}
-      {{- . -}}
+    {{- if $.IsPage -}}
+      {{- $.Summary -}}
+    {{- else -}}
+      {{- with $.Site.Params.Info.description -}}
+        {{- . -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

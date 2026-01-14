@@ -1,0 +1,1 @@
+Solutions for fixing timeout errors in Minecraft servers, including improving upload speed, reducing view-distance, and optimizing network settings.

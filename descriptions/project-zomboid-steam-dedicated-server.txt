@@ -1,0 +1,1 @@
+Complete guide for setting up a Project Zomboid dedicated server from Steam and making it accessible online using playit.gg tunnels.

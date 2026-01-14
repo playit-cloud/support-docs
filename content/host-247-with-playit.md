@@ -1,6 +1,7 @@
 +++
 title = 'How to run playit 24/7 on Linux'
 tags = ["linux"]
+description_file = "descriptions/host-247-with-playit.txt"
 +++
 
 ### Using systemd (preferred)

@@ -1,0 +1,1 @@
+Guide to changing DNS server settings on macOS through System Preferences, enabling better network reliability and resolving connection issues.

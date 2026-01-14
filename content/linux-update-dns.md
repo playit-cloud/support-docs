@@ -1,6 +1,7 @@
 +++
 title = 'Update your DNS server on Linux'
 tags = ["linux", "dns", "ubuntu"]
+description_file = "descriptions/linux-update-dns.txt"
 +++
 
 There's a lot of different Linux distributions so you're solution might vary.

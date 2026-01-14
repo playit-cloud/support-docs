@@ -1,0 +1,1 @@
+Explanation of Carrier Grade NAT (CGNAT) and how it affects port forwarding, preventing some users from hosting servers at home without solutions like playit.gg.

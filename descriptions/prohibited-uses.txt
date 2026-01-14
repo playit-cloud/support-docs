@@ -1,0 +1,1 @@
+Clear explanation of what's allowed and prohibited on playit.gg's network, including game servers, management tools, and restrictions on C2 systems.

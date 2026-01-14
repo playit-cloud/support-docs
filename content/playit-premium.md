@@ -2,6 +2,7 @@
 title = "Playit Premium"
 tags = ["playit"]
 date = 2024-10-09T00:00:00Z
+description_file = "descriptions/playit-premium.txt"
 +++
 
 Playit Premium comes with a handful of features:

@@ -1,0 +1,1 @@
+Step-by-step tutorial for creating and editing batch (.bat) files on Windows, essential for running Minecraft servers and other applications.

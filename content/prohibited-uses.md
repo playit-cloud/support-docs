@@ -2,6 +2,7 @@
 title = "What's allowed (and Not Allowed) on Playit's Network"
 tags = []
 date = 2025-12-10
+description_file = "descriptions/prohibited-uses.txt"
 +++
 
 # Keeping Playit safe, fast, and fun for everyone

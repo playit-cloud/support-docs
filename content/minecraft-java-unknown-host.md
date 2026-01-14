@@ -1,6 +1,7 @@
 +++
 title = 'Fixing "Unknown host" in Minecraft Java'
 tags = ["minecraft", "java"]
+description_file = "descriptions/minecraft-java-unknown-host.txt"
 +++
 
 You've setup your server with playit.gg and are ready to play. You or another player might be getting the Unknown host this error when trying to connect. This error happens because the computer asks your ISP (Internet Service Provider), what the IP is, and the ISP is silly and reports it being unknown.

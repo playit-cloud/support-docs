@@ -2,6 +2,7 @@
 title = "How to lower ping on playit"
 tags = ["playit", "networking"]
 date = 2024-11-06T08:08:27-08:00
+description_file = "descriptions/how-to-lower-ping.txt"
 +++
 
 # TL;DR

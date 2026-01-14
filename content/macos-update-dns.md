@@ -1,6 +1,7 @@
 +++
 title = 'Update your DNS server on MacOS'
 tags = ["macos", "dns"]
+description_file = "descriptions/macos-update-dns.txt"
 +++
 
 To update the DNS server on MacOS you'll first need to open `System Preferences`, this can be found by pressing the apple icon on the top left of the desktop.

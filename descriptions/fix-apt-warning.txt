@@ -1,0 +1,1 @@
+Fix apt-get warnings related to playit by updating to the new repository signing method, removing old keys and adding the updated package source.

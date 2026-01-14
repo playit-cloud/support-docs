@@ -1,6 +1,7 @@
 +++
 title = "Add Dynmap to Minecraft"
 tags = ["minecraft", "java", "dynmap", "papermc"]
+description_file = "descriptions/add-dynmap-to-minecraft.txt"
 +++
 
 Dynmap requires your Minecraft server to be running either Bukkit, Spigot, or PaperMC. **A server set up with the official Minecraft server will not work.**

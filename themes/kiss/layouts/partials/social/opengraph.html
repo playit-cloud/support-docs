@@ -13,10 +13,25 @@
 {{- with .Params.image -}}
     <meta property='og:image' content='{{ . | absURL }}'>
 {{- else -}}
-{{- with .Site.Params.Social.email -}}
-    <meta property='og:image' content='https://www.gravatar.com/avatar/
-        {{- . | md5 -}}
-        ?s=256'>
+    {{- if .IsPage -}}
+        {{- $slug := .File.BaseFileName -}}
+        {{- $socialImg := printf "social-img/%s.png" $slug -}}
+        {{- if (fileExists (printf "static/%s" $socialImg)) -}}
+            <meta property='og:image' content='{{ $socialImg | absURL }}'>
+        {{- else -}}
+            {{- with .Site.Params.Social.email -}}
+                <meta property='og:image' content='https://www.gravatar.com/avatar/
+                    {{- . | md5 -}}
+                    ?s=256'>
+            {{- end -}}
+        {{- end -}}
+    {{- else -}}
+        {{- with .Site.Params.Social.email -}}
+            <meta property='og:image' content='https://www.gravatar.com/avatar/
+                {{- . | md5 -}}
+                ?s=256'>
+        {{- end -}}
+    {{- end -}}
 {{- end -}}
 
 {{- with .Params.audios -}}

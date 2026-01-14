@@ -1,0 +1,1 @@
+Step-by-step guide for setting up Porkbun domains with playit.gg, covering nameserver configuration for both full domains and subdomains.

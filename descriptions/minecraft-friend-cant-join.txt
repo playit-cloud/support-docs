@@ -1,0 +1,1 @@
+Troubleshooting guide for when friends can't connect to your Minecraft server, covering CGNAT, port forwarding, firewall, and VPN issues.

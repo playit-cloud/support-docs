@@ -1,0 +1,1 @@
+Fix the "Unknown host" error in Minecraft Java by updating your DNS server settings, with platform-specific instructions for Windows, macOS, and Linux.
