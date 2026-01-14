@@ -35,7 +35,7 @@ pkg update && pkg upgrade
 ## Install Java 21 
 
 > You can install another java by changing the number
-e.g `openjdk-25`|`openjdk0000-170`
+e.g `openjdk-25`|`openjdk-17`
 ```bash
 pkg install openjdk-21
 
