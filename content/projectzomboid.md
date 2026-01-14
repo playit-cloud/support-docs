@@ -1,5 +1,4 @@
 # Using playit for Project Zomboid
-## Video Tutorial
 
 ---
 
@@ -18,6 +17,7 @@ Assuming you already own Project Zomboid on Steam, you already have access to th
 1. Open your **Steam Library**
 2. Search for **Project Zomboid** (the server is usually hidden until searched)
 3. Install **Project Zomboid Dedicated Server**
+
 ![PZ on Steam]({{< static "post-img/playit-pz-steam.png" >}})
 
 ---
