@@ -50,7 +50,6 @@
     {{- with .Site.Params.Social.facebook -}}
       <meta property='article:author' content='https://facebook.com/{{ . }}'>
     {{- end -}}
-  {{- end -}}
 
   {{- with .Site.Params.opengraph.facebook.pageid -}}
     <meta property='article:publisher' content='{{ . }}'>
@@ -78,8 +77,8 @@
     <meta property='article:expiration_time' content='{{ .ExpiryDate.Format $dateFormat }}'>
   {{- end -}}
 {{- else -}}
-  {{- if not .Site.LastChange.IsZero -}}
-    <meta property='og:updated_time' content='{{ .Site.LastChange.Format $dateFormat }}'>
+  {{- if not .Site.Lastmod.IsZero -}}
+    <meta property='og:updated_time' content='{{ .Site.Lastmod.Format $dateFormat }}'>
   {{- end -}}
 {{- end -}}
 

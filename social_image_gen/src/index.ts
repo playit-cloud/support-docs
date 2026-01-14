@@ -1,32 +1,50 @@
 #!/usr/bin/env tsx
 /**
- * Generate social media images for all articles using OpenAI DALL-E API.
- * Requires OPENAI_API_KEY environment variable to be set.
+ * Generate social media images for all articles using OpenRouter with Gemini 3 Pro.
+ * Requires OPENROUTER_API_KEY environment variable to be set.
  *
  * Only generates images for articles that don't already have one.
  * Uses article title, tags, and description to build dynamic prompts.
  */
 
-import { readdir, readFile, mkdir, access, writeFile } from "fs/promises";
+import { readdir, readFile, mkdir, access } from "fs/promises";
 import { join, basename, extname } from "path";
-import OpenAI from "openai";
 import sharp from "sharp";
+
+// Types for OpenRouter API response
+type OpenRouterImage = {
+  type: "image_url";
+  image_url: { url: string };
+};
+
+type OpenRouterResponse = {
+  choices?: Array<{
+    message?: {
+      role: string;
+      content?: string;
+      images?: OpenRouterImage[];
+    };
+  }>;
+  error?: { message?: string };
+};
+
+/**
+ * Convert a base64 data URL to a Buffer.
+ */
+function dataUrlToBuffer(dataUrl: string): { mime: string; buf: Buffer } {
+  const m = dataUrl.match(/^data:(.+?);base64,(.+)$/);
+  if (!m) throw new Error("Expected a base64 data URL like data:image/png;base64,...");
+  const mime = m[1];
+  const b64 = m[2];
+  return { mime, buf: Buffer.from(b64, "base64") };
+}
 
 // Configuration
 const CONTENT_DIR = join("..", "content");
 const DESCRIPTIONS_DIR = join("..", "descriptions");
 const SOCIAL_IMG_DIR = join("..", "static", "social-img");
-const IMAGE_SIZE = "1792x1024" as const; // DALL-E 3 landscape size, will resize to 1200x630
 const TARGET_SIZE = { width: 1200, height: 630 }; // Open Graph standard size
-const MODEL = "dall-e-3" as const;
-const QUALITY = "standard" as const;
-const STYLE = "vivid" as const;
-
-interface ArticleMetadata {
-  title: string;
-  tags: string[];
-  description: string;
-}
+const MODEL = "google/gemini-2.5-flash-image-preview";
 
 /**
  * Extract article slug from file path.
@@ -50,11 +68,15 @@ async function fileExists(filePath: string): Promise<boolean> {
 /**
  * Read article content and extract metadata for prompt generation.
  */
-async function readArticleMetadata(filePath: string): Promise<ArticleMetadata> {
+async function readArticleMetadata(filePath: string): Promise<{
+  title: string;
+  tags: string[];
+  description: string;
+}> {
   const slug = getArticleSlug(filePath);
-  const defaultMetadata: ArticleMetadata = {
+  const defaultMetadata = {
     title: slug,
-    tags: [],
+    tags: [] as string[],
     description: "",
   };
 
@@ -138,85 +160,108 @@ async function readArticleMetadata(filePath: string): Promise<ArticleMetadata> {
 }
 
 /**
- * Build a DALL-E prompt from article metadata.
+ * Build a prompt from article metadata.
  */
-function buildPrompt(metadata: ArticleMetadata): string {
+function buildPrompt(metadata: {
+  title: string;
+  tags: string[];
+  description: string;
+}): string {
   const { title, tags, description } = metadata;
 
   // Build topics string from tags
   const topics = tags.length > 0 ? tags.join(", ") : "";
 
-  return `Please crate an Open Graph image for our support article
+  return `Please create an Open Graph image for our support article.
+Important: The image should contain no text or words. Do not include the playit.gg logo. Include branding from related technologies. If the guide is related to a game, make the background of the image themed for the game in question. Image should be simple and not cluttered.
 Title: ${title}
 Topics: ${topics}
-Description: ${description}
-Style: no text or words in the image, 1200x630 aspect ratio. Not AI slop. Please integrate logos and branding from the tools / games used.`;
+Description: ${description}`;
 }
 
 /**
- * Generate an image using DALL-E and save it.
+ * Generate an image using OpenRouter with direct fetch API and save it.
+ * Throws on error to fail fast.
  */
 async function generateImage(
-  client: OpenAI,
+  apiKey: string,
   prompt: string,
   outputPath: string
-): Promise<boolean> {
-  try {
-    console.log(`Generating image for: ${basename(outputPath)}`);
-    console.log(`Full prompt:\n\n${prompt}\n`);
+): Promise<void> {
+  console.log(`Generating image for: ${basename(outputPath)}`);
+  console.log(`Full prompt:\n\n${prompt}\n`);
 
-    const response = await client.images.generate({
+  const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      "HTTP-Referer": "https://playit.gg",
+      "X-Title": "playit.gg Social Image Generator",
+    },
+    body: JSON.stringify({
       model: MODEL,
-      prompt,
-      size: IMAGE_SIZE,
-      quality: QUALITY,
-      style: STYLE,
-      n: 1,
-    });
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      modalities: ["image", "text"],
+      image_config: {
+        aspect_ratio: "16:9",
+        image_size: "1K",
+      },
+      stream: false,
+    }),
+  });
 
-    const imageUrl = response.data[0]?.url;
-    if (!imageUrl) {
-      throw new Error("No image URL returned from API");
-    }
+  const json = (await res.json()) as OpenRouterResponse;
 
-    // Download image
-    const imageResponse = await fetch(imageUrl);
-    if (!imageResponse.ok) {
-      throw new Error(`Failed to download image: ${imageResponse.statusText}`);
-    }
+  // Log raw response for debugging
+  console.log("Raw API response:");
+  console.log(JSON.stringify(json, null, 2));
 
-    const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
-
-    // Resize and save using sharp
-    await sharp(imageBuffer)
-      .resize(TARGET_SIZE.width, TARGET_SIZE.height, {
-        fit: "cover",
-        position: "center",
-      })
-      .png({ compressionLevel: 9 })
-      .toFile(outputPath);
-
-    console.log(
-      `✓ Saved: ${outputPath} (${TARGET_SIZE.width}x${TARGET_SIZE.height})`
-    );
-    return true;
-  } catch (e) {
-    console.error(`✗ Error generating image for ${basename(outputPath)}:`, e);
-    return false;
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}: ${json?.error?.message ?? JSON.stringify(json)}`);
   }
+
+  const msg = json.choices?.[0]?.message;
+  const firstImageUrl = msg?.images?.[0]?.image_url?.url;
+
+  if (!firstImageUrl) {
+    throw new Error(
+      `No image returned. Message content was: ${JSON.stringify(msg, null, 2)}`
+    );
+  }
+
+  console.log(`Found image URL: ${firstImageUrl.substring(0, 80)}...`);
+
+  // OpenRouter returns images as base64 data URLs
+  const { buf: imageBuffer } = dataUrlToBuffer(firstImageUrl);
+
+  // Resize and save using sharp
+  await sharp(imageBuffer)
+    .resize(TARGET_SIZE.width, TARGET_SIZE.height, {
+      fit: "cover",
+      position: "center",
+    })
+    .png({ compressionLevel: 9 })
+    .toFile(outputPath);
+
+  console.log(
+    `✓ Saved: ${outputPath} (${TARGET_SIZE.width}x${TARGET_SIZE.height})`
+  );
 }
 
 async function main(): Promise<void> {
   // Check for API key
-  const apiKey = process.env.OPENAI_API_KEY;
+  const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
-    console.error("Error: OPENAI_API_KEY environment variable not set");
-    console.error("Please set it with: export OPENAI_API_KEY='your-key-here'");
+    console.error("Error: OPENROUTER_API_KEY environment variable not set");
+    console.error("Please set it with: export OPENROUTER_API_KEY='your-key-here'");
     process.exit(1);
   }
-
-  // Initialize OpenAI client
-  const client = new OpenAI({ apiKey });
 
   // Ensure output directory exists
   await mkdir(SOCIAL_IMG_DIR, { recursive: true });
@@ -264,7 +309,6 @@ async function main(): Promise<void> {
   }
 
   // Process only missing articles
-  let successCount = 0;
   for (const articleFile of missingFiles) {
     const slug = getArticleSlug(articleFile);
     const outputPath = join(SOCIAL_IMG_DIR, `${slug}.png`);
@@ -275,18 +319,22 @@ async function main(): Promise<void> {
     // Build prompt from metadata
     const prompt = buildPrompt(metadata);
 
-    // Generate and save image
-    if (await generateImage(client, prompt, outputPath)) {
-      successCount++;
+    // Generate and save image - fail fast on error
+    try {
+      await generateImage(apiKey, prompt, outputPath);
+    } catch (e) {
+      console.error(`\n✗ Fatal error generating image for ${slug}:`, e);
+      process.exit(1);
     }
 
     console.log(); // Blank line between articles
   }
 
-  console.log(
-    `\n✓ Generated ${successCount}/${missingFiles.length} images successfully`
-  );
+  console.log(`\n✓ Generated ${missingFiles.length} images successfully`);
   console.log(`Images saved to: ${SOCIAL_IMG_DIR}`);
 }
 
-main();
+main().catch((e) => {
+  console.error("Fatal error:", e);
+  process.exit(1);
+});

@@ -2,12 +2,13 @@
   "name": "social-image-gen",
   "version": "1.0.0",
   "type": "module",
-  "description": "Generate social media images for support articles using DALL-E",
+  "description": "Generate social media images for support articles using OpenRouter",
   "scripts": {
-    "generate": "tsx src/index.ts"
+    "generate": "tsx src/index.ts",
+    "test": "tsx src/app2.ts"
   },
   "dependencies": {
-    "openai": "^4.77.0",
+    "@openrouter/sdk": "^0.3.14",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
