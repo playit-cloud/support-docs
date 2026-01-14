@@ -3,18 +3,6 @@ title = "Project Zomboid Dedicated Server Guide"
 tags = ["project zomboid", "pz", "guide"]
 +++
 
-# Using playit for Project Zomboid
-
----
-
-## Requirements
-
-* **Project Zomboid (game)**
-* **Project Zomboid Dedicated Server**
-* **playit agent**
-
----
-
 ## Setting Everything Up
 
 Assuming you already own Project Zomboid on Steam, you already have access to the dedicated server software.
@@ -24,8 +12,6 @@ Assuming you already own Project Zomboid on Steam, you already have access to th
 3. Install **Project Zomboid Dedicated Server**
 
 ![PZ on Steam]({{< static "post-img/playit-pz-steam.png" >}})
-
----
 
 ## Verify the Server Runs
 
@@ -48,8 +34,6 @@ Both the 32‑bit and 64‑bit versions work:
 
 Double‑click either file to start the server once. After it finishes initialization, you can close it.
 
----
-
 ## Using playit.gg to Share the Server
 
 Create and claim a new **playit.gg agent**, then create your first tunnel.
@@ -60,8 +44,6 @@ Project Zomboid normally uses the following ports:
 * `16262` (secondary UDP port)
 
 We will adjust these to work with playit.gg.
-
----
 
 ## Create the Tunnel
 
@@ -82,8 +64,6 @@ If you are using a **dedicated IP** from playit.gg:
 * No changes to `servertest.ini` are required unless you want to modify game rules
 
 ![playit local address]({{< static "post-img/playit-pz-localaddress.png" >}})
-
----
 
 ## Configure Server Ports
 
@@ -115,8 +95,6 @@ DefaultPort=10233
 ![PZ Config File]({{< static "post-img/playit-pz-configfile.png" >}})
 
 
----
-
 ### Configure the Second Port
 
 Project Zomboid uses **two sequential ports**.
@@ -136,8 +114,6 @@ UDPPort=10234
 ```
 
 Save the file.
-
----
 
 ## Connecting to the Server
 
@@ -171,7 +147,6 @@ Use Steam Relay = unchecked
 
 ![Joining the server]({{< static "post-img/playit-pz-serverlist.png" >}})
 ![Joining the server]({{< static "post-img/playit-pz-connecting.png" >}})
----
 
 ## Server Is Live
 
@@ -183,8 +158,6 @@ The game server will now:
 
 To modify server settings, see the **[Project Zomboid Server Wiki](https://pzwiki.net/wiki/Dedicated_server)**.
 
----
-
 ## Troubleshooting
 
 ### Closed Port Warning
@@ -194,8 +167,6 @@ If you see a **closed port** warning:
 
 * Double‑check that **Use Steam Relay** is **disabled** in the server list
 * Confirm `DefaultPort` and `UDPPort` match the playit.gg tunnel ports
-
----
 
 ## Done
 Your Project Zomboid server should now be up and shared using playit.
