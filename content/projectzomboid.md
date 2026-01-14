@@ -1,4 +1,7 @@
-+++ title = "Project Zomboid Dedicated Server Guide" tags = ["project zomboid"] +++
++++
+title = "Project Zomboid Dedicated Server Guide"
+tags = ["project zomboid", "pz", "guide"]
++++
 
 # Using playit for Project Zomboid
 
