@@ -1,6 +1,7 @@
 +++
 title = 'How to run playit.gg on Linux'
 tags = ["linux"]
+description_file = "descriptions/run-on-linux.txt"
 +++
 
 If you're running on a Ubuntu or Debian based operating system to you can use `apt`.

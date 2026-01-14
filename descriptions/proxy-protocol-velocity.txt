@@ -1,0 +1,1 @@
+Step-by-step instructions for configuring Proxy Protocol in Velocity proxy servers to forward real client IP addresses through playit.gg tunnels.

@@ -1,6 +1,7 @@
 +++
 title = "Project Zomboid Dedicated Server Guide"
 tags = ["project zomboid", "pz", "guide"]
+description_file = "descriptions/project-zomboid-steam-dedicated-server.txt"
 +++
 
 ## Setting Everything Up

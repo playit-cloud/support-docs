@@ -1,6 +1,7 @@
 +++
 title = "Creating a batch (.bat) file in windows"
 tags = ["windows"]
+description_file = "descriptions/creating-a-bat-file.txt"
 +++
 
 On windows a Batch file simply a text document with the file extension `.bat` rather than `.txt`. 

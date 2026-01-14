@@ -1,0 +1,1 @@
+Complete guide for configuring Spaceship domains with playit.gg, including instructions for adding second-level domains and subdomains via DNS settings.

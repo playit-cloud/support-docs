@@ -1,0 +1,1 @@
+Detailed instructions for configuring Namecheap domains with playit.gg, including both second-level domains and subdomains using custom DNS settings.

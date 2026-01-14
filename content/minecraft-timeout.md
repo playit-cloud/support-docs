@@ -1,6 +1,7 @@
 +++
 title = 'Fixing timeout errors with Minecraft'
 tags = ["minecraft", "timeout"]
+description_file = "descriptions/minecraft-timeout.txt"
 +++
 
 When hosting a server from home, you may notice that some players get kicked due to timeout.

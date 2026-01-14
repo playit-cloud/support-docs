@@ -1,0 +1,1 @@
+Detailed Windows guide for updating DNS server settings through Control Panel, including IPv4 and IPv6 configuration and DNS cache flushing.

@@ -1,0 +1,1 @@
+Comprehensive guide to reducing ping and latency on playit.gg servers, covering network optimization, bandwidth management, and regional tunnel configuration.

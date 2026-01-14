@@ -2,6 +2,7 @@
 title = "Setup Proxy Protocol in Velocity"
 tags = ["minecraft", "java", "papermc", "proxy-protocol", "proxy", "velocity"]
 date = 2024-12-30T21:30:00+01:00
+description_file = "descriptions/proxy-protocol-velocity.txt"
 +++
 
 <!--to whoever made this article, but for paper. I completely stole all of your work :D-->

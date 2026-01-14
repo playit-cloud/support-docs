@@ -2,6 +2,7 @@
 title = "Why your friend can't join your Minecraft Server"
 tags = ["minecraft", "can't join", "port forwarding"]
 draft = true
+description_file = "descriptions/minecraft-friend-cant-join.txt"
 +++
 
 

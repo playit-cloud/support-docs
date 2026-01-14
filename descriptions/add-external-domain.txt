@@ -1,0 +1,1 @@
+Guide to adding your own external domain to playit.gg with playit premium, including links to registrar-specific setup instructions.

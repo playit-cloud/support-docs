@@ -1,0 +1,1 @@
+Comparison between ngrok and playit.gg for hosting Minecraft servers, highlighting differences in features, performance, and ease of use.

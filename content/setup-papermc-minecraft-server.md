@@ -1,6 +1,7 @@
 +++
 title = "Setup a PaperMC Minecraft Server"
 tags = ["minecraft", "java", "papermc", "plugins"]
+description_file = "descriptions/setup-papermc-minecraft-server.txt"
 +++
 
 PaperMC is a Minecraft Server that lets you run plugins! It's based on Spigot which is based on CraftBukkit, there's a long history :). It's a good Minecraft server choice that balances performance and features.

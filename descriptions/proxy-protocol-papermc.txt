@@ -1,0 +1,1 @@
+Guide to setting up Proxy Protocol in PaperMC servers to get accurate client IP addresses through playit.gg tunnels for better logging and moderation.

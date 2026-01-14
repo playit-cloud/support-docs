@@ -2,6 +2,7 @@
 title = "Setup Proxy Protocol in GeyserMC"
 tags = ["minecraft", "java", "bedrock", "geysermc", "proxy-protocol"]
 date = 2024-09-27T12:18:19-07:00
+description_file = "descriptions/proxy-protocol-geysermc.txt"
 +++
 
 > **{{< link "what-is-proxy-protocol" >}}**

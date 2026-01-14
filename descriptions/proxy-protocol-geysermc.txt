@@ -1,0 +1,1 @@
+Instructions for enabling Proxy Protocol in GeyserMC to receive true client IP addresses when using playit.gg tunnels with Bedrock and Java servers.

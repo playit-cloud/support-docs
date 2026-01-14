@@ -1,6 +1,7 @@
 +++
 title = 'Fix apt warning'
 tags = ["linux"]
+description_file = "descriptions/fix-apt-warning.txt"
 +++
 
 If you've been with playit for awhile you may have installed the playit agent using our old script. The method we used is no longer best practice and you'll likely get a warning about playit whenever you run `apt-get update`.

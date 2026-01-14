@@ -2,6 +2,7 @@
 title = "What is the Proxy Protocol?"
 tags = ["proxy-protocol"]
 date = 2024-09-27T12:18:19-07:00
+description_file = "descriptions/what-is-proxy-protocol.txt"
 +++
 
 The Proxy Protocol provides a way for your server to receive your client's true IP. The playit program will

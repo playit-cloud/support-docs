@@ -2,6 +2,7 @@
 title = "What is CGNAT?"
 tags = ["how it works", "cgnat"]
 hidden = true
+description_file = "descriptions/what-is-cgnat.txt"
 +++
 
 

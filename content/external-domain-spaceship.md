@@ -1,6 +1,7 @@
 +++
 title = "Add an external domain with Spaceship"
 tags = ["external-domain"]
+description_file = "descriptions/external-domain-spaceship.txt"
 +++
 
 This guide assumes you have [playit premium](https://playit.gg/account/billing/shop/premium) and have purchased a domain name on [https://spaceship.com](spaceship.com). For other Domain Registars visit {{< link "add-external-domain" >}}.

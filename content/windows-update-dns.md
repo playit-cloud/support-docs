@@ -1,6 +1,7 @@
 +++
 title = 'Update your DNS server on Windows'
 tags = ["windows", "dns"]
+description_file = "descriptions/windows-update-dns.txt"
 +++
 
 #### Open control panel

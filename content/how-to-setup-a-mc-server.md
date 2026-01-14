@@ -1,6 +1,7 @@
 +++
 title = "How to setup a Minecraft Java Server"
 tags = ["minecraft", "guide"]
+description_file = "descriptions/how-to-setup-a-mc-server.txt"
 +++
 
 When making a Minecraft server there are a lot of options. This guides currently covers setting up a Survival Multiplayer Server without mods. We'll be releasing more guides in the future on how to start a server with mods.

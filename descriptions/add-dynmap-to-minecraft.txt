@@ -1,0 +1,1 @@
+Learn how to install and configure Dynmap on your PaperMC Minecraft server, including making the web interface publicly accessible through playit.gg tunnels.

@@ -6,5 +6,8 @@ theme = "kiss"
 [Params]
 playitVersion = "0.15.0"
 
+[Params.Info]
+enableSocial = true
+
 [markup.goldmark.parser.attribute]
 block = true # default is false

@@ -1,0 +1,1 @@
+Installation and setup guide for running playit.gg on Linux systems, including apt package installation and manual binary setup methods.

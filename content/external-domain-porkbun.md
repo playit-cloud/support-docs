@@ -1,6 +1,7 @@
 +++
 title = "Add an external domain with Porkbun"
 tags = ["external-domain"]
+description_file = "descriptions/external-domain-porkbun.txt"
 +++
 
 This guide assumes you have [playit premium](https://playit.gg/account/billing/shop/premium) and have purchased a domain name on [https://porkbun.com](porkbun.com). For other Domain Registars visit {{< link "add-external-domain" >}}.
