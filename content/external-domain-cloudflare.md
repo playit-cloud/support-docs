@@ -16,7 +16,7 @@ In this guide, the domain `playit-example.com` is used as an example. Your domai
 Visit your [account settings](https://playit.gg/account/settings/domains) and add your domain.
 
 Click on `Add External Domain`, and fill out your domain's information.
-[playit add external domain]({{< static "post-img/playit-addexternaldomain-cloudflare-addexternaldomain.png" >}})
+![playit add external domain]({{< static "post-img/playit-addexternaldomain-cloudflare-addexternaldomain.png" >}})
 
 Once you've done that, confirm your settings by clicking `Add External Domain`.
 
