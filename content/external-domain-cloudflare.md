@@ -1,6 +1,7 @@
 +++
 title = "Add an external domain with Cloudflare"
 tags = ["external-domain"]
+description_file = "descriptions/external-domain-cloudflare.txt"
 +++
 
 Your root domain cannot be on both Cloudflare and Playit. Because your domain is setup with cloudflare, we will add a subdomain to your Playit account. In our example our domain is `playit-example.com` and the subdomain is `minecraft` so we'll be adding `minecraft.playit-example.com`. For you this will likely be different.

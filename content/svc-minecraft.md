@@ -1,6 +1,7 @@
 +++
 title = "Using Simple Voice Chat with playit"
 tags = ["minecraft", "simple voice chat", "guide"]
+description_file = "descriptions/svc-minecraft.txt"
 +++
 
 
