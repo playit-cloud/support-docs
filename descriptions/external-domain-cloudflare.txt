@@ -1,1 +1,1 @@
-Step-by-step guide for adding a subdomain to playit.gg when your domain is managed by Cloudflare DNS, using NS record delegation.
+Integrate an external domain with Cloudflare & Playit by adding a subdomain, configuring NS records, and assigning it to your Playit tunnel.

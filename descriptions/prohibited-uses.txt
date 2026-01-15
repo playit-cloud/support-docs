@@ -1,1 +1,1 @@
-Clear explanation of what's allowed and prohibited on playit.gg's network, including game servers, management tools, and restrictions on C2 systems.
+Understand Playit's usage guidelines: allowed multiplayer game servers & personal projects versus prohibited C2-like traffic & remote access tools.

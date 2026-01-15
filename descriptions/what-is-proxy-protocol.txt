@@ -1,1 +1,1 @@
-Technical overview of the Proxy Protocol, explaining how it forwards true client IP addresses through proxies and how to use it with playit.gg.
+Learn how the Proxy Protocol helps your server receive the client's true IP address, bypassing local IP issues from proxying.

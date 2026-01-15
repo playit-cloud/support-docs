@@ -1,1 +1,1 @@
-Guide to changing DNS server settings on macOS through System Preferences, enabling better network reliability and resolving connection issues.
+Learn how to easily update your DNS server on macOS through System Preferences and Network settings for improved browsing.

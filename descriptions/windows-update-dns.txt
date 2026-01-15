@@ -1,1 +1,1 @@
-Detailed Windows guide for updating DNS server settings through Control Panel, including IPv4 and IPv6 configuration and DNS cache flushing.
+Learn how to quickly update your DNS server settings on Windows, including IPv4 and IPv6, and verify them with simple commands.

@@ -7,9 +7,17 @@
  * Uses article title, tags, and description to build dynamic prompts.
  */
 
-import { readdir, readFile, mkdir, access } from "fs/promises";
-import { join, basename, extname } from "path";
+import { mkdir } from "fs/promises";
+import { join, basename } from "path";
 import sharp from "sharp";
+import {
+  getArticleSlug,
+  fileExists,
+  getArticleFiles,
+  readArticleMetadata,
+  requireApiKey,
+  type ArticleMetadata,
+} from "./utils.js";
 
 // Types for OpenRouter API response
 type OpenRouterImage = {
@@ -40,137 +48,15 @@ function dataUrlToBuffer(dataUrl: string): { mime: string; buf: Buffer } {
 }
 
 // Configuration
-const CONTENT_DIR = join("..", "content");
-const DESCRIPTIONS_DIR = join("..", "descriptions");
 const SOCIAL_IMG_DIR = join("..", "static", "social-img");
 const TARGET_SIZE = { width: 1200, height: 630 }; // Open Graph standard size
 const MODEL = "google/gemini-3-pro-image-preview";
 
 /**
- * Extract article slug from file path.
- */
-function getArticleSlug(filePath: string): string {
-  return basename(filePath, extname(filePath));
-}
-
-/**
- * Check if a file exists.
- */
-async function fileExists(filePath: string): Promise<boolean> {
-  try {
-    await access(filePath);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-/**
- * Read article content and extract metadata for prompt generation.
- */
-async function readArticleMetadata(filePath: string): Promise<{
-  title: string;
-  tags: string[];
-  description: string;
-}> {
-  const slug = getArticleSlug(filePath);
-  const defaultMetadata = {
-    title: slug,
-    tags: [] as string[],
-    description: "",
-  };
-
-  try {
-    const content = await readFile(filePath, "utf-8");
-
-    // Find frontmatter boundaries
-    const firstDelimiter = content.indexOf("+++");
-    if (firstDelimiter === -1) {
-      return defaultMetadata;
-    }
-
-    const secondDelimiter = content.indexOf("+++", firstDelimiter + 3);
-    if (secondDelimiter === -1) {
-      return defaultMetadata;
-    }
-
-    const frontmatter = content.slice(firstDelimiter + 3, secondDelimiter);
-    const body = content.slice(secondDelimiter + 3).trim();
-
-    // Extract title
-    const titleMatch = frontmatter.match(/title\s*=\s*["']([^"']+)["']/);
-    const title = titleMatch ? titleMatch[1] : slug;
-
-    // Extract tags
-    const tagsMatch = frontmatter.match(/tags\s*=\s*\[([^\]]*)\]/);
-    let tags: string[] = [];
-    if (tagsMatch) {
-      const tagsStr = tagsMatch[1];
-      // Parse tags like "tag1", "tag2" or 'tag1', 'tag2'
-      const tagMatches = tagsStr.matchAll(/["']([^"']+)["']/g);
-      tags = Array.from(tagMatches, (m) => m[1]);
-    }
-
-    // Extract description with priority:
-    // 1. Inline description in frontmatter
-    // 2. Content from description_file
-    // 3. First paragraph of article body
-    let description = "";
-
-    // Check for inline description
-    const descMatch = frontmatter.match(/\bdescription\s*=\s*["']([^"']+)["']/);
-    if (descMatch) {
-      description = descMatch[1];
-    } else {
-      // Check for description_file
-      const descFileMatch = frontmatter.match(
-        /description_file\s*=\s*["']([^"']+)["']/
-      );
-      if (descFileMatch) {
-        const descFilePath = join("..", descFileMatch[1]);
-        if (await fileExists(descFilePath)) {
-          try {
-            description = (await readFile(descFilePath, "utf-8")).trim();
-          } catch {
-            // Ignore read errors
-          }
-        }
-      }
-
-      // Fallback to first paragraph of body
-      if (!description && body) {
-        // Remove markdown formatting and get first meaningful paragraph
-        let cleanBody = body.replace(/[#*\[\]()>`]/g, "");
-        cleanBody = cleanBody.replace(/\{\{<[^>]+>\}\}/g, ""); // Remove shortcodes
-        const lines = cleanBody
-          .split("\n")
-          .map((l) => l.trim())
-          .filter((l) => l);
-        if (lines.length > 0) {
-          description = lines[0].slice(0, 200);
-        }
-      }
-    }
-
-    return { title, tags, description };
-  } catch (e) {
-    console.error(`Error reading ${filePath}:`, e);
-    return defaultMetadata;
-  }
-}
-
-/**
  * Build a prompt from article metadata.
  */
-function buildPrompt(metadata: {
-  title: string;
-  tags: string[];
-  description: string;
-}): string {
-  const { title, tags, description } = metadata;
-
-  // Build topics string from tags
-  const topics = tags.length > 0 ? tags.join(", ") : "";
+function buildPrompt(metadata: ArticleMetadata): string {
+  const { title, description } = metadata;
 
   return `Please create an Open Graph image for our support article "${title}". Should be dark theme'd lofi pixel art image with retro terminal vibe. Pixel Art! The image should contain no text or words! No words! Do not include the playit or playit.gg logo. The only text should be official brand logos if they are explicity mentioned in the description! Do not add words! Image should be simple and should look good at 10% zoom. Simple! Image should fill entire canvas, no cropping! If the guide is related to a game, make the background of the image themed for the game in question. Image should be simple and not cluttered!
 Title: ${title}
@@ -253,13 +139,7 @@ async function generateImage(
 }
 
 async function main(): Promise<void> {
-  // Check for API key
-  const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) {
-    console.error("Error: OPENROUTER_API_KEY environment variable not set");
-    console.error("Please set it with: export OPENROUTER_API_KEY='your-key-here'");
-    process.exit(1);
-  }
+  const apiKey = requireApiKey();
 
   // Ensure output directory exists
   await mkdir(SOCIAL_IMG_DIR, { recursive: true });
@@ -267,18 +147,14 @@ async function main(): Promise<void> {
   // Get all markdown files
   let articleFiles: string[];
   try {
-    const files = await readdir(CONTENT_DIR);
-    articleFiles = files
-      .filter((f) => f.endsWith(".md"))
-      .map((f) => join(CONTENT_DIR, f))
-      .sort();
+    articleFiles = await getArticleFiles();
   } catch {
-    console.error(`No markdown files found in ${CONTENT_DIR}`);
+    console.error("No markdown files found in content directory");
     process.exit(1);
   }
 
   if (articleFiles.length === 0) {
-    console.error(`No markdown files found in ${CONTENT_DIR}`);
+    console.error("No markdown files found in content directory");
     process.exit(1);
   }
 

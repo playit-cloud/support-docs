@@ -1,1 +1,1 @@
-Troubleshooting guide for resolving firewall and antivirus issues that may prevent playit.gg from working properly on your system.
+Troubleshoot and resolve common firewall & antivirus issues to restore critical system protection.

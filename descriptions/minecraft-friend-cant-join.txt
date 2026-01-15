@@ -1,1 +1,1 @@
-Troubleshooting guide for when friends can't connect to your Minecraft server, covering CGNAT, port forwarding, firewall, and VPN issues.
+Troubleshoot Minecraft server connection issues like timeouts, port forwarding, CGNAT, firewalls, and VPNs for seamless multiplayer.

@@ -1,1 +1,1 @@
-Step-by-step guide for setting up a Hytale dedicated server using the official launcher files and sharing it online with playit.gg.
+Learn to easily set up your Hytale dedicated server with official files, authorize it, and share it online using playit.

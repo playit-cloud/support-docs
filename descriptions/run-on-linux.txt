@@ -1,1 +1,1 @@
-Installation and setup guide for running playit.gg on Linux systems, including apt package installation and manual binary setup methods.
+Learn to install & run playit.gg on Linux systems using APT or direct download, with troubleshooting tips for common issues.

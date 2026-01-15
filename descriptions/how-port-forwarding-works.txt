@@ -1,1 +1,0 @@
-Technical overview of port forwarding mechanics and how it enables external connections to your home network game servers.

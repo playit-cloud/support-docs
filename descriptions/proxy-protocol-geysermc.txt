@@ -1,1 +1,1 @@
-Instructions for enabling Proxy Protocol in GeyserMC to receive true client IP addresses when using playit.gg tunnels with Bedrock and Java servers.
+Enable Proxy Protocol in GeyserMC to get true client IPs. Configure GeyserMC, your Java server, and playit tunnel for accurate IP forwarding.

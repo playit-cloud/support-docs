@@ -1,1 +1,1 @@
-Step-by-step instructions for configuring Proxy Protocol in Velocity proxy servers to forward real client IP addresses through playit.gg tunnels.
+Enable Proxy Protocol in Velocity & playit.gg to get true client IPs. Configure settings in `velocity.toml` and your playit tunnel.

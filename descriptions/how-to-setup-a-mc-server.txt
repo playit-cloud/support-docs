@@ -1,1 +1,1 @@
-Complete beginner's guide to setting up a vanilla Minecraft Java server from scratch, including Java installation, server setup, and making it public with playit.gg.
+Learn how to set up a Minecraft Java Survival Multiplayer (SMP) server quickly with this step-by-step guide.

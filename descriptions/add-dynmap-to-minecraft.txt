@@ -1,1 +1,1 @@
-Learn how to install and configure Dynmap on your PaperMC Minecraft server, including making the web interface publicly accessible through playit.gg tunnels.
+Install Dynmap on your Minecraft server (Bukkit, Spigot, PaperMC) with this easy-to-follow guide to create an interactive world map.

@@ -1,1 +1,1 @@
-General guide for changing DNS server settings to improve connectivity, with links to platform-specific instructions for Windows, macOS, and Linux.
+Learn how to change your DNS server on Windows, macOS, or Linux to fix internet errors, improve security, and enhance your online experience.

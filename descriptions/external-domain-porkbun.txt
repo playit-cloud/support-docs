@@ -1,1 +1,1 @@
-Step-by-step guide for setting up Porkbun domains with playit.gg, covering nameserver configuration for both full domains and subdomains.
+Connect your Porkbun domain to playit.gg, enabling easy setup for both second-level and subdomains using playit's DNS.
