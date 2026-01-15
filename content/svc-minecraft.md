@@ -3,9 +3,6 @@ title = "Using Simple Voice Chat with playit"
 tags = ["minecraft", "simple voice chat", "guide"]
 +++
 
-# Using Simple Voice Chat with playit
-
----
 
 ## Requirements
 
@@ -22,8 +19,6 @@ tags = ["minecraft", "simple voice chat", "guide"]
 
 > ⚠️ Simple Voice Chat **must be installed on both the server and the client** for voice to work.
 
----
-
 ## Setting Everything Up (Server)
 
 ### Install Simple Voice Chat
@@ -35,8 +30,6 @@ Place the Simple Voice Chat `.jar` file into the appropriate folder inside your 
 
 {{< image src="post-img/playit-svc-serverplugins.png" alt="SVC Server Setup" >}}
 
----
-
 ### Generate Configuration Files
 
 1. Start the Minecraft server
@@ -44,8 +37,6 @@ Place the Simple Voice Chat `.jar` file into the appropriate folder inside your 
 3. Stop the server
 
 This will generate the required configuration files for Simple Voice Chat.
-
----
 
 ### Create a Tunnel
 
@@ -65,8 +56,6 @@ Local Port: 24454
 After creating the tunnel, note the **IP address and port** shown at the top of the tunnel page.
 
 {{< image src="post-img/playit-svc-tunnel_info.png" alt="SVC Tunnel Info" >}}
-
----
 
 ### Configure Simple Voice Chat
 
@@ -98,23 +87,17 @@ voice_host=147.185.221.181:25732
 
 Save the file.
 
----
-
 ### Start the Server
 
 Start the Minecraft server again to apply the changes.
 
 If configured correctly, Simple Voice Chat will now bind to the tunnel.
 
----
-
 ## Setting Everything Up (Player)
 
 ### Install a Modloader
 
 Install a client-side modloader such as **Fabric**.
-
----
 
 ### Install Simple Voice Chat (Client)
 
@@ -127,8 +110,6 @@ Install a client-side modloader such as **Fabric**.
 2. Ensure the **Simple Voice Chat `.jar` file** is present
 
 > If the mod is not installed on the client, you **will not be able to hear or talk** to other players.
-
----
 
 {{< image src="post-img/playit-svc-clientmods.png" alt="SVC Server Setup" >}}
 
