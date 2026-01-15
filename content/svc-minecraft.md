@@ -134,4 +134,4 @@ Install a client-side modloader such as **Fabric**.
 
 ## Done
 
-Simple Voice Chat should now work over playit, allowing players to communicate using proximity voice chat without port forwarding.
+Simple Voice Chat should now work over playit, allowing players to communicate using proximity voice chat.
