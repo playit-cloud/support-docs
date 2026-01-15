@@ -1,3 +1,8 @@
++++
+title = "Using Simple Voice Chat with playit"
+tags = ["minecraft", "simple voice chat", "guide"]
++++
+
 # Using Simple Voice Chat with playit
 
 ---
@@ -7,9 +12,7 @@
 ### Server
 
 * **Dedicated Minecraft Server Software** (e.g. Fabric Server)
-* **Simple Voice Chat** plugin/mod
-
-  * [https://modrinth.com/plugin/simple-voice-chat/versions](https://modrinth.com/plugin/simple-voice-chat/versions)
+* **[Simple Voice Chat](https://modrinth.com/plugin/simple-voice-chat/versions)**
 
 ### Client
 
