@@ -1,0 +1,1 @@
+Step-by-step guide for adding a subdomain to playit.gg when your domain is managed by Cloudflare DNS, using NS record delegation.

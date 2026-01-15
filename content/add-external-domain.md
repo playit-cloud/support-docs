@@ -11,3 +11,4 @@ If you have [playit premium](https://playit.gg/account/billing/shop/premium) you
 * {{< link "external-domain-namecheap" >}}
 * {{< link "external-domain-porkbun" >}}
 * {{< link "external-domain-spaceship" >}}
+* {{< link "external-domain-cloudflare" >}}

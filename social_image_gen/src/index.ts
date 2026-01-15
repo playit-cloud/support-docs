@@ -44,7 +44,7 @@ const CONTENT_DIR = join("..", "content");
 const DESCRIPTIONS_DIR = join("..", "descriptions");
 const SOCIAL_IMG_DIR = join("..", "static", "social-img");
 const TARGET_SIZE = { width: 1200, height: 630 }; // Open Graph standard size
-const MODEL = "google/gemini-2.5-flash-image-preview";
+const MODEL = "google/gemini-3-pro-image-preview";
 
 /**
  * Extract article slug from file path.

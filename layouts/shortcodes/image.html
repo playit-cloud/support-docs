@@ -3,4 +3,4 @@
 {{ if not (fileExists $fullPath) }}
   {{ errorf "Image not found: %s (referenced in %s)" $path .Page.File.Path }}
 {{ end }}
-<img src="{{ $.Page.Site.BaseURL }}/{{ $path }}" alt="{{ .Get "alt" }}"{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+<img src="/support/{{ $path }}" alt="{{ .Get "alt" }}"{{ with .Get "class" }} class="{{ . }}"{{ end }}>
