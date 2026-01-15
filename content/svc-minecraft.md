@@ -33,6 +33,8 @@ Place the Simple Voice Chat `.jar` file into the appropriate folder inside your 
 * `mods/` (Fabric / Forge)
 * `plugins/` (Paper / Spigot)
 
+![SVC Server Setup]({{< static "post-img/playit-svc-serverplugins.png" >}})
+
 ---
 
 ### Generate Configuration Files
@@ -57,7 +59,12 @@ Port Count: 1
 Local Port: 24454
 ```
 
+![SVC Tunnel Setup]({{< static "post-img/playit-svc-tunnelconfig.png" >}})
+
+
 After creating the tunnel, note the **IP address and port** shown at the top of the tunnel page.
+
+![SVC Tunnel Info]({{< static "post-img/playit-svc-tunnel_info.png" >}})
 
 ---
 
@@ -77,13 +84,17 @@ voice_host=IP_ADDRESS:PORT
 ```
 
 Replace `IP_ADDRESS:PORT` with the IP address and port provided by playit.
+> Dedicated IP users may choose to use the default port `24454`
+
 
 **Example:**
 
 ```properties
 bind_address=*
-voice_host=147.185.221.181:24454
+voice_host=147.185.221.181:25732
 ```
+
+![SVC Server Setup]({{< static "post-img/playit-svc-serverconfig.png" >}})
 
 Save the file.
 
@@ -118,6 +129,8 @@ Install a client-side modloader such as **Fabric**.
 > If the mod is not installed on the client, you **will not be able to hear or talk** to other players.
 
 ---
+
+![SVC Server Setup]({{< static "post-img/playit-svc-clientmods.png" >}})
 
 ## Done
 
