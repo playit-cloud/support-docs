@@ -2,9 +2,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
   // Prevent flash of wrong theme - runs before any rendering
+  // Dark mode is the default/primary experience
   (function() {
     var theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Default to dark unless user explicitly chose light
+    if (theme !== 'light') {
       document.documentElement.classList.add('dark');
     }
   })();
@@ -20,10 +22,10 @@
 <link href="{{ with .Site.Home.OutputFormats.Get "rss" }}{{ .RelPermalink }}{{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
 {{ end }}
 
-<!-- Google Fonts: Inter & JetBrains Mono (for code) -->
+<!-- Google Fonts: Press Start 2P (pixel headers), Inter & JetBrains Mono -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -35,17 +37,21 @@
         fontFamily: {
           'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           'mono': ['JetBrains Mono', 'monospace'],
+          'heading': ['"Press Start 2P"', 'monospace'],
         },
         colors: {
           'playit': {
-            'orange': '#ff6b35',
+            'orange': '#ff6600',
             'coral': '#e85d2c',
+            'cyan': '#00b4d8',
+            'green': '#00e676',
           },
           'navy': {
-            '900': '#0d1117',
-            '800': '#161b22',
-            '700': '#1e2633',
-            '600': '#2d3748',
+            '950': '#080c12',
+            '900': '#0a0e14',
+            '800': '#111820',
+            '700': '#1a2332',
+            '600': '#243044',
           },
         },
       },

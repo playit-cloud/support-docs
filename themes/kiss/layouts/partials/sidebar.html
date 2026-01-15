@@ -3,17 +3,20 @@
 {{ $categoriesData := .Site.Data.categories }}
 
 <!-- Sidebar -->
-<aside id="sidebar" class="hidden lg:block w-full lg:w-64 shrink-0 border-r border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 overflow-y-auto fixed lg:relative inset-0 lg:inset-auto z-50 lg:z-auto top-[63px] lg:top-0 h-[calc(100vh-49px)] lg:h-auto">
+<aside id="sidebar" class="hidden lg:block w-full lg:w-64 shrink-0 border-r border-playit-orange/20 dark:border-playit-orange/40 bg-white dark:bg-navy-900 overflow-y-auto fixed lg:relative inset-0 lg:inset-auto z-50 lg:z-auto top-[63px] lg:top-0 h-[calc(100vh-49px)] lg:h-auto">
   <div class="p-4 space-y-6">
     <!-- Search -->
     <div class="relative">
-      <input 
-        type="text" 
-        id="search-input"
-        placeholder="$ search docs..."
-        class="w-full px-3 py-2 bg-[#f1f5f9] dark:bg-navy-900 border border-playit-orange/20 dark:border-playit-orange/10 rounded text-sm focus:outline-none focus:border-playit-orange dark:focus:border-playit-orange focus:ring-1 focus:ring-playit-orange"
-      />
-      <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/10 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
+      <label class="flex items-center gap-2 px-3 py-2 bg-[#f1f5f9] dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/40 focus-within:border-playit-orange ">
+        <span class="text-playit-orange font-heading text-[0.5rem]">&gt;</span>
+        <input 
+          type="text" 
+          id="search-input"
+          placeholder="search..."
+          class="flex-1 bg-transparent border-none outline-none text-sm text-[#1e293b] dark:text-[#e2e8f0] placeholder-[#1e293b]/40 dark:placeholder-[#e2e8f0]/40 font-mono"
+        />
+      </label>
+      <div id="search-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/40 shadow-lg z-50 max-h-96 overflow-y-auto"></div>
     </div>
 
     <!-- Dynamic Categories from data/categories.yaml -->
@@ -23,11 +26,13 @@
       {{ $categoryPages := where $allPages "Params.tags" "intersect" $category.tags }}
       {{ if $categoryPages }}
       <div>
-        <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">{{ $category.name }}</h2>
+        <h2 class="font-heading text-[0.5rem] text-[#1e293b] dark:text-[#e2e8f0] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+          <span class="text-playit-cyan">//</span> {{ $category.name | upper }}
+        </h2>
         <ul class="space-y-1">
           {{ range $categoryPages }}
           <li>
-            <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
+            <a href="{{ .RelPermalink }}" class="block px-2 py-1.5 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange -ml-[2px]{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }} ">
               {{ .Title }}
             </a>
           </li>
@@ -59,11 +64,13 @@
     {{ end }}
     {{ if $others }}
     <div>
-      <h2 class="text-xs font-heading font-semibold text-playit-orange uppercase tracking-wider mb-2">Other</h2>
+      <h2 class="font-heading text-[0.5rem] text-[#1e293b] dark:text-[#e2e8f0] uppercase tracking-wider mb-3 flex items-center gap-1.5">
+        <span class="text-playit-cyan">//</span> OTHER
+      </h2>
       <ul class="space-y-1">
         {{ range $others }}
         <li>
-          <a href="{{ .RelPermalink }}" class="block px-2 py-1 text-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }}">
+          <a href="{{ .RelPermalink }}" class="block px-2 py-1.5 text-xs font-mono {{ if eq $currentPage.RelPermalink .RelPermalink }}text-playit-orange bg-playit-orange/10 dark:bg-playit-orange/5 border-l-2 border-playit-orange -ml-[2px]{{ else }}text-[#1e293b]/70 dark:text-[#e2e8f0]/70 hover:text-playit-orange hover:bg-playit-orange/5{{ end }} ">
             {{ .Title }}
           </a>
         </li>

@@ -1,10 +1,12 @@
-<footer class="border-t border-playit-orange/20 dark:border-playit-orange/10 bg-white dark:bg-navy-800 py-6 mt-auto">
-  <div class="max-w-7xl mx-auto px-6 text-center text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60">
-    {{ if .Site.Copyright }}
-    <p>{{ .Site.Copyright | safeHTML }}</p>
-    {{ end }}
+<footer class="border-t border-playit-orange/20 dark:border-playit-orange/40 bg-white dark:bg-navy-900 py-6 mt-auto">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <p class="font-mono text-xs text-[#1e293b]/50 dark:text-[#e2e8f0]/50">
+      <span class="text-playit-cyan">//</span> {{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}<a href="https://playit.gg" class="text-playit-orange hover:underline">playit.gg</a>{{ end }}
+    </p>
     {{ if .Site.Params.Info.poweredby }}
-    <p class="mt-2">Powered by <a href="https://gohugo.io/" class="text-playit-orange hover:underline">Hugo</a></p>
+    <p class="mt-2 font-mono text-xs text-[#1e293b]/40 dark:text-[#e2e8f0]/40">
+      powered_by <a href="https://gohugo.io/" class="text-playit-orange hover:underline">hugo</a>
+    </p>
     {{ end }}
   </div>
 </footer>

@@ -1,4 +1,6 @@
-/* playit.gg documentation styles */
+/* playit.gg documentation styles - Terminal/Cyberpunk aesthetic */
+
+/* ===== ANIMATIONS ===== */
 
 /* Cursor blink animation for terminal elements */
 @keyframes blink {
@@ -12,7 +14,32 @@
   color: currentColor;
 }
 
-/* Code block styling enhancements */
+/* Subtle glow pulse for accent elements */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 102, 0, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
+}
+
+/* ===== SCROLLBAR - Terminal Theme ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 102, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 102, 0, 0.3);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 102, 0, 0.5);
+}
+
+/* ===== CODE BLOCKS ===== */
 pre {
   position: relative;
   margin: 1.5rem 0 !important;
@@ -27,24 +54,7 @@ pre code {
   line-height: 1.6;
 }
 
-/* Scrollbar - navy theme */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 107, 53, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 107, 53, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 107, 53, 0.5);
-}
+/* ===== UTILITY CLASSES ===== */
 
 /* Line clamp utility */
 .line-clamp-2 {
@@ -56,8 +66,147 @@ pre code {
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #ff6b35;
+  outline: 2px solid #ff6600;
   outline-offset: 2px;
+}
+
+/* ===== SECTION HEADER STYLING ===== */
+
+/* // PREFIX style for section headers */
+.section-header {
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-header::before {
+  content: '//';
+  color: #00b4d8;
+  font-weight: normal;
+}
+
+/* ===== TAG/BADGE STYLING ===== */
+
+/* Base badge styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid;
+}
+
+.badge-free {
+  color: #e2e8f0;
+  border-color: #e2e8f0;
+  background-color: transparent;
+}
+
+.badge-premium {
+  color: #ff6600;
+  border-color: #ff6600;
+  background-color: rgba(255, 102, 0, 0.1);
+}
+
+.badge-selected {
+  color: #0d1117;
+  background-color: #00b4d8;
+  border-color: #00b4d8;
+}
+
+.badge-best {
+  color: #0d1117;
+  background-color: #ff6600;
+  border-color: #ff6600;
+}
+
+/* ===== BRACKET BUTTON STYLING ===== */
+
+.bracket-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ff6600;
+  background-color: transparent;
+  color: #ff6600;
+  position: relative;
+}
+
+.bracket-btn::before {
+  content: '[';
+  margin-right: 0.25rem;
+}
+
+.bracket-btn::after {
+  content: ']';
+  margin-left: 0.25rem;
+}
+
+.bracket-btn:hover {
+  background-color: #ff6600;
+  color: #0d1117;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+}
+
+.bracket-btn-cyan {
+  border-color: #00b4d8;
+  color: #00b4d8;
+}
+
+.bracket-btn-cyan:hover {
+  background-color: #00b4d8;
+  color: #0d1117;
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+}
+
+/* ===== TERMINAL INPUT STYLING ===== */
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #111820;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+  padding: 0.75rem 1rem;
+}
+
+.terminal-input::before {
+  content: '>';
+  color: #ff6600;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75rem;
+}
+
+.terminal-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e2e8f0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-input input::placeholder {
+  color: rgba(226, 232, 240, 0.4);
+}
+
+/* ===== CARD STYLING ===== */
+
+.card-terminal {
+  background-color: #111820;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+}
+
+.card-terminal:hover {
+  border-color: rgba(255, 102, 0, 0.7);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.15);
 }
 
 /* ===== ARTICLE CONTENT SPACING ===== */
@@ -74,12 +223,12 @@ pre code {
   margin-bottom: 1.5rem;
 }
 
-/* Headings */
+/* Headings - Using Inter for article content headings */
 .article-content h1,
 .article-content h2,
 .article-content h3,
 .article-content h4 {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-weight: 600;
   color: #1e293b;
 }
@@ -92,33 +241,38 @@ pre code {
 }
 
 .article-content h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-  line-height: 1.3;
-}
-
-.article-content h2 {
-  font-size: 1.625rem;
-  margin-top: 2.75rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.35;
-  padding-bottom: 0.625rem;
-  border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-}
-
-.article-content h3 {
-  font-size: 1.375rem;
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
   line-height: 1.4;
 }
 
-.article-content h4 {
+.article-content h2 {
+  font-size: 1.375rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid rgba(255, 102, 0, 0.4);
+}
+
+.article-content h3 {
   font-size: 1.125rem;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #ff6600;
+}
+
+.dark .article-content h3 {
+  color: #ff6600;
+}
+
+.article-content h4 {
+  font-size: 1rem;
   margin-top: 2rem;
   margin-bottom: 0.875rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 /* First element after heading shouldn't have top margin */
@@ -134,9 +288,9 @@ pre code {
   max-width: 100%;
   height: auto;
   margin: 2rem 0;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 107, 53, 0.2);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 102, 0, 0.08);
   max-height: 450px;
   width: auto;
   object-fit: contain;
@@ -147,25 +301,41 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
 }
 
 table th,
 table td {
   padding: 0.875rem 1rem;
-  border: 1px solid rgba(255, 107, 53, 0.2);
+  border: 1px solid rgba(255, 102, 0, 0.4);
   text-align: left;
 }
 
 table th {
-  background-color: rgba(255, 107, 53, 0.1);
-  font-weight: 600;
+  background-color: rgba(255, 102, 0, 0.1);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.625rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ff6600;
 }
 
 /* List styling */
 .article-content ul {
   margin: 1.5rem 0;
   padding-left: 1.75rem;
-  list-style-type: disc;
+  list-style-type: none;
+}
+
+.article-content ul > li::before {
+  content: '>';
+  color: #00b4d8;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  margin-right: 0.75rem;
+  margin-left: -1.25rem;
 }
 
 .article-content ol {
@@ -191,22 +361,26 @@ table th {
   margin: 0.5rem 0;
 }
 
-.article-content ul ul {
-  list-style-type: circle;
+.article-content ul ul > li::before {
+  content: '-';
 }
 
-.article-content ul ul ul {
-  list-style-type: square;
+.article-content ul ul ul > li::before {
+  content: '*';
 }
 
 /* Blockquote styling */
 .article-content blockquote {
   margin: 2rem 0;
   padding: 1rem 1.5rem;
-  border-left: 4px solid #ff6b35;
-  background-color: rgba(255, 107, 53, 0.05);
-  border-radius: 0 8px 8px 0;
+  border-left: 3px solid #00b4d8;
+  background-color: rgba(0, 180, 216, 0.05);
+  border-radius: 0;
   font-style: normal;
+}
+
+.dark .article-content blockquote {
+  background-color: rgba(0, 180, 216, 0.05);
 }
 
 .article-content blockquote p {
@@ -224,7 +398,7 @@ table th {
 /* Horizontal rule */
 hr {
   border: none;
-  border-top: 1px solid rgba(255, 107, 53, 0.2);
+  border-top: 1px solid rgba(255, 102, 0, 0.4);
   margin: 3rem 0;
 }
 
@@ -232,28 +406,30 @@ hr {
 .article-content code:not(pre code) {
   padding: 0.2rem 0.5rem;
   font-size: 0.875em;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: #f1f5f9;
   color: #e85d2c;
   font-family: 'JetBrains Mono', monospace;
+  border: 1px solid rgba(255, 102, 0, 0.1);
 }
 
 .dark .article-content code:not(pre code) {
-  background-color: #161b22;
-  color: #ff6b35;
+  background-color: #111820;
+  color: #ff6600;
+  border-color: rgba(255, 102, 0, 0.3);
 }
 
 /* Code blocks */
 .article-content pre {
   background-color: #f1f5f9;
-  border: 1px solid rgba(255, 107, 53, 0.2);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 102, 0, 0.2);
+  border-radius: 4px;
   margin: 1.75rem 0;
 }
 
 .dark .article-content pre {
-  background-color: #0d1117;
-  border-color: rgba(255, 107, 53, 0.1);
+  background-color: #080c12;
+  border-color: rgba(255, 102, 0, 0.4);
 }
 
 /* Strong/bold text */
@@ -268,20 +444,43 @@ hr {
 
 /* Links */
 .article-content a {
-  color: #e85d2c;
+  color: #00b4d8;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
 
 .dark .article-content a {
-  color: #ff6b35;
+  color: #00b4d8;
 }
 
 .article-content a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom-color: #00b4d8;
 }
 
 /* Ensure images in paragraphs get proper spacing */
 .article-content p img {
   display: block;
   margin: 1.5rem auto;
+}
+
+/* ===== NAVIGATION LOGO STYLING ===== */
+
+.logo-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.logo-text .orange {
+  color: #ff6600;
+}
+
+.logo-text .white {
+  color: #e2e8f0;
+}
+
+.logo-cursor {
+  color: #ff6600;
+  animation: blink 1s infinite;
 }

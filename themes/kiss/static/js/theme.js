@@ -1,7 +1,7 @@
 (function() {
   const themeToggle = document.getElementById('theme-toggle');
-  const themeIconLight = document.getElementById('theme-icon-light');
-  const themeIconDark = document.getElementById('theme-icon-dark');
+  const themeTextLight = document.getElementById('theme-text-light');
+  const themeTextDark = document.getElementById('theme-text-dark');
   const html = document.documentElement;
 
   // Get current theme
@@ -17,23 +17,25 @@
       html.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
-    updateThemeIcon(theme);
+    updateThemeText(theme);
   }
 
-  // Update theme icon visibility
-  function updateThemeIcon(theme) {
-    if (!themeIconDark || !themeIconLight) return;
+  // Update theme text visibility
+  function updateThemeText(theme) {
+    if (!themeTextDark || !themeTextLight) return;
     if (theme === 'dark') {
-      themeIconDark.classList.remove('hidden');
-      themeIconLight.classList.add('hidden');
+      // In dark mode, show "LIGHT" option to switch to light
+      themeTextDark.classList.remove('hidden');
+      themeTextLight.classList.add('hidden');
     } else {
-      themeIconLight.classList.remove('hidden');
-      themeIconDark.classList.add('hidden');
+      // In light mode, show "DARK" option to switch to dark
+      themeTextLight.classList.remove('hidden');
+      themeTextDark.classList.add('hidden');
     }
   }
 
-  // Initialize icon based on current state (dark class already set by inline script)
-  updateThemeIcon(getCurrentTheme());
+  // Initialize text based on current state (dark class already set by inline script)
+  updateThemeText(getCurrentTheme());
 
   // Toggle theme on button click
   if (themeToggle) {

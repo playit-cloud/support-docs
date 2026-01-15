@@ -1,26 +1,27 @@
 {{ define "main" }}
 <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
   <!-- Hero Section -->
-  <div class="mb-8 sm:mb-12">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold mb-4 text-[#1e293b] dark:text-[#e2e8f0]">
-      Support Docs
+  <div class="mb-10 sm:mb-14">
+    <h1 class="font-heading text-lg sm:text-xl md:text-2xl mb-4 text-playit-orange uppercase tracking-wide">
+      Support_Docs<span class="cursor-blink"></span>
     </h1>
-    <p class="text-base sm:text-lg text-[#1e293b]/70 dark:text-[#e2e8f0]/70 mb-6 sm:mb-8">
-      Documentation to help you get up and running with your self-hosted server and <a href="https://playit.gg" class="text-playit-orange hover:underline">playit.gg</a>
+    <p class="text-base sm:text-lg text-[#1e293b]/70 dark:text-[#e2e8f0]/70 mb-6 sm:mb-8 font-mono">
+      <span class="text-playit-cyan">//</span> documentation to help you get up and running with your self-hosted server and <a href="https://playit.gg" class="text-playit-orange hover:underline">playit.gg</a>
     </p>
     
     <!-- Search -->
     <div class="relative">
-      <label class="flex items-center gap-2 px-4 py-3 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded">
-        <span class="text-playit-orange dark:text-playit-orange">$</span>
+      <label class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/40 hover:border-playit-orange ">
+        <span class="text-playit-orange font-heading text-xs">&gt;</span>
         <input 
           type="text" 
           id="home-search-input"
-          placeholder="search docs..."
-          class="flex-1 bg-transparent border-none outline-none text-[#1e293b] dark:text-[#e2e8f0] placeholder-[#1a1f1c]/40 dark:placeholder-[#e0e6e3]/40"
+          placeholder="search_docs..."
+          class="flex-1 bg-transparent border-none outline-none text-[#1e293b] dark:text-[#e2e8f0] placeholder-[#1a1f1c]/40 dark:placeholder-[#e0e6e3]/40 font-mono"
         />
+        <span class="text-[#1e293b]/30 dark:text-[#e2e8f0]/30 font-heading text-[0.5rem] hidden sm:inline">[ENTER]</span>
       </label>
-      <div id="home-search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded shadow-lg z-50 max-h-96 overflow-y-auto"></div>
+      <div id="home-search-results" class="hidden absolute top-full left-0 right-0 mt-1 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/40 shadow-lg z-50 max-h-96 overflow-y-auto"></div>
     </div>
   </div>
 
@@ -35,14 +36,16 @@
     {{ $categoryPages := where $allPages "Params.tags" "intersect" $category.tags }}
     {{ if $categoryPages }}
     <section class="mb-12">
-      <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">{{ $category.name }}</h2>
+      <h2 class="font-heading text-sm text-[#1e293b] dark:text-[#e2e8f0] mb-5 uppercase tracking-wider flex items-center gap-2">
+        <span class="text-playit-cyan">//</span> {{ $category.name | upper }}
+      </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {{ range $categoryPages }}
-        <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-          <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange">
+        <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/40 hover:border-playit-orange group  hover:shadow-lg hover:shadow-playit-orange/10">
+          <h3 class="font-semibold text-base text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange  leading-snug">
             {{ .Title }}
           </h3>
-          <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
+          <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2 leading-relaxed">
             {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
             {{ if ge (len $summarySplits) 2 }}
               {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
@@ -79,14 +82,16 @@
   {{ end }}
   {{ if $others }}
   <section class="mb-12">
-    <h2 class="text-2xl font-heading font-semibold text-playit-orange dark:text-playit-orange mb-4 uppercase tracking-wider">Other</h2>
+    <h2 class="font-heading text-sm text-[#1e293b] dark:text-[#e2e8f0] mb-5 uppercase tracking-wider flex items-center gap-2">
+      <span class="text-playit-cyan">//</span> OTHER
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {{ range $others }}
-      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/30 dark:border-playit-orange/20 rounded hover:border-playit-orange/50 group">
-        <h3 class="font-heading font-semibold text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange dark:group-hover:text-playit-orange">
+      <a href="{{ .RelPermalink }}" class="block p-4 bg-white dark:bg-navy-800 border border-playit-orange/20 dark:border-playit-orange/40 hover:border-playit-orange group  hover:shadow-lg hover:shadow-playit-orange/10">
+        <h3 class="font-semibold text-base text-[#1e293b] dark:text-[#e2e8f0] mb-2 group-hover:text-playit-orange  leading-snug">
           {{ .Title }}
         </h3>
-        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2">
+        <p class="text-sm text-[#1e293b]/60 dark:text-[#e2e8f0]/60 line-clamp-2 leading-relaxed">
           {{ $summarySplits := split .RawContent "<!--start-summary-->" }}
           {{ if ge (len $summarySplits) 2 }}
             {{ index $summarySplits 1 | plainify | safeHTML | truncate 120 }}
