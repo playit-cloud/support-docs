@@ -1,1 +1,1 @@
-Complete guide for setting up Simple Voice Chat with playit, including server configuration, UDP tunnel setup, and client installation.
+Set up Simple Voice Chat on a Minecraft server and client using playit, enabling proximity voice chat for your players.

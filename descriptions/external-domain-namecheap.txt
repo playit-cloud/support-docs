@@ -1,1 +1,1 @@
-Detailed instructions for configuring Namecheap domains with playit.gg, including both second-level domains and subdomains using custom DNS settings.
+Add your Namecheap domain (second-level or subdomain) to playit.gg by configuring custom DNS and nameservers in this step-by-step guide.

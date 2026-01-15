@@ -1,1 +1,1 @@
-Learn how to run playit.gg 24/7 on Linux using systemd or tmux, ensuring your game servers stay online continuously.
+Run playit 24/7 on Linux using systemd for background execution & auto-start, or with tmux for sessions.

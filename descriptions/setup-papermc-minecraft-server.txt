@@ -1,1 +1,1 @@
-Complete tutorial for setting up a PaperMC Minecraft server with plugin support, from download to making it public with playit.gg.
+Setup your own PaperMC Minecraft server with this guide, covering download, setup, and making it public.

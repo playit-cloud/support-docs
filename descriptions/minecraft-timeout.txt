@@ -1,1 +1,1 @@
-Solutions for fixing timeout errors in Minecraft servers, including improving upload speed, reducing view-distance, and optimizing network settings.
+Troubleshoot Minecraft server timeout errors by improving internet speed or adjusting server view distance settings.

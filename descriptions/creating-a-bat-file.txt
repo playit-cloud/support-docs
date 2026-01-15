@@ -1,1 +1,1 @@
-Step-by-step tutorial for creating and editing batch (.bat) files on Windows, essential for running Minecraft servers and other applications.
+Learn how to create a .bat file in Windows by simply renaming a text document and editing its contents.

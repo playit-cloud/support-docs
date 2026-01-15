@@ -1,1 +1,1 @@
-Instructions for updating DNS server settings on Linux systems, covering Ubuntu GUI method, resolv.conf, and systemd-resolved configuration.
+Learn to update your DNS server on Linux, including Ubuntu, editing resolv.conf, and systemd-resolved.conf.

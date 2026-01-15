@@ -1,1 +1,1 @@
-Instructions for finding your computer's local network (LAN) IP address, essential for configuring port forwarding and network settings.
+Locate your computer quickly and easily with our helpful guide, covering physical location and network identification.

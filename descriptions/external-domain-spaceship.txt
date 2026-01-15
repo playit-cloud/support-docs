@@ -1,1 +1,1 @@
-Complete guide for configuring Spaceship domains with playit.gg, including instructions for adding second-level domains and subdomains via DNS settings.
+Learn to add your Playit Premium external domain from Spaceship, including second-level and subdomains, with this simple guide.

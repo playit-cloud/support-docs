@@ -1,1 +1,1 @@
-Quick fix for the VCRUNTIME140.dll missing error when running playit.gg on Windows by installing the Microsoft Visual C++ Redistributable.
+Fix the VCRUNTIME140.dll missing error when starting Playit with a quick Microsoft update.

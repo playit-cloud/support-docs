@@ -4,7 +4,9 @@
   "type": "module",
   "description": "Generate social media images for support articles using OpenRouter",
   "scripts": {
-    "generate": "tsx src/index.ts"
+    "generate": "tsx src/generate-images.ts",
+    "generate-images": "tsx src/generate-images.ts",
+    "generate-descriptions": "tsx src/generate-descriptions.ts"
   },
   "dependencies": {
     "@openrouter/sdk": "^0.3.14",

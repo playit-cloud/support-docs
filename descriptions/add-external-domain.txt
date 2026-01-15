@@ -1,1 +1,1 @@
-Guide to adding your own external domain to playit.gg with playit premium, including links to registrar-specific setup instructions.
+Connect an external domain to your playit.gg account with Premium. Learn how to add domains from Namecheap, Cloudflare, and more.

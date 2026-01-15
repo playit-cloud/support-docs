@@ -1,1 +1,0 @@
-Explanation of how playit.gg works compared to traditional port forwarding, eliminating router and ISP requirements for hosting game servers.
