@@ -1,0 +1,1 @@
+This guide walks you through how to set up a server for SCP: Secret Laboratory using playit.gg
