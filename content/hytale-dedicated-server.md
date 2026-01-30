@@ -1,6 +1,6 @@
 +++
 title = "Hytale Dedicated Server Guide"
-tags = ["hytale"]
+tags = ["hytale", "guide"]
 description_file = "descriptions/hytale-dedicated-server.txt"
 +++
 
