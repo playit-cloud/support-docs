@@ -15,7 +15,7 @@ Doing this will test your network's ability to resolve playit's domains into IP 
 C:\Users\playit>ping lemon-airplanes.gl.joinmc.link
 
 Pinging lemon-airplanes.gl.joinmc.link [147.185.221.20] with 32 bytes of data:
-Reply from 147.185.22s1.20: bytes=32 time=30ms TTL=54
+Reply from 147.185.221.20: bytes=32 time=30ms TTL=54
 Reply from 147.185.221.20: bytes=32 time=30ms TTL=54
 Reply from 147.185.221.20: bytes=32 time=30ms TTL=54
 Reply from 147.185.221.20: bytes=32 time=30ms TTL=54
