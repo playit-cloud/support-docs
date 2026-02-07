@@ -7,8 +7,8 @@ description_file = "descriptions/l4d2.txt"
 This guide will walk you through how to host a Left 4 Dead 2 server through playit.gg
 
 ## Requirements
-* **Left 4 Dead 2** - [[steam.com]](https://store.steampowered.com/app/550/Left_4_Dead_2/)
-* **Left 4 Dead 2 Dedicated Server** - [[steam.com]](https://store.steampowered.com/app/222860/Left_4_Dead_2_Dedicated_Server/)
+* **Left 4 Dead 2** - [[steampowered.com]](https://store.steampowered.com/app/550/Left_4_Dead_2/)
+* **Left 4 Dead 2 Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/222860/Left_4_Dead_2_Dedicated_Server/)
 
 ### Server
 
@@ -41,5 +41,6 @@ Inside of the game, go to `Options` > `Keyboard/Mouse` and enable `Allow Develop
 Press the Tilde key, `~` and type in `connect 147.185.221.25:9404`. Your tunnel and port will be different, so match it with the information that playit has provided.
 
 {{< image src="post-img/playit-l4d2-consoleconnect.png" alt="L4D2 Console Direct Connect" >}}
+
 
 After pressing `enter` or clicking `Submit`, you and your friends should be able to connect to the game server using playit's tunnel.
