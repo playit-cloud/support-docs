@@ -31,7 +31,7 @@ Local Port: 27015
 
 {{< image src="post-img/playit-l4d2-tunnelconfig.png" alt="L4D2 Tunnel Config" >}}
 
-{{< image src="post-img/playit-l4d2-tunnelconfig.png" alt="L4D2 Tunnel Info" >}}
+{{< image src="post-img/playit-l4d2-tunnelinfo.png" alt="L4D2 Tunnel Info" >}}
 
 ### Joining the server
 Inside of the game, go to `Options` > `Keyboard/Mouse` and enable `Allow Developer Console`.
@@ -44,3 +44,4 @@ Press the Tilde key, `~` and type in `connect 147.185.221.25:9404`. Your tunnel 
 
 
 After pressing `enter` or clicking `Submit`, you and your friends should be able to connect to the game server using playit's tunnel.
+
