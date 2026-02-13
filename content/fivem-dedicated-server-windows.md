@@ -29,6 +29,7 @@ Local Port: 30120
 ```
 
 {{< image src="post-img/playit-fivem-tunnelconfig.png" alt="FiveM Tunnel Config" >}}
+
 {{< image src="post-img/playit-fivem-tunnelinfo.png" alt="FiveM Tunnel (Info)" >}}
 
 Your tunnel has been created, and the next time you open `FXServer.exe`, the server will run and a new browser tab for TxAdmin should open
@@ -44,11 +45,13 @@ Local Port: 40120
 ```
 
 {{< image src="post-img/playit-fivem_txadmin-tunnelconfig.png" alt="FiveM TxAdmin Config" >}}
+
 {{< image src="post-img/playit-fivem_txadmin-tunnelinfo.png" alt="FiveM TxAdmin Info" >}}
 
 ## Connecting to the server
 
 Inside of FiveM, click on Play, and go to the server list. We'll want to direct connect.
 To do this, we'll type in `>IP_Address:Port`. This will be different for everyone.
+
 
 {{< image src="post-img/playit-fivem-fivem_connect.png" alt="FiveM Game Server" >}}
