@@ -1,0 +1,1 @@
+This guide will walk you through how to host a 7 Days to Die server through playit.gg
