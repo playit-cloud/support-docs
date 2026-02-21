@@ -30,8 +30,8 @@ Inside of this folder, you will find `startdedicated.bat`. Double click this to 
 Set up the tunnel as follows:
 
 ```text
-Tunnel Type: UDP (protocol)
-Port Count: 4
+Tunnel Type: 7 Days
+Local IP: 127.0.0.1
 Local Port: 26900
 ```
 
