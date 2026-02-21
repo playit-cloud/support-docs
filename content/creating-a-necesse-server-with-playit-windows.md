@@ -48,16 +48,16 @@ Port Count: 1
 Local Port: 14159
 ```
 
-{{< image src="post-img/playit-necesse-tunnelconfig.png" alt="Necesse tunnel config, 1" >}}
+{{< image src="post-img/playit-necesse-tunnelconfig_new.png" alt="Necesse tunnel config, 1" >}}
 
-{{< image src="post-img/playit-necesse-tunnelinfo.png" alt="Necesse tunnel config, 2" >}}
+{{< image src="post-img/playit-necesse-tunnelinfo_new.png" alt="Necesse tunnel config, 2" >}}
 
 ### Connecting to the server
 
 Inside of Necesse, click on **`Play Multiplayer`** and then **`Join a server`**. Click on **`Add server`** and enter a name, along with the tunnel's IP address and port.
 
-{{< image src="post-img/playit-necesse-tunnelconnect.png" alt="Necesse server join, 1" >}}
+{{< image src="post-img/playit-necesse-tunnelconnect_new.png" alt="Necesse server join, 1" >}}
 
 Click on **`Add`** and your server should be in the server list, using playit's IP address and port.
 
-{{< image src="post-img/playit-necesse-serverlist.png" alt="Necesse server join, 2" >}}
+{{< image src="post-img/playit-necesse-serverlist_new.png" alt="Necesse server join, 2" >}}
