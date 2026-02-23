@@ -89,12 +89,14 @@ This makes it keep the authorization token in an encrypted file in the server.
 
 > playit provides a predefined tunnel type for Hytale — use this instead of manually configuring ports.
 
+{{< image src="post-img/playit-hytale-tunnelconfig_new.png" alt="Tunnel configuration" >}}
+
 ## Connecting to the Server
 
 Players can connect to your server using either:
 
 * You can find it in your tunnel information
-{{< image src="post-img/playit-hytale-address.png" alt="Tunnel information" >}}
+{{< image src="post-img/playit-hytale-tunnelinfo_new.png" alt="Tunnel information" >}}
 
 From the screenshot, your address is `half-throw.gl.at.ply.gg:19490`. For you, this address will be different.
 
