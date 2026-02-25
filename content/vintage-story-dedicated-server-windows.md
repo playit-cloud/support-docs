@@ -58,11 +58,11 @@ Go to the [playit.gg dashboard](https://playit.gg/account/agents) and select an 
 Tunnel Type: Vintage Story (game)
 ```
 
-{{< image src="post-img/playit-vintagestory-tunnelconfig_new.png" alt="Add VS tunnel" >}}
+{{< image src="post-img/playit-vintagestory-addtunnel.png" alt="Add VS tunnel" >}}
 
 After your tunnel is created, you can connect using the domain and port given by playit:
 
-{{< image src="post-img/playit-vintagestory-tunnelinfo_new.png" alt="Tunnel information" >}}
+{{< image src="post-img/playit-vintagestory-tunnelinfo.png" alt="Tunnel information" >}}
 
 ### Joining the server
 
