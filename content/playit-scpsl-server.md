@@ -61,7 +61,7 @@ Local Port: 7777
 ### Connecting to the server
 Get the hostname/IP address from the tunnel - this can be found in the tunnel page.
 
-{{< image src="post-img/playit-scpsl-tunnelinfo.png" alt="Tunnel address" >}}
+{{< image src="post-img/playit-scpsl-tunneladdress.png" alt="Tunnel address" >}}
 
 Inside of SCP: Secret Laboratory, go to **Servers** and then click on **Direct Connect**.
 Enter your tunnel information from earlier into here, and then click **Connect**.
