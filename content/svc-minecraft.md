@@ -54,7 +54,7 @@ Local Port: 24454
 {{< image src="post-img/playit-svc-tunnelconfig.png" alt="SVC Tunnel Setup" >}}
 
 
-After creating the tunnel, note the **IP address and port** shown at the top of the tunnel page.
+After creating the tunnel, go back to the tunnel overview, and note the **IP address and port** shown alongside the tunnel
 
 {{< image src="post-img/playit-svc-tunnel_info.png" alt="SVC Tunnel Info" >}}
 
