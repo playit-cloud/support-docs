@@ -52,7 +52,7 @@ Create and configure your tunnel as follows:
 
 * **Type:** Project Zomboid (game)
 
-{{< image src="post-img/playit-pz-tunnelinfo_new.png" alt="playit tunnel config" >}}
+{{< image src="post-img/playit-pz-addtunnel.png" alt="playit tunnel config" >}}
 
 At this point, the tunnel will be active, but the game server will **not yet be reachable**. This is because the local server ports must match the tunnel's assigned public ports.
 
@@ -63,6 +63,8 @@ If you are using a **dedicated IP** from playit.gg:
 * You may keep the default ports
 * Set the local port to `16261`
 * No changes to `servertest.ini` are required unless you want to modify game rules
+
+{{< image src="post-img/playit-pz-localaddress.png" alt="playit local address" >}}
 
 ## Configure Server Ports
 
@@ -120,7 +122,7 @@ Save the file.
 2. Open your playit.gg tunnel
 3. Copy the **numeric IP address and port**
 
-{{< image src="post-img/playit-pz-tunnelinfo_new.png" alt="playit tunnel address" >}}
+{{< image src="post-img/playit-pz-tunneladdress.png" alt="playit tunnel address" >}}
 
 **Example:**
 
