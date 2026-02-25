@@ -28,9 +28,9 @@ Port Count: 1
 Local Port: 30120
 ```
 
-{{< image src="post-img/playit-fivem-tunnelconfig_new.png" alt="FiveM Tunnel Config" >}}
+{{< image src="post-img/playit-fivem-tunnelconfig.png" alt="FiveM Tunnel Config" >}}
 
-{{< image src="post-img/playit-fivem-tunnelinfo_new.png" alt="FiveM Tunnel (Info)" >}}
+{{< image src="post-img/playit-fivem-tunnelinfo.png" alt="FiveM Tunnel (Info)" >}}
 
 Your tunnel has been created, and the next time you open `FXServer.exe`, the server will run and a new browser tab for TxAdmin should open
 
@@ -55,4 +55,5 @@ To do this, we'll type in `>IP_Address:Port`. This will be different for everyon
 
 
 {{< image src="post-img/playit-fivem-fivem_connect.png" alt="FiveM Game Server" >}}
+
 
