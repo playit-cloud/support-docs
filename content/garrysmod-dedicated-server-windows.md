@@ -8,7 +8,7 @@ This guide will walk you through how to host a Garry's Mod server through playit
 
 ## Requirements
 * **Garry's Mod** - [[steampowered.com]](https://store.steampowered.com/app/4000)
-* **Garry's Mod+ Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/4020)
+* **Garry's Mod Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/4020)
 
 ### Server
 
@@ -46,5 +46,6 @@ Local Port: 27015
 ### Joining the server
 
 Inside of Garry's Mod, open the console by pressing the `~` key. You can connect to the server by using the `connect` command along with your assigned IP address or hostname. For example, `connect 147.185.221.181:17528` or `connect model-divx.gl.at.ply.gg:17528`. Modify these values with your own tunnel information, as this will be different for every user. Submit the command, and you should be able to connect to the server.
+
 
 {{< image src="post-img/playit-garrysmod-consoleconnect.png" alt="Garry's Mod Direct Connect" >}}
