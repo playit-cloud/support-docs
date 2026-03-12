@@ -15,7 +15,7 @@ This guide will walk you through how to host a Garry's Mod server through playit
 This server is available for download with [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
 To install with SteamCMD, open it in a command line. You can do this by navigating to your install location, and opening a command with your address bar (did you know you could do that?)
 
-{{< image src="post-img/playit-steamcmd-opensteamcmd.gif" alt="Open SteamCMD Console" >}}
+{{< image src="post-img/playit-steamcmd-opensteamcmd.png" alt="Open SteamCMD Console" >}}
 
 Now that we're in the SteamCMD directory, we need to tell it where it should download the server files. To do this, we can use the `force_install_dir` command. For example, if you want this directly on your main drive, you can use `force_install_dir C:\GarrysModServer\`
 
@@ -49,3 +49,4 @@ Inside of Garry's Mod, open the console by pressing the `~` key. You can connect
 
 
 {{< image src="post-img/playit-garrysmod-consoleconnect.png" alt="Garry's Mod Direct Connect" >}}
+
