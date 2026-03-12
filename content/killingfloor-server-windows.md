@@ -18,7 +18,7 @@ This guide will walk you through how to host a Killing Floor server through play
 This server is available for download with [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
 To install with SteamCMD, open it in a command line. You can do this by navigating to your install location, and opening a command with your address bar (did you know you could do that?)
 
-{{< image src="post-img/playit-steamcmd-opensteamcmd.gif" alt="Open SteamCMD Console" >}}
+{{< image src="post-img/playit-steamcmd-opensteamcmd.png" alt="Open SteamCMD Console" >}}
 
 Now that we're in the SteamCMD directory, we need to tell it where it should download the server files. To do this, we can use the `force_install_dir` command. For example, if you want this directly on your main drive, you can use `force_install_dir C:\killingfloor\`
 
@@ -53,5 +53,6 @@ Local Port: 7707
 ## Joining the server
 
 Open the console by pressing `~` and type `open <playit_ip>:<port>?steamextra=1`. The `?steamextra=1` argument allows the port to be appended to the end of the connection address. Without this argument in place, it strips the server port and fails to connect.
+
 
 {{< image src="post-img/playit-kf-directconnect.png" alt="Killing Floor Direct Connect" >}}
