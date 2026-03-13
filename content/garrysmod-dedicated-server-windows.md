@@ -8,14 +8,14 @@ This guide will walk you through how to host a Garry's Mod server through playit
 
 ## Requirements
 * **Garry's Mod** - [[steampowered.com]](https://store.steampowered.com/app/4000)
-* **Garry's Mod+ Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/4020)
+* **Garry's Mod Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/4020)
 
 ### Server
 
 This server is available for download with [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
 To install with SteamCMD, open it in a command line. You can do this by navigating to your install location, and opening a command with your address bar (did you know you could do that?)
 
-{{< image src="post-img/playit-steamcmd-opensteamcmd.gif" alt="Open SteamCMD Console" >}}
+{{< image src="post-img/playit-steamcmd-opensteamcmd.png" alt="Open SteamCMD Console" >}}
 
 Now that we're in the SteamCMD directory, we need to tell it where it should download the server files. To do this, we can use the `force_install_dir` command. For example, if you want this directly on your main drive, you can use `force_install_dir C:\GarrysModServer\`
 
@@ -47,4 +47,6 @@ Local Port: 27015
 
 Inside of Garry's Mod, open the console by pressing the `~` key. You can connect to the server by using the `connect` command along with your assigned IP address or hostname. For example, `connect 147.185.221.181:17528` or `connect model-divx.gl.at.ply.gg:17528`. Modify these values with your own tunnel information, as this will be different for every user. Submit the command, and you should be able to connect to the server.
 
+
 {{< image src="post-img/playit-garrysmod-consoleconnect.png" alt="Garry's Mod Direct Connect" >}}
+
