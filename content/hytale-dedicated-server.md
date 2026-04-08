@@ -89,8 +89,6 @@ This makes it keep the authorization token in an encrypted file in the server.
 
 > playit provides a predefined tunnel type for Hytale — use this instead of manually configuring ports.
 
-{{< image src="post-img/playit-hytale-tunnelconfig_new.png" alt="Tunnel configuration" >}}
-
 ## Connecting to the Server
 
 Players can connect to your server using either:
