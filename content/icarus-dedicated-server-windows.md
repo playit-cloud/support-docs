@@ -53,13 +53,15 @@ This will open a command line interface to start the server with logging enabled
 
 ### Creating a tunnel
 > This server uses `UDP 27015`, which means that all users can create this tunnel type.
+>
+> Steam Relay will be used for the game traffic, but the tunnel allows for the server to be found.
 
 Set up the tunnel as follows:
 
 ```text
 Tunnel Type: UDP (protocol)
 Port Count: 1
-Software Description: Steam Discovery
+Software Description: Steam Discovery (Icarus)
 Local Port: 27015
 ```
 
