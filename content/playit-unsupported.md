@@ -13,4 +13,4 @@ description_file = "descriptions/playit-unsupported.txt"
 ## Unsupported Games
 **\- Counter Strike 2:** Steam sees the server information, but cannot connect. Game throws error and provides no further information.
 
-**\- Astroneer:** The server console does not provide any information, even with the `-verbose` flag. Adding a server in the game does not provide any feedback - this includes whether or not it is online, invalid, offline, and does not even add it to any sort of list.
+**\- Astroneer:** The server console does not provide any information, even with the `-log` flag. Adding a server in the game does not provide any feedback - this includes whether or not it is online, invalid, offline, and does not even add it to any sort of list.
