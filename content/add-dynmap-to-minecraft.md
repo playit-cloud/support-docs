@@ -29,15 +29,21 @@ Once your server is running, you should be able to visit [http://localhost:8123]
 
 
 # Step 5 (optional). Making your Dynmap webpage public
-Visit [playit.gg/account/tunnels](https://playit.gg/account/tunnels) and press `Add Tunnel` on the `Custom TCP` banner.
+Visit [the Tunnels page](https://playit.gg/account/tunnels) and create an HTTPs tunnel.
 
-{{< image src="post-img/playit-custom-tcp-tunnel.png" alt="playit custom tcp tunnel" >}}
+Set up the tunnel as follows:
 
-Set the `Local server address` to `127.0.0.1:8123` and press `Add`.
+```text
+Tunnel Type: HTTPs
+Port Count: 1
+HTTP Port: 8123
+HTTP Port: 443 (unchanged)
+Proxy Protocol: None
+```
 
-{{< image src="post-img/playit-dynmap-local-address.png" alt="dynmap download" >}}
+{{< image src="post-img/playit-custom-tcp-tunnel.png" alt="dynmap download" >}}
 
-After pressing add and giving playit.gg a few moments to prepare your tunnel, you should be assigned an .auto.playit.gg address you can use and share for accessing your dynmap.
+After pressing add and giving playit.gg a few moments to prepare your tunnel, you should be assigned an address you can use and share for accessing your dynmap.
 
 {{< image src="post-img/playit-custom-tcp-address.png" alt="dynmap download" >}}
 
