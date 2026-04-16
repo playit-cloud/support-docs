@@ -13,7 +13,8 @@ description_file = "descriptions/playit-unsupported.txt"
 ## Unsupported Games
 **\- Counter Strike 2:** Steam sees the server information, but cannot connect. Game throws error and provides no further information.
 
-**\- Astroneer:** The server console does not provide any information, even with the `-log` flag. Adding a server in the game does not provide any feedback - this includes whether or not it is online, invalid, offline, and does not even add it to any sort of list.
+**\- Astroneer:** We had trouble setting up the dedicated server for this game. It might be possible. If you figure it out, please share details on [discuss.playit.gg](https://discuss.playit.gg/).
 
 ## Banned Games
-**\- Roblox:** Playit was being used to circumvent Roblox's content moderation system by hosting private servers within Roblox Studio. We do not condone circumvention of systems, nor is it a permitted use. See [our updated policies](https://playit.gg/support/prohibited-uses/).
+
+**\- Roblox:** Due a high rate of users violating our terms of service with Roblox, we have decided to explicitly ban the game from our service. You can find our details on {{< link "prohibited-uses" >}}
