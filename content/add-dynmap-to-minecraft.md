@@ -29,7 +29,7 @@ Once your server is running, you should be able to visit [http://localhost:8123]
 
 
 # Step 5 (optional). Making your Dynmap webpage public
-Visit [the Tunnels page](https://playit.gg/account/tunnels) and create an HTTPs tunnel.
+Visit [the Tunnels page](https://playit.gg/account/tunnels) and create an HTTPs tunnel. In this guide we'll only be using the HTTP part of the tunnel. If you'd like to have a secure HTTPs tunnel please reference {{< link "https-tunnel" >}}.
 
 Set up the tunnel as follows:
 

@@ -42,7 +42,7 @@ Create and claim a new **playit.gg agent**, then create your first tunnel.
 Project Zomboid normally uses the following ports:
 
 * `16261` - Main Port
-* `16262` - Secondary UDP Port (not needed)
+* `16262` - Secondary UDP Port
 
 We will adjust these to work with playit.gg.
 
@@ -85,23 +85,9 @@ DefaultPort=10233
 ```
 {{< image src="post-img/playit-pz-configfile.png" alt="PZ Config File" >}}
 
+The project zomboid tunnel type will assign you two ports, these ports are sequential so if your public port is `10233`, the second port will be `10234`.
 
-### Configure the Second Port (Optional)
-
-Project Zomboid uses **two sequential ports**.
-
-Create a custom UDP tunnel
-Set up the tunnel as follows:
-
-```text
-Tunnel Type: UDP (protocol)
-Port Count: 2
-Local Port: 16261
-```
-
-If your public port is `10233`, the second port will be `10234`
-
-In `servertest.ini`, find:
+Update `UDPPort` to match your second port.
 
 ```ini
 UDPPort=16262
