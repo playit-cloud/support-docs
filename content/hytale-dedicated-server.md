@@ -78,22 +78,14 @@ This makes it keep the authorization token in an encrypted file in the server.
 ### Create a Tunnel
 
 1. Create a new tunnel
-2. Select the tunnel type:
+2. Select the tunnel type: **Hytale**
 
-   * **Hytale (game)**
-3. The default port is:
-
-```text
-5520/UDP
-```
-
-> playit provides a predefined tunnel type for Hytale — use this instead of manually configuring ports.
+{{< image src="post-img/playit-hytale-tunnelconfig.png" alt="Tunnel configuration" >}}
 
 ## Connecting to the Server
 
-Players can connect to your server using either:
+Players can connect to your server using either the hostname or the IP address and port - you can find this in your tunnel information.
 
-* You can find it in your tunnel information
 {{< image src="post-img/playit-hytale-address.png" alt="Tunnel information" >}}
 
 From the screenshot, your address is `half-throw.gl.at.ply.gg:19490`. For you, this address will be different.

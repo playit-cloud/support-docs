@@ -17,10 +17,11 @@ For other Domain Registrars visit {{< link "add-external-domain" >}}.
 
 Visit your [account settings](https://playit.gg/account/settings/domains) and add your domain.
 
-Click on `Add External Domain`, and fill out your domain's information.
+Click on `Domains`, and then go to `Add External Domain`. Fill out your domain's information.
+
 {{< image src="post-img/playit-addexternaldomain-cloudflare-addexternaldomain.png" alt="playit add external domain" >}}
 
-Once you've done that, confirm your settings by clicking `Add External Domain`.
+Once you've done that, confirm your settings by clicking `Add Domain`.
 
 
 ## 2. Visit your domain's management page
@@ -50,9 +51,7 @@ Create **one NS record**:
 
 ## 4. Assign your domain to a tunnel
 
-Edit or create a new tunnel, and scroll down until you see your tunnel attributes. You should see **Domain (Auto Assigned)**. Click on `change`, go to `Use Existing`, and choose your domain from the dropdown menu
-
-{{< image src="post-img/playit-addexternaldomain-cloudflare-assign_to_tunnel-1.png" alt="playit assign domain" >}}
+Edit or create a new tunnel, and look at the top of the page. You should see an automatically assigned domain. Click on `Change domain`, and choose a domain from `Select a domain from your account`.
 
 {{< image src="post-img/playit-addexternaldomain-cloudflare-assign_to_tunnel-2.png" alt="playit assign domain" >}}
 

@@ -42,19 +42,19 @@ This will generate the required configuration files for Simple Voice Chat.
 ### Create a Tunnel
 
 1. Choose an agent for the tunnel
-2. Create a new **UDP tunnel**
+2. Create a new **SVC Tunnel**
 3. Configure it as follows:
 
 ```text
-Protocol: UDP
-Port Count: 1
+Protocol: MC: Simple Voice Chat
+Local IP: 127.0.0.1
 Local Port: 24454
 ```
 
 {{< image src="post-img/playit-svc-tunnelconfig.png" alt="SVC Tunnel Setup" >}}
 
 
-After creating the tunnel, go back to the tunnel overview, and note the **IP address and port** shown alongside the tunnel
+After creating the tunnel, note the **IP address and port** shown at the top of the tunnel page.
 
 {{< image src="post-img/playit-svc-tunnel_info.png" alt="SVC Tunnel Info" >}}
 
