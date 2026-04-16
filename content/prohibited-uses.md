@@ -27,6 +27,12 @@ Playit is designed for normal user-driven applications, especially:
 
 Minecraft, Terraria, Valheim, Vintage Story, Project Zomboid, and hundreds more. If it's a game you're hosting for yourself and your friends, this is exactly what Playit is for.
 
+Some game platforms are not supported due to a high rate of abuse or incompatibility with Playit's intended use.
+
+For example, platforms like Roblox rely on their own hosted infrastructure and are frequently associated with off-platform access systems that violate their Terms of Service. Playit may not be used to provide access, coordination, or distribution for these types of services.
+
+See our "What is **not allowed**" section for more details.
+
 ### Hobby projects that behave like normal apps
 
 If you're building something fun, learning to host a service, or experimenting with a web app and it works just like a standard server with normal user interactions, you're in the clear.
@@ -123,6 +129,20 @@ If traffic causes:
 * abuse reports from third parties
 
 Playit may disable and/or delete the your tunnel to protect everyone else.
+
+### 7. Services designed to evade platform safeguards
+
+We do not allow the use of Playit to bypass, evade, or undermine the safety, moderation, or access controls of third-party platforms.
+
+This includes (but is not limited to):
+
+* Hosting or distributing access to content that violates another platform's Terms of Service while attempting to avoid detection or enforcement
+* Operating access hubs, link directories, or coordination services designed to obscure or rotate access to such content
+* Using tunnels to provide external discovery or gating layers for experiences that would otherwise be moderated or removed
+
+Examples of commonly abused ecosystems:
+
+* Roblox (e.g., "condo"/restricted-content networks, off-platform access hubs)
 
 ## Examples of software **not allowed** on Playit's network
 
