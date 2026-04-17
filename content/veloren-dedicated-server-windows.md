@@ -25,10 +25,7 @@ You can start the server by opening `run` and going to `%appdata%/airshipper/pro
 Set up the tunnel as follows:
 
 ```text
-Tunnel Type: TCP (protocol)
-Port Count: 1
-Software Description: Veloren
-Local Port: 14004
+Tunnel Type: Veloren
 ```
 
 {{< image src="post-img/playit-veloren-tunnelconfig.png" alt="Veloren Tunnel Configuration" >}}
