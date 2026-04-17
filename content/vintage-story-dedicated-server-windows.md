@@ -49,24 +49,26 @@ Open the server executable mentioned before, and wait for it to fully start
 >```
 
 ### Tunnel Setup
-
-Go to the [playit.gg dashboard](https://playit.gg/account/agents) and select an agent to create the tunnel. If you have not created an agent, see the [downloads page](https://playit.gg/download) and follow the setup instructions.
+> This server uses `TCP 42420`, which means that [Playit Premium](https://playit.gg/account/upgrade) is required.
 
 **Create a new tunnel** with the following settings:
-
 ```text
-Tunnel Type: Vintage Story (game)
+Tunnel Type: Vintage Story
 ```
 
 {{< image src="post-img/playit-vintagestory-addtunnel.png" alt="Add VS tunnel" >}}
 
-After your tunnel is created, you can connect using the domain and port given by playit:
+After your tunnel is created, you can connect using the IP address and port given by playit:
 
 {{< image src="post-img/playit-vintagestory-tunnelinfo.png" alt="Tunnel information" >}}
 
 ### Joining the server
 
 To do this, all we need to do is give the server a name, and enter the connection information from before.
+
+{{< image src="post-img/playit-vintagestory-addserver-with-ip.png" alt="Add VS server with IP" >}}
+
+Alternatively, you can use the domain and port if you prefer that.
 
 {{< image src="post-img/playit-vintagestory-addserver-with-domain.png" alt="Add VS server with domain" >}}
 
