@@ -43,9 +43,7 @@ Create a new agent and add a tunnel
 Set up the tunnel as follows:
 
 ```text
-Tunnel Type: UDP (protocol)
-Port Count: 1
-Local Port: 14159
+Tunnel Type: Necesse
 ```
 
 {{< image src="post-img/playit-necesse-tunnelconfig.png" alt="Necesse tunnel config, 1" >}}
