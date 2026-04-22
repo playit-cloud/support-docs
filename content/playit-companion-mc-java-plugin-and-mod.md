@@ -4,6 +4,8 @@ tags = ["Minecraft", "LAN", "guide"]
 description_file = "descriptions/playit-playit-companion.txt"
 +++
 
+> WARNING: This mod is not maintained or updated by the original creator - we cannot guarantee that this plugin is up to date or that it will work at all. 
+
 This guide will walk you through how to host a local Minecraft world over playit.gg
 
 ## Requirements
