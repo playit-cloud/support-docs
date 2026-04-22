@@ -1,10 +1,10 @@
 +++
-title = "Setting up 7 Days to Die with playit"
+title = "Setting up 7 Days to Die on Windows"
 tags = ["7 Days to Die", "7D2D", "guide"]
 description_file = "descriptions/7d2d.txt"
 +++
 
-This guide will walk you through how to host a 7 Days to Die server through playit.gg
+This guide will walk you through how to host a 7 Days to Die server on Windows
 
 ## Requirements
 * **7 Days to Die** - [[steampowered.com]](https://store.steampowered.com/app/251570/7_Days_to_Die/)
