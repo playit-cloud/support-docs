@@ -25,6 +25,8 @@ Visit your [account settings](https://playit.gg/account/settings/domains) and ad
 
 Click on `Domains`, and then go to `Add External Domain`. Fill out your domain's information.
 
+**DO NOT** add NS records in Cloudfalre, just type your domain and submit.
+
 {{< image src="post-img/playit-addexternaldomain-cloudflare-cname-addexternaldomain.png" alt="playit add external domain" >}}
 
 Once you've done that, confirm your settings by clicking `Add Domain`.
