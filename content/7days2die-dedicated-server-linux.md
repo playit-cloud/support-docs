@@ -15,7 +15,7 @@ This guide will walk you through how to host a 7 Days to Die server on Linux
 * **Server - 7 Days to Die Wiki** - [[7daystodie.fandom.com]](https://7daystodie.fandom.com/wiki/Server)
 
 ## Prefer to watch a video?
-{{< youtube placeholder >}}
+{{< youtube id="kC1-Y9ovLlQ" start="62" >}}
 
 ### Server
 For this to work, we will be using [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) - here's how to set it up.
