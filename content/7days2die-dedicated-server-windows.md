@@ -14,6 +14,9 @@ This guide will walk you through how to host a 7 Days to Die server on Windows
 * **7 Days to Die Dedicated Server - Valve Developer Community** - [[developer.valvesoftware.com]](https://developer.valvesoftware.com/wiki/7_Days_to_Die_Dedicated_Server)
 * **Server - 7 Days to Die Wiki** - [[7daystodie.fandom.com]](https://7daystodie.fandom.com/wiki/Server)
 
+## Prefer to watch a video?
+{{< youtube id="kC1-Y9ovLlQ" start="10" >}}
+
 ### Server
 
 Find `7 Days to Die Dedicated Server` in Steam, and then right click `Manage` and then `Browse local files`.
