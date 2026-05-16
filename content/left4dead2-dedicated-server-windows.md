@@ -24,9 +24,7 @@ That's all for the server config, let's set up a tunnel next.
 Set up the tunnel as follows:
 
 ```text
-Tunnel Type: UDP (protocol)
-Port Count: 1
-Local Port: 27015
+Tunnel Type: Left 4 Dead 2
 ```
 
 {{< image src="post-img/playit-l4d2-tunnelconfig.png" alt="L4D2 Tunnel Config" >}}
@@ -42,6 +40,4 @@ Press the Tilde key, `~` and type in `connect 147.185.221.25:9404`. Your tunnel 
 
 {{< image src="post-img/playit-l4d2-consoleconnect.png" alt="L4D2 Console Direct Connect" >}}
 
-
 After pressing `enter` or clicking `Submit`, you and your friends should be able to connect to the game server using playit's tunnel.
-

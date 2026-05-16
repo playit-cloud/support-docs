@@ -45,7 +45,9 @@ Before you can run the Minecraft server you must first accept the Eula. This can
 > If the eula.txt file doesn't get created, you might need to install / upgrade Java.
 
 {{< image src="post-img/windows-eula-edit.png" alt="eula edit" >}}
+
 {{< image src="post-img/windows-eula-highlight.png" alt="eula highlight" >}}
+
 {{< image src="post-img/windows-eula-true.png" alt="eula true" >}}
 
 # Step 5. Run run.bat (or run.sh for Unix) again
