@@ -13,6 +13,9 @@ Your root domain cannot be on both Cloudflare and Playit. Because your domain is
 
 For other Domain Registrars visit {{< link "add-external-domain" >}}.
 
+## Prefer to watch a video?
+{{< youtube id="452zXoAb8nU">}}
+
 ## 1. Add your domain to playit
 
 Visit your [account settings](https://playit.gg/account/settings/domains) and add your domain.
