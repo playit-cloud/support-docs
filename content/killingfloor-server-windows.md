@@ -13,6 +13,9 @@ This guide will walk you through how to host a Killing Floor server through play
 ## **Documentation**
 * **Dedicated Server (Killing Floor 1)** - [[killingfloor.fandom.com]](https://killingfloor.fandom.com/wiki/Dedicated_Server_(Killing_Floor_1))
 
+## Prefer to watch a video?
+{{< youtube id="uH7yHBi6INE">}}
+
 ### Server
 
 This server is available for download with [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).
