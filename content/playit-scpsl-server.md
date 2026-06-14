@@ -14,6 +14,9 @@ Requirements:
 Resources:
 > SCP: Secret Laboratory Server Info - [en.scpslgame.com](https://en.scpslgame.com/index.php/Server_Info)
 
+## Prefer to watch a video?
+{{< youtube id="fkc6BuURkG0">}}
+
 ## Getting started
 ### Locate the server files
 
