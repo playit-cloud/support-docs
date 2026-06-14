@@ -15,6 +15,8 @@ This guide will walk you through how to host a Necesse server through playit.gg
 ### Server Documentation
 > **Multiplayer - Necesse Wiki** - [necessewiki.com](https://necessewiki.com/)
 
+## Prefer to watch a video?
+{{< youtube id="7rNl7_KjTFM">}}
 
 {{< image src="post-img/playit-necesse-serverfiles_server.png" alt="Necesse server files" >}}
 
