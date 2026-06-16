@@ -18,6 +18,9 @@ description_file = "descriptions/svc-minecraft.txt"
 * **Client-side modloader** (e.g. Fabric)
 * **Simple Voice Chat** installed on the client
 
+## Prefer to watch a video?
+{{< youtube id="Ki1OzNmWbaE">}}
+
 > ⚠️ Simple Voice Chat **must be installed on both the server and the client** for voice to work.
 
 ## Setting Everything Up (Server)

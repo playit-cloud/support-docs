@@ -15,6 +15,9 @@ This guide walks you through setting up a Hytale server using the files bundled 
 * Java 25 (Adoptium recommended)
 * A Hytale account
 
+## Prefer to watch a video?
+{{< youtube id="_afLVx4nFD4">}}
+
 ## Locate the Dedicated Server Files
 
 The dedicated server is included with the Hytale launcher installation. Navigate to the following path for your operating system:

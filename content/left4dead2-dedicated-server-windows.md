@@ -10,6 +10,9 @@ This guide will walk you through how to host a Left 4 Dead 2 server through play
 * **Left 4 Dead 2** - [[steampowered.com]](https://store.steampowered.com/app/550/Left_4_Dead_2/)
 * **Left 4 Dead 2 Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/222860/Left_4_Dead_2_Dedicated_Server/)
 
+## Prefer to watch a video?
+{{< youtube id="JOMH49sZVxU">}}
+
 ### Server
 
 Open `Left 4 Dead 2 Dedicated Server` from Steam, and set the `Network` to `LAN`. Feel free to change the server name, map and max players.

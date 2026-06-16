@@ -10,6 +10,9 @@ This guide will walk you through how to host a Garry's Mod server through playit
 * **Garry's Mod** - [[steampowered.com]](https://store.steampowered.com/app/4000)
 * **Garry's Mod Dedicated Server** - [[steampowered.com]](https://store.steampowered.com/app/4020)
 
+## Prefer to watch a video?
+{{< youtube id="Jz-6f6j_D2s">}}
+
 ### Server
 
 This server is available for download with [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD).

@@ -17,6 +17,8 @@ This guide walks you through setting up a Vintage Story server using the files b
 * Vintage Story
 * .NET 8.0.13 Desktop Runtime (comes with installer)
 
+## Prefer to watch a video?
+{{< youtube id="H85Xu7jyvZ0">}}
 
 ### Locate the server files
 

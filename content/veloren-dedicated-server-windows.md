@@ -13,6 +13,9 @@ This guide will walk you through how to host a Veloren Dedicated Server with pla
 * **Hosting a Server** - [[book.veloren.net]](https://book.veloren.net/players/server-hosting/on-your-pc.html)
 * **Server Wiki** - [[wiki.veloren.net]](https://wiki.veloren.net/wiki/Hosting_a_Server)
 
+## Prefer to watch a video?
+{{< youtube id="FtMw_6xjgxg">}}
+
 ### Server
 The server is already downloaded and installed, assuming it was installed using Airshipper.
 You can start the server by opening `run` and going to `%appdata%/airshipper/profiles/default`. The server executable is located at `veloren-server-cli.exe` and you can simply double click this to run the server

@@ -4,6 +4,9 @@ tags = ["project zomboid", "pz", "guide"]
 description_file = "descriptions/project-zomboid-steam-dedicated-server.txt"
 +++
 
+## Prefer to watch a video?
+{{< youtube id="ClPNlTIkYb0">}}
+
 ## Setting Everything Up
 
 Assuming you already own Project Zomboid on Steam, you already have access to the dedicated server software.
