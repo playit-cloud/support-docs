@@ -45,14 +45,14 @@ Your server should now be running. The console output should look like this:
 {{< image src="post-img/playit-scpsl-serverconsole_running.png" alt="Server console" >}}
 
 ### Tunnel setup
-> Here, 
+> Here, we'll use the SCP: Secret Laboratory tunnel preset.
+> This server uses `UDP 7777`, which means that all users can create this tunnel type.
 
 Add an [agent](https://playit.gg/account/agents) if you haven't done that yet.
 Configure the tunnel as follows:
 
 ```text
-Tunnel Type: TCP/UDP (protocol)
-Port Count: 1
+Tunnel Type: SCP: Secret Laboratory
 Local Port: 7777
 ```
 
