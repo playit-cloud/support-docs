@@ -45,7 +45,7 @@ Your server should now be running. The console output should look like this:
 {{< image src="post-img/playit-scpsl-serverconsole_running.png" alt="Server console" >}}
 
 ### Tunnel setup
-> Since the game uses both `TCP` and `UDP`, we will create a `TCP/UDP` tunnel. However, since TCP is not available to free users anymore, [playit premium](https://playit.gg/account/billing/shop/premium) is required.
+> Here, 
 
 Add an [agent](https://playit.gg/account/agents) if you haven't done that yet.
 Configure the tunnel as follows:
