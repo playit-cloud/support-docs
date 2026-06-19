@@ -51,7 +51,6 @@ Your server should now be running. The console output should look like this:
 {{< image src="post-img/playit-scpsl-serverconsole_running.png" alt="Server console" >}}
 
 ### Tunnel setup
-### Tunnel setup
 > Here, we'll use the SCP: Secret Laboratory tunnel preset.
 > This server uses `UDP 7777`, which means that all users can create this tunnel type.
 
