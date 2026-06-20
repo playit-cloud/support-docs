@@ -21,9 +21,11 @@ Resources:
 ### Locate the server files
 
 Right click on **SCP: Secret Laboratory Dedicated Server**, and navigate to **Manage → Browse local files**.
+
 {{< image src="post-img/playit-scpsl-browsefiles.png" alt="Browse local files" >}}
 
 Inside, you'll see the following file structure:
+
 {{< image src="post-img/playit-scpsl-serverfiles.png" alt="Server files" >}}
 
 > Server config files can be found here:
@@ -36,33 +38,36 @@ To launch the server, double click on `LocalAdmin.exe`.
 This will ask for a little bit of setup, but it's pretty easy.
 
 The default port is `TCP/UDP 7777`, it can stay like that. You can just press enter and go to the next step
+
 {{< image src="post-img/playit-scpsl-serverconsole_port.png" alt="Server console setup" >}}
 
 It will then ask if you want to edit the configuration. The default configuration is fine, and you can edit them if you want. For the simplicity of this guide, we will just choose `keep`.
+
 {{< image src="post-img/playit-scpsl-serverconsole_config.png" alt="Server console setup" >}}
 
 For `Do you want to save the configuration only for THIS server` we will choose `this`. This keeps different server configs sepaarated, if you plan on running different servers.
+
 {{< image src="post-img/playit-scpsl-serverconsole_config-this_local.png" alt="Server console setup" >}}
 
 Your server should now be running. The console output should look like this:
+
 {{< image src="post-img/playit-scpsl-serverconsole_running.png" alt="Server console" >}}
 
 ### Tunnel setup
-> Since the game uses both `TCP` and `UDP`, we will create a `TCP/UDP` tunnel. However, since TCP is not available to free users anymore, [playit premium](https://playit.gg/account/billing/shop/premium) is required.
+> Here, we'll use the SCP: Secret Laboratory tunnel preset.
+> This server uses `UDP 7777`, which means that all users can create this tunnel type.
 
 Add an [agent](https://playit.gg/account/agents) if you haven't done that yet.
 Configure the tunnel as follows:
 
 ```text
-Tunnel Type: TCP/UDP (protocol)
-Port Count: 1
-Local Port: 7777
+Tunnel Type: SCP: Secret Laboratory
 ```
 
 {{< image src="post-img/playit-scpsl-tunnelconfig.png" alt="Tunnel setup" >}}
 
 ### Connecting to the server
-Get the hostname/IP address from the tunnel - this can be found in the tunnel page.
+Get the hostname/IP address from the tunnel. This can be found at the top of your tunnel properties.
 
 {{< image src="post-img/playit-scpsl-tunneladdress.png" alt="Tunnel address" >}}
 
