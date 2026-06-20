@@ -58,7 +58,11 @@ Often the biggest thing you can do to adjust latency is to change where traffic 
 
 On the playit webpage for your agent, you can see the ping from your playit agent to our tunnel servers. This value about `2 * Latency(Hop 3)`. So in my case `Latency(Hop 3) = 7ms`. If I were a connecting to my own game server on playit.gg, `Latency(Hop 3) + Latency(Hop 4) = 14ms`. As a I said, sorta complicated.
 
-{{< image src="post-img/agent-latency.png" alt="agent-ping" >}}
+You can test your latency to different regions by using [ping.playit.gg](https://ping.playit.gg/)
+
+{{< image src="post-img/playit-lower-ping-test.png" alt="Ping Test, 1" >}}
+
+{{< image src="post-img/playit-lower-ping-test-results.png" alt="Ping Test, 2" >}}
 
 You can change which datacenter you're being routed to. Do note, this does not currently work for our Minecraft Plugin and old versions of the playit program. Changing this value will directly influence `Latency(Hop 3) + Latency(Hop 4)` in your players' overall ping. In general, for the best performance you want the reported ping for your playit agent to be as low as possible.
 
@@ -72,7 +76,7 @@ This requires playit premium. With playit premium you can create regional tunnel
 
 **Ping commands to playit regions**
 
-```
+```bash
 ping ping.gl.ply.gg # Free Tunnel
 ping ping.na.ply.gg # North America Tunnel
 ping ping.eu.ply.gg # Europe Tunnel
