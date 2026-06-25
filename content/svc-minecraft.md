@@ -42,12 +42,12 @@ This will generate the required configuration files for Simple Voice Chat.
 ### Create a Tunnel
 
 1. Choose an agent for the tunnel
-2. Create a new **SVC Tunnel**
+2. Create a new **UDP tunnel**
 3. Configure it as follows:
 
 ```text
-Protocol: MC: Simple Voice Chat
-Local IP: 127.0.0.1
+Protocol: UDP
+Port Count: 1
 Local Port: 24454
 ```
 

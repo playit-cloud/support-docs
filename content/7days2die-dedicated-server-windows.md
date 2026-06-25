@@ -1,10 +1,10 @@
 +++
-title = "Setting up 7 Days to Die on Windows"
+title = "Setting up 7 Days to Die with playit"
 tags = ["7 Days to Die", "7D2D", "guide"]
 description_file = "descriptions/7d2d.txt"
 +++
 
-This guide will walk you through how to host a 7 Days to Die server on Windows
+This guide will walk you through how to host a 7 Days to Die server through playit.gg
 
 ## Requirements
 * **7 Days to Die** - [[steampowered.com]](https://store.steampowered.com/app/251570/7_Days_to_Die/)
@@ -13,9 +13,6 @@ This guide will walk you through how to host a 7 Days to Die server on Windows
 ## Documentation
 * **7 Days to Die Dedicated Server - Valve Developer Community** - [[developer.valvesoftware.com]](https://developer.valvesoftware.com/wiki/7_Days_to_Die_Dedicated_Server)
 * **Server - 7 Days to Die Wiki** - [[7daystodie.fandom.com]](https://7daystodie.fandom.com/wiki/Server)
-
-## Prefer to watch a video?
-{{< youtube id="kC1-Y9ovLlQ" start="10" >}}
 
 ### Server
 
@@ -33,8 +30,8 @@ Inside of this folder, you will find `startdedicated.bat`. Double click this to 
 Set up the tunnel as follows:
 
 ```text
-Tunnel Type: 7 Days
-Local IP: 127.0.0.1
+Tunnel Type: UDP (protocol)
+Port Count: 4
 Local Port: 26900
 ```
 

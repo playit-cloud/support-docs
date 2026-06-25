@@ -41,8 +41,8 @@ Create and claim a new **playit.gg agent**, then create your first tunnel.
 
 Project Zomboid normally uses the following ports:
 
-* `16261` - Main Port
-* `16262` - Secondary UDP Port
+* `16261` (main port)
+* `16262` (secondary UDP port)
 
 We will adjust these to work with playit.gg.
 
@@ -50,11 +50,21 @@ We will adjust these to work with playit.gg.
 
 Create and configure your tunnel as follows:
 
-* **Type:** Project Zomboid
+* **Type:** Project Zomboid (game)
 
 {{< image src="post-img/playit-pz-addtunnel.png" alt="playit tunnel config" >}}
 
 At this point, the tunnel will be active, but the game server will **not yet be reachable**. This is because the local server ports must match the tunnel's assigned public ports.
+
+### Dedicated IP Users
+
+If you are using a **dedicated IP** from playit.gg:
+
+* You may keep the default ports
+* Set the local port to `16261`
+* No changes to `servertest.ini` are required unless you want to modify game rules
+
+{{< image src="post-img/playit-pz-localaddress.png" alt="playit local address" >}}
 
 ## Configure Server Ports
 
@@ -85,9 +95,14 @@ DefaultPort=10233
 ```
 {{< image src="post-img/playit-pz-configfile.png" alt="PZ Config File" >}}
 
-The project zomboid tunnel type will assign you two ports, these ports are sequential so if your public port is `10233`, the second port will be `10234`.
 
-Update `UDPPort` to match your second port.
+### Configure the Second Port
+
+Project Zomboid uses **two sequential ports**.
+
+If your public port is `10233`, the second port will be `10234`
+
+In `servertest.ini`, find:
 
 ```ini
 UDPPort=16262
@@ -115,7 +130,7 @@ Save the file.
 147.185.221.181:10233
 ```
 
-### Join the Project Zomboid server
+### Join in Project Zomboid
 
 1. Launch **Project Zomboid**
 2. Click **Join**
@@ -132,7 +147,6 @@ Use Steam Relay = unchecked
 6. Select the server from the list
 
 {{< image src="post-img/playit-pz-serverlist.png" alt="Joining the server" >}}
-
 {{< image src="post-img/playit-pz-connecting.png" alt="Joining the server" >}}
 
 ## Server Is Live
@@ -153,9 +167,7 @@ To modify server settings, see the **[Project Zomboid Server Wiki](https://pzwik
 If you see a **closed port** warning:
 
 * Double‑check that **Use Steam Relay** is **disabled** in the server list
-* Confirm `DefaultPort` and `UDPPort`* match the playit.gg tunnel ports
-
-If using a custom UDP tunnel, `UDPPort` does not apply to you.
+* Confirm `DefaultPort` and `UDPPort` match the playit.gg tunnel ports
 
 ## Done
 Your Project Zomboid server should now be up and shared using playit.

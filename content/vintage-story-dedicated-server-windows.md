@@ -49,11 +49,13 @@ Open the server executable mentioned before, and wait for it to fully start
 >```
 
 ### Tunnel Setup
-> This server uses `TCP 42420`, which means that [Playit Premium](https://playit.gg/account/upgrade) is required.
+
+Go to the [playit.gg dashboard](https://playit.gg/account/agents) and select an agent to create the tunnel. If you have not created an agent, see the [downloads page](https://playit.gg/download) and follow the setup instructions.
 
 **Create a new tunnel** with the following settings:
+
 ```text
-Tunnel Type: Vintage Story
+Tunnel Type: Vintage Story (game)
 ```
 
 {{< image src="post-img/playit-vintagestory-addtunnel.png" alt="Add VS tunnel" >}}
