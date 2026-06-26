@@ -1,7 +1,7 @@
 +++
 title = "Setting up Geyser with playit"
 tags = ["Minecraft", "Guide", "Geyser"]
-description_file = "descriptions/add-geyser-with-playit.txt"
+description_file = "descriptions/use-geyser-with-playit.txt"
 +++
 
 This guide will walk you through how to configure Geyser with playit.gg
