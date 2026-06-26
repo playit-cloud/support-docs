@@ -37,6 +37,15 @@ For example, `1201`.
 ### Basic Geyser Config
 Open and edit `./config/Geyser-Fabric/config.yml` (or similar file path). We need to change the port to the one provided by playit. Since our port is `1201`, we need to tell Geyser to listen on this port.
 
+### Starting the server
+Run your server's JAR file. We need to start the server in order for the server plugins to generate their config files for you. You can either open it using a batch file, or by running it inside of a command line.
+```batch
+java -Xmx4G -jar fabric-server-mc.26.1.2-loader.0.19.3-launcher.1.1.1.jar nogui
+pause
+```
+
+* The `java` command will invoke the Java runtime. `-Xmx4G` defines how much RAM the server can consume in total. 4G is 4 Gigabytes. `nogui` means there will not be a UI to interact with. This option is not required.
+* `pause` will stop the console from automatically closing if there are errors. This allows you to look and read the errors.
 
 >```yml
 ># Network settings for the Bedrock listener
@@ -53,16 +62,6 @@ Open and edit `./config/Geyser-Fabric/config.yml` (or similar file path). We nee
 >  # This option makes the Bedrock port the same as the Java port every time you start the server.
 >  clone-remote-port: false
 >```
-
-### Starting the server
-Run your server's JAR file. You can either open it using a batch file, or by running it inside of a command line.
-```batch
-java -Xmx4G -jar fabric-server-mc.26.1.2-loader.0.19.3-launcher.1.1.1.jar nogui
-pause
-```
-
-* The `java` command will invoke the Java runtime. `-Xmx4G` defines how much RAM the server can consume in total. 4G is 4 Gigabytes. `nogui` means there will not be a UI to interact with. This option is not required.
-* `pause` will stop the console from automatically closing if there are errors. This allows you to look and read the errors.
 
 On a successful install, your logs should look like this:
 ```bash
