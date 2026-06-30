@@ -44,7 +44,7 @@ and press the blue button to save your changes.
 
 ## 4. Add your external domain to playit.gg
 
-Visit [https://playit.gg/account/settings/domains/add-external](https://playit.gg/account/settings/domains/add-external) to add your external domain.
+Visit [https://playit.gg/account/details/domains/external](https://playit.gg/account/details/domains/external) to add your external domain.
 
 Make sure the domain name you enter matches the domain name that you updated on Spaceship. In this example it is `olumpu.com`. For you it will be different.
 
@@ -84,7 +84,7 @@ Then press the Add button to save the record.
 
 ## 4. Add your external sub domain to playit.gg
 
-Visit [https://playit.gg/account/settings/domains/add-external](https://playit.gg/account/settings/domains/add-external) to add your external domain.
+Visit [https://playit.gg/account/details/domains/external](https://playit.gg/account/details/domains/external) to add your external domain.
 
 Make sure you enter your sub domain. In our case this will be `playit.olumpu.com`.
 
