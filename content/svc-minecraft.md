@@ -123,6 +123,5 @@ Simple Voice Chat should now work over playit, allowing players to communicate u
 
 > Troubleshooting
 >
-> If UDP is causing an issue, try creating a raw UDP tunnel with port `24454` or use [playit 1.0.10](https://github.com/playit-cloud/playit-agent/releases#release-v1.0.10)
 > For those using a container such as Docker, use the local IP of the container rather than `127.0.0.1` or `0.0.0.0`
 > Set the local port in `voicechat-server.properties` to the public port of the tunnel playit has provided
