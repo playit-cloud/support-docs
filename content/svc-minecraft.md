@@ -121,7 +121,7 @@ Install a client-side modloader such as **Fabric**.
 
 Simple Voice Chat should now work over playit, allowing players to communicate using proximity voice chat.
 
-> Troubleshooting
+> ## Troubleshooting
 >
 > For those using a container such as Docker, use the local IP of the container rather than `127.0.0.1` or `0.0.0.0`
 > Set the local port in `voicechat-server.properties` to the public port of the tunnel playit has provided
