@@ -9,18 +9,12 @@ description_file = "descriptions/project-zomboid-steam-dedicated-server.txt"
 
 ### Server
 For this to work, we will be using [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) - here's how to set it up.
-We will be using Ubuntu Server 24.04 for this portion of the guide.
+We will be using Ubuntu Server 26.04 for this portion of the guide.
 From your terminal, enter these commands - to install SteamCMD, the multiverse repository and x86 packages must be enabled.
 
 **Ubuntu**
 ```bash
 sudo add-apt-repository multiverse; sudo dpkg --add-architecture i386; sudo apt update
-sudo apt install steamcmd
-```
-
-**Debian**
-```bash
-sudo apt update; sudo apt install software-properties-common; sudo apt-add-repository non-free; sudo dpkg --add-architecture i386; sudo apt update
 sudo apt install steamcmd
 ```
 
@@ -68,7 +62,7 @@ At this point, the tunnel will be active, but the game server will **not yet be 
 Although it will work without matching ports, we recommend that you do.
 Navigate to your Project Zomboid server configuration folder:
 
-```text
+```bash
 cd /root/Zomboid/Server
 ```
 
@@ -78,6 +72,29 @@ Inside, you will find files like:
 server@playit:~/projectzomboid$ sudo ls /root/Zomboid/Server
 servertest.ini  servertest_SandboxVars.lua  servertest_spawnpoints.lua  servertest_spawnregions.lua
 ```
+
+## Starting the server
+Your file structure will look like this:
+
+```bash
+server@playit:~/projectzomboid$ ls
+ProjectZomboid64       java   libpzexe_jni64.so  libsteamwebrtc.so  linux64  pzexe.jar      start-server.sh  steam_appid.txt  steamclient.so
+ProjectZomboid64.json  jre64  libsteam_api.so    license            media    serialize.lua  stdlib.lua       steamapps
+```
+
+Run `start-server.sh` as root. We need to start the server in order to generate the configuration files for further setup.
+```bash
+sudo bash ./start-server.sh
+```
+
+When your server is fully started, you should see this in the console:
+
+```bash
+LOG  : Network      f:0 st:761,732> *** SERVER STARTED ****
+LOG  : Network      f:0 st:761,734> *** Steam is enabled
+LOG  : Lua          f:0 st:761,744> LuaNet: Initializing...
+LOG  : Lua          f:0 st:761,749> LuaNet: Registering server listener...
+LOG  : Lua          f:0 st:761,749> LuaNet: Initialization [DONE], triggering events for 'LuaNet.onInitAdd'.
 
 ### Edit `servertest.ini`
 
@@ -108,30 +125,6 @@ DefaultPort=10233
 UDPPort=10234
 ```
 Save the file.
-
-## Starting the server
-Your file structure will look like this
-
-```bash
-server@playit:~/projectzomboid$ ls
-ProjectZomboid64       java   libpzexe_jni64.so  libsteamwebrtc.so  linux64  pzexe.jar      start-server.sh  steam_appid.txt  steamclient.so
-ProjectZomboid64.json  jre64  libsteam_api.so    license            media    serialize.lua  stdlib.lua       steamapps
-```
-
-Run `start-server.sh` as root
-```bash
-sudo bash ./start-server.sh
-```
-
-When your server is fully started, you should see this in the console:
-
-```bash
-LOG  : Network      f:0 st:761,732> *** SERVER STARTED ****
-LOG  : Network      f:0 st:761,734> *** Steam is enabled
-LOG  : Lua          f:0 st:761,744> LuaNet: Initializing...
-LOG  : Lua          f:0 st:761,749> LuaNet: Registering server listener...
-LOG  : Lua          f:0 st:761,749> LuaNet: Initialization [DONE], triggering events for 'LuaNet.onInitAdd'.
-```
 
 ## Connecting to the Server
 
