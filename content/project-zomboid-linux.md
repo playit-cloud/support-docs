@@ -4,9 +4,6 @@ tags = ["project zomboid", "pz", "guide"]
 description_file = "descriptions/project-zomboid-steam-dedicated-server.txt"
 +++
 
-## Prefer to watch a video?
-{{< youtube id="ClPNlTIkYb0">}}
-
 ### Server
 For this to work, we will be using [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) - here's how to set it up.
 We will be using Ubuntu Server 26.04 for this portion of the guide.
