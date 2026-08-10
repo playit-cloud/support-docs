@@ -32,7 +32,7 @@ Get started at [playit.gg/account/billing/shop/custom-domain](https://playit.gg/
 
 ## External Domains
 
-Have an external domain like `example.com` that you would like to add to palyit? You can add a whole domain or a sub domain [here](https://playit.gg/account/settings/domains/add-external).
+Have an external domain like `example.com` that you would like to add to playit? You can add a whole domain or a sub domain [here](https://playit.gg/account/settings/domains/add-external).
 
 More details can be found at: {{< link "add-external-domain" >}}
 

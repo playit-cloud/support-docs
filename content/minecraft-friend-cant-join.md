@@ -32,7 +32,7 @@ Port forwarding is something done on your router to instruct incoming connection
 
 **Your server program is listening on a public interface.** Often this can be "0.0.0.0" (the [ANY IP](https://wikipedia.org/wiki/0.0.0.0)). Listening on 127.0.0.1 will only work if something is briding or tunneling the connection. Your computer's LAN IPv4 Address also works. If you're running a Minecraft Java server, having the `server-ip=` property blank should work. 
 
-**Your router is forwarding to your server's address and port.** Each computer on your network is assigned a LAN Address (an IPv4. Your LAN Addresses will often starts with `192.168.` but there a [few other options it could start with](https://en.wikipedia.org/wiki/Private_network). LAN (Local Area Network) Addresses are use so computer and devices on your network can communicate with eachother. A device or computer outside of your network cannot communicate to your server using a LAN addres (noticed how if you share your LAN address to friends they cannot connect?)
+**Your router is forwarding to your server's address and port.** Each computer on your network is assigned a LAN Address (an IPv4. Your LAN Addresses will often starts with `192.168.` but there a [few other options it could start with](https://en.wikipedia.org/wiki/Private_network). LAN (Local Area Network) Addresses are used so computers and devices on your network can communicate with each other. A device or computer outside of your network cannot communicate to your server using a LAN address (noticed how if you share your LAN address to friends they cannot connect?)
 
 The LAN Address is also how your router communicates with your computer / server. So for the port forwarding rule to work properly, the router needs to know the LAN Address it should forwarding incoming connections to. See {{< link "how-to-find-your-computers-lan-address" >}}. Other computers on your network should be able to connect to your server using your computer's / server's LAN Address.
 
@@ -50,5 +50,5 @@ In some cases you might not have an IPv4 address at all. This is rare but you co
 
 ## Consider using playit.gg
 
-Since 2020 we've been working to provide a free and easy to use solution to this. We offer a static IP & port with a `.craft.playit.gg` domain. The program is [open source](https://github.com/playit-cloud/playit-agent) and supported by users purchasing custom `.playit.gg` domains. Join the 10,000 people who have other successfully setup their server for free with [playit.gg](https://playit.gg).
+Since 2020 we've been working to provide a free and easy to use solution to this. We offer a static IP & port with a `.craft.playit.gg` domain. The program is [open source](https://github.com/playit-cloud/playit-agent) and supported by users purchasing custom `.playit.gg` domains. Join the 10,000 people who have already successfully setup their server for free with [playit.gg](https://playit.gg).
 

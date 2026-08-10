@@ -6,7 +6,7 @@ description_file = "descriptions/add-external-domain.txt"
 
 If you have [playit premium](https://playit.gg/account/billing/shop/premium) you can add external domains to your playit account. This can be done by visiting [add external domain](https://playit.gg/account/details/domains/external).
 
-## Guides for specific Domain Registars
+## Guides for specific Domain Registrars
 
 * {{< link "external-domain-namecheap" >}}
 * {{< link "external-domain-porkbun" >}}
