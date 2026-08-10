@@ -13,7 +13,7 @@ In this guide we'll be using Playit to make our local website running at `http:/
 
 ## Step 1. (optional) Adding your external domain to Playit
 
-Visit [playit.gg/account/details/domains/external](https://playit.gg/account/details/domains/external) to add your external domain. For this example, it will be `map.playit-example.com`. To use an external domain you will need to have it purchased on a domain registar such as Namecheap, Porkbun, or Cloudflare. For more details on how to add an external domain you can see {{< link "add-external-domain" >}}. In this guide we'll be using CNAME records which is a new feature for HTTPs tunnels.
+Visit [playit.gg/account/details/domains/external](https://playit.gg/account/details/domains/external) to add your external domain. For this example, it will be `map.playit-example.com`. To use an external domain you will need to have it purchased on a domain registrar such as Namecheap, Porkbun, or Cloudflare. For more details on how to add an external domain you can see {{< link "add-external-domain" >}}. In this guide we'll be using CNAME records which is a new feature for HTTPs tunnels.
 
 {{< image src="post-img/add-external-domain-playitexample.png" alt="Add external domain" >}}
 
