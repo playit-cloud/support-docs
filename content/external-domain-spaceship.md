@@ -4,7 +4,7 @@ tags = ["external-domain"]
 description_file = "descriptions/external-domain-spaceship.txt"
 +++
 
-This guide assumes you have [playit premium](https://playit.gg/account/billing/shop/premium) and have purchased a domain name on [https://spaceship.com](spaceship.com). For other Domain Registars visit {{< link "add-external-domain" >}}.
+This guide assumes you have [playit premium](https://playit.gg/account/billing/shop/premium) and have purchased a domain name on [https://spaceship.com](spaceship.com). For other Domain Registrars visit {{< link "add-external-domain" >}}.
 
 
 * [Adding a second level domain (like example.com)](#adding-a-second-level-domain-to-playitgg-like-examplecom)
@@ -58,7 +58,7 @@ You're done! You can now assign your domain to your tunnel.
 
 # Adding a sub domain to playit.gg (like sub.example.com)
 
-Instead of adding our entire `olumpu.com` domain to playit.gg, we will instead the sub domain `playit.olumpu.com`.
+Instead of adding our entire `olumpu.com` domain to playit.gg, we will instead add the sub domain `playit.olumpu.com`.
 
 ## 1. Visit your domain's management page
 
