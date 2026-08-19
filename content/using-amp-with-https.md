@@ -4,15 +4,12 @@ tags = ["AMP", "HTTPS", "guide"]
 description_file = "descriptions/using-amp-with-https.txt"
 +++
 
-## Prefer to watch a video?
-{{< youtube id=" ">}}
-
 This guide was written with regards to Windows 11, however this will work on any other install, e.g. Ubuntu or Debian. We will set up SSL/HTTPS in this guide using Caddy. For more information, you can visit {{< link "https-tunnel.md" >}}
 
 This tunnel requires [playit premium](https://playit.gg/account/upgrade), as well as a gateway and a domain, which are included in this plan!
 
 ## Create a new gateway
-Navigate to [Create Gateway](https://playit.gg/account/details/gateways/create) (**Account -> Create Gateway**) and choose the closest region near you. If you are unsure, you can choose **Not Sure** and it will be be anycasted globally.
+Navigate to [Create Gateway](https://playit.gg/account/details/gateways/create) (**Account -> Create Gateway**) and choose the closest region near you.
 
 {{< image src="post-img/create-new-gateway.png" alt="Create New Gateway" >}}
 
@@ -85,8 +82,9 @@ Chocolatey detected you are not running from an elevated command shell
 ```
 
 ## Configure Caddyfile
-This bit is a bit weird, since by default you can't modify anything in Caddy's folder. It should have installed in `C:\ProgramData\chocolatey\lib\caddy` by default if installed using Chocolatey.
-Using an elevated command prompt, you can tell it to create the file for us in the correct spot. Here's our configuration example for Caddy.
+Here's our configuration example for Caddy. Create a new file without an extension. Turn on File Extensions in File Explorer, and rename it.
+
+{{< image src="post-img/playit-amp-show-extensions.png" alt="Show File Extensions" >}}
 
 ```text
 ://myampserver.playit.plus {
@@ -96,18 +94,10 @@ Using an elevated command prompt, you can tell it to create the file for us in t
 }
 ```
 
-Modify this to match your domain name before running this command - yes, the spaces are required.
-
-```batch
-(echo ://domain.playit.plus { & echo     reverse_proxy localhost:8080 { & echo         header_up Host {upstream_hostport} & echo     } & echo }) > "C:\ProgramData\chocolatey\lib\caddy\Caddyfile"
-```
-
 You should now have an extensionless file called `Caddyfile`
 
-{{< image src="post-img/playit-amp-caddy-files.png" alt="Add HTTPs Tunnel" >}}
-
 ## Running Caddy
-In a command prompt, navigate to Caddy's folder by using `cd C:\ProgramData\chocolatey\lib\caddy`.
+In a command prompt, navigate to Caddy's folder, where `Caddyfile` is located.
 You can now run `caddy run` to serve your newly created Caddyfile configuration, and AMP should show up with a new certificate.
 
 ## Testing
