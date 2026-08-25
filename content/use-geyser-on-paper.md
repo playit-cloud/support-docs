@@ -48,7 +48,7 @@ For example, `1201`. Your port will be different.
 {{< image src="post-img/playit-geyser-bedrock-origin.png" alt="Geyser Setup Bedrock Origin Configuration" >}}
 
 ### Basic Geyser Config
-Open and edit `./plugins/Geyser-Fabric/config.yml`. We need to change the port to the one provided by playit. Since our port is `1201`, we need to tell Geyser to listen on this port.
+Open and edit `./plugins/Geyser-Spigot/config.yml`. We need to change the port to the one provided by playit. Since our port is `1201`, we need to tell Geyser to listen on this port.
 
 >```yml
 ># Network settings for the Bedrock listener
