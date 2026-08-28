@@ -40,6 +40,8 @@ This will tell SteamCMD to start installing the Palworld server inside of `~/pal
 It should install inside of `/home/<your user>/.local/share/Steam/steamapps/common/PalServer/`. You should also have `PalServer.sh`
 It is also reccommended that you create a startup script with your configuration - here's ours
 
+`sudo nano start.sh`
+
 ```bash
 #!/bin/bash
 
