@@ -4,26 +4,6 @@ tags = ["Palworld", "guide"]
 description_file = "descriptions/setting-up-palworld-linux.txt"
 +++
 
-> ## Flags:
->
-> `-port=8211` - The local server port. This does **not** need changed.
->
-> `-publicip=` - The public facing IP address of your tunnel from playit.gg
->
-> `-publicport=` - The public facing port of your tunnel from playit.gg
->
-> `-publiclobby` - Makes the server joinable via the server list.
->
-> `-players=` - Sets the maximum number of players.
->
-> `-ServerName="Name"` - Defines the server name, must be a string.
->
-> `-ServerDescription="Description"` Defines the server description, must be a string.
->
-> `-ServerPassword="Password"` - Sets the server password, must be a string. For no password, don't define this.
->
-> `-AdminPassword="Password"` - The admin password for the game's console, must be a string.
-
 ## Installing SteamCMD
 
 ### Server
@@ -79,6 +59,26 @@ export LD_LIBRARY_PATH="$PWD/linux64:$LD_LIBRARY_PATH"
   -ServerDescription="This server is tunneled via playit.gg" \
   -AdminPassword="a1b2c3d4"
 ```
+
+> ## Flags:
+>
+> `-port=8211` - The local server port. This does **not** need changed.
+>
+> `-publicip=` - The public facing IP address of your tunnel from playit.gg
+>
+> `-publicport=` - The public facing port of your tunnel from playit.gg
+>
+> `-publiclobby` - Makes the server joinable via the server list.
+>
+> `-players=` - Sets the maximum number of players.
+>
+> `-ServerName="Name"` - Defines the server name, must be a string.
+>
+> `-ServerDescription="Description"` Defines the server description, must be a string.
+>
+> `-ServerPassword="Password"` - Sets the server password, must be a string. For no password, don't define this.
+>
+> `-AdminPassword="Password"` - The admin password for the game's console, must be a string.
 
 Make the script executable by running `chmod +x start.sh` (we called ours `start.sh`). Now run this script by running `./start.sh`.
 Change this to match your specific configuration and save it inside of the `PalServer` folder. This will include changing `-publicip` and `-publicport=` to match your tunnel.
