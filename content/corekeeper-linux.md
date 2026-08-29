@@ -45,7 +45,10 @@ This will tell SteamCMD to start installing the corekeeper server inside of `~/c
 
 After the tunnel is created, set the local port to the tunnel's public facing port (`41272`)
 
-{{< image src="post-img/corekeeper-originconfig.png" alt="Origin Configuration on Steam" >}}
+{{< image src="post-img/corekeeper-tunnelconfig.png" alt="Tunnel Configuration on playit" >}}
+
+{{< image src="post-img/corekeeper-originconfig.png" alt="Origin Configuration on playit" >}}
+
 
 ## Test running the server
 
