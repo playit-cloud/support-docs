@@ -37,6 +37,16 @@ This will tell SteamCMD to start installing the corekeeper server inside of `~/c
 /usr/games/steamcmd +@sSteamCmdForcePlatformType linux +force_install_dir ~/corekeeper +login anonymous +app_update 1963720 validate +quit
 ```
 
+## Create the tunnel
+
+* **Type:** UDP
+* **Local IP:** 127.0.0.1
+* **Port:** NULL
+
+After the tunnel is created, set the local port to the tunnel's public facing port (`41272`)
+
+{{< image src="post-img/corekeeper-originconfig.png" alt="Origin Configuration on Steam" >}}
+
 ## Test running the server
 
 Go into the `corekeeper` folder, and run `_launch.sh`. Set the `-port` to the port on the tunnel.
