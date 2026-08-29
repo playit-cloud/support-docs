@@ -24,7 +24,7 @@ After installing the server:
 
 The server directory will look similar to this:
 
-{{< image src="post-img/playit-palworld-serverfiles.png" alt="PZ Server Files" >}}
+{{< image src="post-img/playit-palworld-serverfiles.png" alt="Palworld Server Files" >}}
 
 ## Writing the startup script
 
