@@ -60,6 +60,23 @@ sudo bash _launch.sh -password playit -worldname "playit.gg" -port 41272
 
 For first launch, it will download dependencies required to run the server.
 
+## Notes
+```text
+No GameID found. Creating new GameID for the session.
+
+Allowed platforms: All
+Steam GameID: vcuZVam7DKibEH3
+Local IP: 0.0.0.0
+Public IP: 32.64.128.254
+Port: 41272
+Password: playit
+
+Paste to ip-field in "join via IP" menu to easily fill all values
+32.64.128.254;41272;;playit
+```
+
+The IP address in this block is **your ISP's address**, not playit.gg. Please check your tunnel information for the IP address.
+
 ## Joining the game
 
 You'll have to join with IP. Do this by entering the dropdown menu.
