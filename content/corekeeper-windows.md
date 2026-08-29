@@ -22,7 +22,9 @@ After installing the game server, you can immediately open the server within Ste
 
 After the tunnel is created, set the local port to the tunnel's public facing port (`41272`)
 
-{{< image src="post-img/corekeeper-originconfig.png" alt="Origin Configuration on Steam" >}}
+{{< image src="post-img/corekeeper-tunnelconfig.png" alt="Tunnel Configuration on playit" >}}
+
+{{< image src="post-img/corekeeper-originconfig.png" alt="Origin Configuration on playit" >}}
 
 Right click **Core Keeper Dedicated Server**, and then go to **Properties**.
 
