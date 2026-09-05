@@ -52,7 +52,7 @@ After the tunnel is created, set the local port to the tunnel's public facing po
 
 ## Test running the server
 
-Go into the `corekeeper` folder, and run `_launch.sh`. Set the `-port` to the port on the tunnel.
+Go into the `corekeeper` folder, and run `_launch.sh`. Set the `-port` to the port on the tunnel. Your port may be different than ours.
 
 ```bash
 sudo bash _launch.sh -password playit -worldname "playit.gg" -port 41272
