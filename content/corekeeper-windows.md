@@ -30,7 +30,7 @@ Right click **Core Keeper Dedicated Server**, and then go to **Properties**.
 
 {{< image src="post-img/corekeeper-properties-steam.png" alt="Core Keeper on Steam" >}}
 
-Here's our launch arguments, please modify these values to match your port
+Here's our launch arguments, please modify these values to match your port. Again, ours is `41272`.
 
 {{< image src="post-img/corekeeper-launchoptions-steam.png" alt="Core Keeper Launch Options" >}}
 
