@@ -4,6 +4,9 @@ tags = ["Core Keeper", "guide"]
 description_file = "descriptions/corekeeper-windows.txt"
 +++
 
+## Prefer to watch a video?
+{{< youtube id="lfsfyNWQepA" start="20" >}}
+
 ## Setting Everything Up
 
 Assuming you already own Core Keeper on Steam, you already have access to the dedicated server software.
