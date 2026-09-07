@@ -4,6 +4,9 @@ tags = ["Core Keeper", "guide"]
 description_file = "descriptions/corekeeper-linux.txt"
 +++
 
+## Prefer to watch a video?
+{{< youtube id="lfsfyNWQepA" start="94" >}}
+
 ## Installing SteamCMD
 
 ### Server
