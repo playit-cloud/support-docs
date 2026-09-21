@@ -1,6 +1,6 @@
 +++
 title = "Using Simple Voice Chat with playit"
-tags = ["minecraft", "simple voice chat", "guide"]
+tags = ["minecraft", "simple voice chat", "svc", "guide"]
 description_file = "descriptions/svc-minecraft.txt"
 +++
 
@@ -72,7 +72,7 @@ Navigate to the Simple Voice Chat server configuration file:
 Modify the following values:
 
 ```properties
-bind_address=*
+bind_address=
 voice_host=IP_ADDRESS:PORT
 ```
 
@@ -83,7 +83,7 @@ Replace `IP_ADDRESS:PORT` with the IP address and port provided by playit.
 **Example:**
 
 ```properties
-bind_address=*
+bind_address=
 voice_host=147.185.221.181:25732
 ```
 
@@ -120,3 +120,8 @@ Install a client-side modloader such as **Fabric**.
 ## Done
 
 Simple Voice Chat should now work over playit, allowing players to communicate using proximity voice chat.
+
+> ## Troubleshooting
+>
+> For those using a container such as Docker, use the local IP of the container rather than `127.0.0.1` or `0.0.0.0`
+> Set the local port in `voicechat-server.properties` to the public port of the tunnel playit has provided
