@@ -21,7 +21,7 @@ Assuming you already own Arma 3 on Steam, you already have access to the dedicat
 
 > NOTE: The Arma 3 Server (App ID 233780) requires that you modify `steam_appid.txt`. Replace `233780` (Arma 3 Server) with `107410` (Arma 3). We don't know why, but the server will complain otherwise.
 > ```
-> Warning: Steam AppID doesn't match expected value: 107410 <> 233780
+> Warning: Current Steam AppId: 233780 doesn't match expected value: 107410
 > ```
 > The Arma 3 base game also includes the server files needed. This guide is written for Arma 3 Server, however the bundled server setup is very similar.
 
@@ -134,7 +134,9 @@ Inside of Arma 3, go to `Multiplayer -> Server Browser -> Direct Connect`. Try c
 * **Local IP:** 127.0.0.1
 * **Port:** Match Public (see Origin Configuration)
 
-{{< image src="post-img/arma-3-tunnel-address.png" alt="playit.gg Arma 3 Tunnel" >}}
+{{< image src="post-img/arma-3-tunnel-config-d.png" alt="Arma 3 Tunnel Congig - A" >}}
+
+{{< image src="post-img/arma-3-tunnel-config-b.png" alt="Arma 3 Tunnel Congig - B" >}}
 
 Re-open your server, defining the public facing port that playit has assigned the tunnel.
 ```bat
