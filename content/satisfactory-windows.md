@@ -31,7 +31,7 @@ Create a new batch file, and set `-port` and `-ReliablePort` to match your tunne
 This is the command we will put inside of the file:
 
 ```batch
-FactoryServer.exe -log -port=62765 -ReliablePort=62766`
+FactoryServer.exe -log -port=62765 -ReliablePort=62766
 ```
 
 {{< image src="post-img/satisfactory-browse-local-files.png" alt="Satisfactory Server Files" >}}
