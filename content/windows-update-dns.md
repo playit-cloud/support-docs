@@ -4,63 +4,8 @@ tags = ["Windows", "DNS"]
 description_file = "descriptions/windows-update-dns.txt"
 +++
 
-#### Open Control Panel
-Open the windows start menu and search for `Control Panel`
-
-{{< image src="post-img/windows-control-panel.png" alt="Windows Control Panel" >}}
-
-#### Open Network and Internet
-Open `Network and Internet` from the `Control Panel`
-
-{{< image src="post-img/windows-network-and-internet.png" alt="Network and Internet" >}}
-
-#### Open Network and Sharing Center
-Next, open `Network and Sharing Center`
-
-{{< image src="post-img/windows-network-and-sharing.png" alt="Network and Sharing" >}}
-
-#### Go to adapter settings
-On the left, in the side panel click `Change adapter settings`
-
-{{< image src="post-img/windows-change-adapter-settings.png" alt="Adapter Settings" >}}
-
-#### Go to your adapter's properties
-Find the network adapter that you are currently using. There might be multiple adapters enabled. If this is the case, you may need to repeat the following instructions for each network adapter.
-
-{{< image src="post-img/windows-adapter-properties.png" alt="Network Adapter Properties" >}}
-
-#### Go to your IPv4 properties
-In the list, find and select `Internet Protocol Version 4 (TCP/IPv4)`
-
-{{< image src="post-img/windows-open-ipv4-settings.png" alt="IPv4 Properties" >}}
-
-#### Set your DNS for IPv4
-On the bottom of the newly opened window select `Use the following DNS server addresses`  and enter these values:
-> Preferred DNS server: `8.8.8.8`
-> 
-> Alternative DNS server: `8.8.4.4`.
-
-{{< image src="post-img/windows-set-dns.png" alt="Set IPv4 DNS" >}}
-
-Once done, press `OK` to save your DNS for IPv4.
-
-#### Go to your IPv6 properties
-In the list, find and select `Internet Protocol Version 6 (TCP/IPv4)`
-
-{{< image src="post-img/windows-open-ipv6-settings.png" alt="IPv6 Properties" >}}
-
-#### Set your DNS for IPv6
-On the bottom of the newly opened window select `Use the following DNS server addresses`  and enter these values:
-> Preferred DNS server: `2001:4860:4860::8888`
-> 
-> Alternative DNS server: `2001:4860:4860::8844`
-
-{{< image src="post-img/windows-set-dns-ipv6.png" alt="IPv4 Properties" >}}
-
-Once done, press `OK` to save your DNS for IPv6.
-
-### Using DNS over HTTPs (DoH)
-This will help prevent an ISP from blocking DNS, if the previous steps did not work.
+## DNS over HTTPs (DoH)
+This will help prevent an ISP from blocking DNS
 
 Go to Settings
 
