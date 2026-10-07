@@ -134,9 +134,9 @@ Inside of Arma 3, go to `Multiplayer -> Server Browser -> Direct Connect`. Try c
 * **Local IP:** 127.0.0.1
 * **Port:** Match Public (see Origin Configuration)
 
-{{< image src="post-img/arma-3-tunnel-config-d.png" alt="Arma 3 Tunnel Congig - A" >}}
+{{< image src="post-img/arma-3-tunnel-config-d.png" alt="Arma 3 Tunnel Config - A" >}}
 
-{{< image src="post-img/arma-3-tunnel-config-b.png" alt="Arma 3 Tunnel Congig - B" >}}
+{{< image src="post-img/arma-3-tunnel-config-b.png" alt="Arma 3 Tunnel Config - B" >}}
 
 Re-open your server, defining the public facing port that playit has assigned the tunnel.
 ```bat
