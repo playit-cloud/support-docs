@@ -45,9 +45,6 @@ You can run `ls` again inside of the folder to view the server's contents.
 ```bash
 server@playit-gg:~$ ls
 barotrauma
-server@playit-gg:~$
-server@playit-gg:~$ ls
-barotrauma
 server@playit-gg:~$ cd barotrauma/
 server@playit-gg:~/barotrauma$ ls
  Barotrauma                           EosInterface.Implementation.Linux.deps.json   OpenALSoft_LICENSE            libSDL2-2.0.so.0                                    libmscordaccore.so
