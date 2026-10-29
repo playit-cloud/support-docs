@@ -9,6 +9,7 @@ description_file = "descriptions/proxy-protocol-geysermc.txt"
 > The Proxy Protocol provides a way for your server to receive your client's true IP.
 {.green}
 
+> Using a **Minecraft Bedrock (NetherNet)** tunnel? Leave its Proxy Protocol setting on **None** and keep `bedrock.enable-proxy-protocol` set to `false`. The steps below apply to the older **Minecraft Bedrock** tunnel type. See {{< link "use-geyser-with-playit.md" >}} for the NetherNet setup.
 
 ## Enable The Proxy Protocol on GeyserMC
 

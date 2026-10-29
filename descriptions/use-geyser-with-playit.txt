@@ -1,1 +1,1 @@
-This guide will walk you through how to configure Geyser with playit.gg
+Let Minecraft Bedrock players join your Paper or Fabric Java server using Geyser and a playit NetherNet tunnel.

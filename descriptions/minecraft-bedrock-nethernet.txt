@@ -1,1 +1,1 @@
-Minecraft Bedrock: Switch from NetherNet to RakNet
+Make your Minecraft Bedrock Dedicated Server public with WaterdogPE and a playit NetherNet tunnel.
