@@ -1,0 +1,1 @@
+Run Microsoft's vanilla Bedrock Dedicated Server behind WaterdogPE with a playit NetherNet tunnel, including NXS signaling and complete proxy and backend configuration.

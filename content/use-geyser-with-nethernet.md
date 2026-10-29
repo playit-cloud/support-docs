@@ -8,6 +8,8 @@ Geyser lets Minecraft Bedrock players join a Java Edition server. This guide con
 
 Playit handles signaling and forwards the UDP game traffic to Geyser. You do not need to forward ports on your router.
 
+For a vanilla Bedrock server, follow {{< link "use-bedrock-with-waterdog.md" >}} instead.
+
 ## Before you start
 
 You need:
