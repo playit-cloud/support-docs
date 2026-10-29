@@ -37,4 +37,4 @@ Now when you connect, the true client IP should be provided to your server. If i
 
 ## Next Steps
 
-If you use Geyser, keep its NetherNet tunnel separate from the Java tunnel's Proxy Protocol settings. See {{< link "proxy-protocol-geysermc" >}} for current Geyser configuration.
+Do you have Geyser Setup? If so you may have broken it by requiring the proxy procol. This can be fixed, see our guide: **{{< link "proxy-protocol-geysermc" >}}**

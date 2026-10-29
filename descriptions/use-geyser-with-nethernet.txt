@@ -1,1 +1,0 @@
-Configure Geyser, Floodgate, and a playit NetherNet tunnel so Minecraft Bedrock players can join your Java server through playit's NXS signaling service.

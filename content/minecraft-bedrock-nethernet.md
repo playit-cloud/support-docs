@@ -1,60 +1,108 @@
 +++
-title = "Setting up Minecraft Bedrock with NetherNet"
-tags = ["minecraft", "guide", "networking"]
+title = "Setting up a Minecraft Bedrock server with playit"
+tags = ["minecraft", "guide", "bedrock", "networking"]
 description_file = "descriptions/minecraft-bedrock-nethernet.txt"
+aliases = ["/use-bedrock-with-waterdog/"]
 +++
 
-Let friends join your Minecraft Bedrock server with a **Minecraft Bedrock (NetherNet)** tunnel. Choose the guide below for your server software.
+This guide shows how to make Microsoft's **Bedrock Dedicated Server** public with a playit **Minecraft Bedrock (NetherNet)** tunnel.
 
-NetherNet tunnels require [Playit Premium](https://playit.gg/premium) and an up-to-date [playit agent](https://playit.gg/download) with NXS support.
+Bedrock Dedicated Server can't connect to playit by itself. You'll run a small free program called **WaterdogPE** next to it. Players connect to WaterdogPE through playit, and WaterdogPE passes them to your server.
 
-NetherNet support is experimental. Check the notice on your tunnel page for current platform limitations.
+> Want Bedrock players to join a **Java** server? Follow {{< link "use-geyser-with-playit.md" >}} instead.
 
-## Choose your server setup
+## What you need
+* **Bedrock Dedicated Server** - [[minecraft.net]](https://www.minecraft.net/en-us/download/server/bedrock)
+* The latest **WaterdogPE** release (`Waterdog.jar`) - [[github.com]](https://github.com/WaterdogPE/WaterdogPE/releases)
+* **Java 17 or newer**, to run WaterdogPE - [[adoptium.net]](https://adoptium.net/)
+* **playit program version 1.1.0 or newer** - [[playit.gg]](https://playit.gg/download)
 
-### Bedrock players joining a Java server
+Make two folders, one for the Bedrock server and one for WaterdogPE. Extract the Bedrock server ZIP into the first folder and put `Waterdog.jar` in the second.
 
-Install Geyser and, optionally, Floodgate. Follow the guide for your platform:
+## 1. Create the tunnel
+Make sure the playit program is running, then go to [Tunnels](https://playit.gg/account/tunnels) and click **new tunnel**.
 
-- {{< link "use-geyser-on-paper.md" >}}
-- {{< link "use-geyser-on-fabric.md" >}}
-- {{< link "use-geyser-with-nethernet.md" >}} for other Geyser platforms.
+1. Give your tunnel a name.
+2. Choose **Minecraft Bedrock (NetherNet)** as the tunnel type.
+3. Tick the box to confirm NetherNet is experimental.
+4. Leave the other settings as they are and finish creating the tunnel.
 
-### A vanilla Bedrock Dedicated Server
+{{< image src="post-img/nethernet-tunnel-type.png" alt="Selecting the Minecraft Bedrock (NetherNet) tunnel type" >}}
 
-Run WaterdogPE in front of the Microsoft server. Follow {{< link "use-bedrock-with-waterdog.md" >}}.
+> Make sure you pick **Minecraft Bedrock (NetherNet)**, not **Minecraft Bedrock**.
 
-Install WaterdogPE on the same computer as your Bedrock server. Configure your tunnel to send traffic to WaterdogPE.
+## 2. Open Configuration help
+Open your new tunnel and click **Configuration help**, then select the **WaterdogPE** tab. You'll copy two sets of settings from here.
 
-## Create the correct tunnel
+{{< image src="post-img/nethernet-tunnel-page.png" alt="The Configuration help button on the tunnel page" >}}
 
-Select **Minecraft Bedrock (NetherNet)** when creating your tunnel:
+## 3. Set up the Bedrock server
+In the Bedrock server folder, open `server.properties` with a text editor like Notepad.
 
-{{< image src="post-img/minecraft-nethernet-tunnel-type.png" alt="Select Minecraft Bedrock (NetherNet) in the tunnel wizard" >}}
+Click **Copy** on the `server.properties` box in Configuration help. For each copied line, find the line with the same name in your file and replace it. Save the file.
 
-Set the tunnel's local IP to `127.0.0.1` when the agent runs alongside Geyser or WaterdogPE. Set its local port to `19132`.
+{{< image src="post-img/nethernet-config-help-waterdog-properties.png" alt="Bedrock server.properties settings in the WaterdogPE tab of Configuration help" >}}
 
-Copy the NetherNet token from your tunnel page. Follow your server's guide to add that token and `https://nethernet.playit.gg` to Geyser or WaterdogPE.
+These settings move your Bedrock server to port `19142` so WaterdogPE can use `19132`. They also make sure players can only join through WaterdogPE.
 
-Follow the selected guide for the complete configuration. Use these ports when configuring your server and joining:
+Start the server by running `bedrock_server.exe` and wait for `Server started` in the console. Leave it running.
 
-- **Local UDP port:** `19132`, where Geyser or WaterdogPE receives traffic from the agent.
-- **Player join port:** `19132`, used with the tunnel hostname for signaling.
+## 4. Set up WaterdogPE
+In the WaterdogPE folder, create a file called `start.bat` with this inside:
 
-## If you already have a Bedrock tunnel
+```batch
+java -Xms256M -Xmx1G -jar Waterdog.jar
+pause
+```
 
-Create a Minecraft Bedrock (NetherNet) tunnel for your existing server. Configure Geyser or WaterdogPE with its token and public UDP endpoint.
+Double-click `start.bat`. WaterdogPE will create a `config.yml` file. Type `end` in the WaterdogPE window and press Enter to stop it.
 
-Apply the configuration from your server's guide, including your tunnel token and the playit endpoint.
+Click **Copy** on the `config.yml` box in Configuration help. The copied settings already include your tunnel's private token.
 
-Restart Geyser or WaterdogPE and check for a successful registration message. Share your new tunnel hostname and port `19132` with players.
+{{< image src="post-img/nethernet-config-help-waterdog-config.png" alt="WaterdogPE config.yml settings in Configuration help" >}}
 
-Keep an existing Minecraft Java tunnel if Java players still need it.
+> Keep your token private. Anyone with it can attach a server to your tunnel.
 
-## If joining fails with "Door"
+Open WaterdogPE's `config.yml`. Each top-level section in the copied settings (`listener:`, `servers:`, `nethernet:`) should have a matching section in your file. Replace each of those sections with the copied version, or add it at the end of the file if it's missing. Then set `online_mode`, `upstream_encryption`, `use_login_extras`, and `enable_edu_features` to the copied values. Leave everything else alone.
 
-Check the Geyser or WaterdogPE console for a successful registration message. Check the tunnel's local port and use its hostname with port `19132` in Minecraft.
+> Keep the spaces at the start of each line exactly as they are in the copied settings. YAML files break if the spacing is wrong.
 
-Keep Geyser or WaterdogPE listening on `0.0.0.0`. Update your playit agent to the latest version.
+## 5. Start WaterdogPE
+Save `config.yml` and double-click `start.bat` again. Look for this line in the WaterdogPE window:
 
-See the troubleshooting section in your server's setup guide for account, whitelist, and server connection errors.
+```text
+Registered with the external signaling service
+```
+
+If you see it, WaterdogPE is connected to playit.
+
+Keep the playit program, the Bedrock server, and WaterdogPE running while people play.
+
+## 6. Join from Minecraft Bedrock
+In Minecraft Bedrock, go to **Play > Servers > Add Server** and enter:
+* **Server Address:** your tunnel address, for example `malls-retriever.tun.ply.gg`
+* **Port:** `19132`
+
+Share the same address and port with your friends.
+
+## Troubleshooting
+
+### WaterdogPE never prints "Registered with the external signaling service"
+* Make sure the playit program is running and is version 1.1.0 or newer.
+* Make sure you are on the latest WaterdogPE release.
+* Copy the settings from **Configuration help** again and check that the token was pasted correctly.
+
+### Players connect but can't get into the world
+* Make sure the Bedrock server is running.
+* Check that `server.properties` has `server-port=19142` and `online-mode=false`.
+* Check that `servers:` in WaterdogPE's `config.yml` points to `127.0.0.1:19142`.
+* Update both the Bedrock server and WaterdogPE to the latest version.
+
+### The Bedrock server closes with an allow-list error
+Set `allow-list=false` in `server.properties`. WaterdogPE still checks that every player is signed in to Xbox.
+
+### Players get a "Door" error
+* Check that your tunnel type is **Minecraft Bedrock (NetherNet)**.
+* Make sure WaterdogPE is running and players are using port `19132`.
+
+For more about WaterdogPE, see the [WaterdogPE documentation](https://docs.waterdog.dev/).

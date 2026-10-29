@@ -1,1 +1,0 @@
-Configure Geyser and Floodgate on Paper with a playit NetherNet tunnel, NXS signaling, and the correct Bedrock join address.

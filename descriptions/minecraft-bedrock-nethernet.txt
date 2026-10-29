@@ -1,1 +1,1 @@
-Set up current Minecraft Bedrock clients with playit NetherNet tunnels, using Geyser for Java servers or WaterdogPE for vanilla Bedrock servers.
+Make your Minecraft Bedrock Dedicated Server public with WaterdogPE and a playit NetherNet tunnel.

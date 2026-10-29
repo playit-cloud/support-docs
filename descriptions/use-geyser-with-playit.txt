@@ -1,1 +1,1 @@
-Choose the Paper, Fabric, or general Geyser guide for connecting Bedrock players through a playit NetherNet tunnel and NXS signaling.
+Let Minecraft Bedrock players join your Paper or Fabric Java server using Geyser and a playit NetherNet tunnel.

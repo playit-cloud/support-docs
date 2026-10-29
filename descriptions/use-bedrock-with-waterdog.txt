@@ -1,1 +1,0 @@
-Configure your vanilla Minecraft Bedrock server, WaterdogPE, and a playit NetherNet tunnel so friends can join your world.
