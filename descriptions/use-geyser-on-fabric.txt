@@ -1,1 +1,1 @@
-This guide will walk you through how to configure Geyser on Fabric with playit.gg
+Configure Geyser and Floodgate on Fabric with a playit NetherNet tunnel, NXS signaling, and the correct Bedrock join address.

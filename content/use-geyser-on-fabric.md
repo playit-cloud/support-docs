@@ -1,89 +1,103 @@
 +++
 title = "Setting up Geyser on Fabric"
-tags = ["Minecraft", "Guide", "GeyserMC", "FabricMC"]
+tags = ["minecraft", "guide", "geysermc", "fabricmc"]
 description_file = "descriptions/use-geyser-on-fabric.txt"
 +++
 
-This guide will walk you through how to configure Geyser on Fabric with playit.gg
+Connect Bedrock players to your Fabric Java server with Geyser and a **Minecraft Bedrock (NetherNet)** tunnel.
 
-You can download GeyserMC here:
-* **GeyserMC** - [[geysermc.org]](https://geysermc.org/download/?project=geyser)
+You need [Playit Premium](https://playit.gg/premium) and an up-to-date [playit agent](https://playit.gg/download) that supports NetherNet through NXS.
 
-Additionally, you need Fabric API and the Fabric Loader for this to work. Both sources are the same, so this is your preference.
-* **Fabric API** - [[modrinth.com]](https://modrinth.com/mod/fabric-api)
-* **Fabric API** - [[github.com]](https://github.com/FabricMC/fabric-api/releases)
-* **Fabric Loader** [[fabricmc.net]](https://fabricmc.net/use/server/)
+## 1. Install the server, Geyser, and Floodgate
 
-Optional: Floodgate
-Floodgate allows Bedrock clients to connect to Java servers without the need for a Java Edition account. Without this, players will still be able to join, but they will need to authenticate with a Java Edition account.
-* **Floodgate (Bedrock Authentication)** - [[geysermc.org]](https://geysermc.org/download/?project=floodgate)
+Install a [Fabric server](https://fabricmc.net/use/server/) for a Minecraft version supported by [Geyser-Fabric](https://geysermc.org/wiki/geyser/setup/).
 
-## Prefer to watch a video?
-{{< youtube id="NBZt04WUcUk" start="0" >}}
+Download `Geyser-Fabric.jar` from [Geyser's downloads page](https://geysermc.org/download/?project=geyser). Place it in the server's `mods` folder.
 
-### Server
-> The server we used for this guide is **Fabric 26.1.2**, and you can download it [here.](https://fabricmc.net/use/server/) The setup process is the same across all server platforms. See {{< link "how-to-setup-a-mc-server.md" >}}
+Install [Fabric API](https://modrinth.com/mod/fabric-api) in the same folder. Install the [Floodgate-Fabric mod](https://geysermc.org/wiki/floodgate/setup/) to let Bedrock players join without a Java Edition account.
 
-### Config
-> `server.properties`
->
-> By default, `enforce-secure-profile` is set to `true`. Set this to `false` to allow Bedrock clients to chat.
+Bedrock players cannot use Java client mods. Use server-side mods compatible with Geyser.
 
-### Installation
-All files downloaded will be a `.jar` file. For Fabric, these files should be placed in the `./mods` folder, not `./plugins`.
+Keep `online-mode=true` in your Java server's `server.properties`.
 
-{{< image src="post-img/playit-geyser-fabric-mods.png" alt="Geyser Mods Folder" >}}
+Start the server once to generate the configuration files. Stop it before editing the Geyser configuration.
 
-### Starting the server
-Run your server's JAR file. We need to start the server in order for the server plugins to generate their config files for you. You can either open it using a batch file, or by running it inside of a command line.
-```batch
-java -Xmx4G -jar fabric-server-mc.26.1.2-loader.0.19.3-launcher.1.1.1.jar nogui
-pause
+## 2. Create a NetherNet tunnel
+
+Start the playit agent and confirm it is connected to your account. Create a tunnel in the [tunnel dashboard](https://playit.gg/account/tunnels):
+
+- **Tunnel type:** Minecraft Bedrock (NetherNet).
+- **Agent:** the agent that can reach this Minecraft server.
+- **Local IP:** `127.0.0.1` when the agent and Geyser run on the same machine.
+- **Local port:** `19132`.
+- **Proxy Protocol:** None.
+
+{{< image src="post-img/minecraft-nethernet-tunnel-type.png" alt="Minecraft Bedrock (NetherNet) selected in the new tunnel wizard" >}}
+
+Select the entry with **(NetherNet)** in its name. The older Minecraft Bedrock tunnel uses a different transport.
+
+If the agent runs on another machine or outside the server's container, use an address it can reach over UDP.
+
+Open the tunnel page. Get its **NetherNet token**, hostname, public IPv4 address, and allocated UDP port.
+
+{{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin configuration with local IP 127.0.0.1, local port 19132, and no proxy protocol" >}}
+
+Keep the local port at `19132`. Playit's allocated UDP port belongs in the advertised address below, rather than the local port field.
+
+## 3. Configure Geyser on Fabric
+
+Open `config/Geyser-Fabric/config.yml`. Merge these settings into the existing `bedrock:` and `java:` sections:
+
+```yaml
+bedrock:
+  address: 0.0.0.0
+  port: 19132
+  webrtc-port: 0
+  transport: nethernet
+  clone-remote-port: false
+  signaling:
+    mode: nxs
+    advertise-addresses:
+      - "203.0.113.10:44079"
+    stun-discovery: false
+    nxs:
+      token: 'YOUR_NETHERNET_TOKEN'
+      endpoint: https://nethernet.playit.gg
+
+java:
+  auth-type: floodgate
 ```
 
-### Creating a tunnel
-> This server uses game presets, which means that all users will be able to create this.
+Replace `YOUR_NETHERNET_TOKEN` with the token from your tunnel page. Keep the token private.
 
-You will create two tunnels. Minecraft Java, and Minecraft Bedrock. Follow the instructions shown on screen and create the tunnels.
-Your tunnel list should look something like this:
+Replace `203.0.113.10:44079` with your tunnel's **public IPv4 address and allocated UDP port**. The example address will not work as written.
 
-{{< image src="post-img/playit-geyser-tunnel_list.png" alt="Geyser Setup Tunnel List" >}}
+`webrtc-port: 0` uses local UDP port `19132`. Keep `address: 0.0.0.0`, even when the agent forwards to `127.0.0.1`.
 
-### Modifying a tunnel
-We'll need to change the origin configuration on the Minecraft Bedrock tunnel. Copy the port of your tunnel, and set the local port to this value.
-For example, `1201`. Your port will be different.
+`signaling.mode: nxs` registers Geyser with `https://nethernet.playit.gg`. Put `advertise-addresses` directly under `signaling`, alongside `nxs`.
 
-{{< image src="post-img/playit-geyser-bedrock-origin.png" alt="Geyser Setup Bedrock Origin Configuration" >}}
+If you are not using Floodgate, keep `java.auth-type: online`. Bedrock players will need to authenticate with a Java Edition account.
 
-### Basic Geyser Config
-Open and edit `./config/Geyser-Fabric/config.yml` (or similar file path). We need to change the port to the one provided by playit. Since our port is `1201`, we need to tell Geyser to listen on this port.
+## 4. Restart and connect
 
->```yml
-># Network settings for the Bedrock listener
->bedrock:
->  # The IP address that Geyser will bind on to listen for incoming Bedrock connections.
->  # Generally, you should only change this if you want to limit what IPs can connect to your server.
->  address: 0.0.0.0
->
->  # The port that will Geyser will listen on for incoming Bedrock connections.
->  # Since Minecraft: Bedrock Edition uses UDP, this port must allow UDP traffic.
->  port: 1201
->
->  # Some hosting services change your Java port everytime you start the server and require the same port to be used for Bedrock.
->  # This option makes the Bedrock port the same as the Java port every time you start the server.
->  clone-remote-port: false
->```
+Restart the Minecraft server with the playit agent running. Geyser should print a message similar to:
 
-On a successful install, your logs should look like this:
-```bash
-[00:00:00] [Server thread/INFO]: Took 15ms to boot Floodgate
-[00:00:00] [Server thread/INFO]: ******************************************
-[00:00:00] [Server thread/INFO]:
-[00:00:00] [Server thread/INFO]: Loading Geyser version 2.10.1-b1165 (git-master-a09c335)
-[00:00:00] [Server thread/INFO]:
-[00:00:00] [Server thread/INFO]: ******************************************
-[00:00:00] [GeyserServer-3-1/INFO]: Started Geyser on UDP port 1201
-[00:00:00] [Server thread/INFO]: Done (1.250s)! Run /geyser help for help!
+```text
+Registered with the external signaling service. Players can join at https://your-tunnel.tun.ply.gg:19132
 ```
 
-Connecting to the server is the same as usual. Share playit's IP address with people to connect!
+In Minecraft Bedrock, add the tunnel's **hostname** as the server address and **19132** as the port.
+
+Enter the hostname without `https://`. Use the join address printed by Geyser if it differs from the example.
+
+Players use port `19132` for signaling. The allocated UDP port, such as `44079`, belongs in Geyser's `advertise-addresses`.
+
+For Java players, create a separate Minecraft Java tunnel pointing to the Java server's port, usually `25565`.
+
+## Troubleshooting
+
+If registration fails, check the token, endpoint, and tunnel status. If joining times out, check both the local UDP port and advertised public endpoint.
+
+If a Floodgate player is rejected by the whitelist, run `fwhitelist add YourBedrockGamertag` in the server console.
+
+See {{< link "use-geyser-with-nethernet.md" >}} for detailed setting explanations and troubleshooting.

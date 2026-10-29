@@ -1,1 +1,1 @@
-Enable Proxy Protocol in GeyserMC to get true client IPs. Configure GeyserMC, your Java server, and playit tunnel for accurate IP forwarding.
+Configure NetherNet NXS separately from a Java backend requiring Proxy Protocol, using current Geyser settings.

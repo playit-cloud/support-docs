@@ -1,6 +1,6 @@
 +++
 title = "Setting up a Bedrock server with WaterdogPE and playit"
-tags = ["Minecraft", "Guide", "Networking", "WaterdogPE"]
+tags = ["minecraft", "guide", "networking", "waterdogpe"]
 description_file = "descriptions/use-bedrock-with-waterdog.txt"
 +++
 
@@ -86,10 +86,15 @@ Create a tunnel in the [tunnel dashboard](https://playit.gg/account/tunnels) wit
 - **Agent:** the agent running on this machine.
 - **Local IP:** `127.0.0.1`.
 - **Local port:** `19132`, the WaterdogPE port.
+- **Proxy Protocol:** None.
+
+{{< image src="post-img/minecraft-nethernet-tunnel-type.png" alt="Select Minecraft Bedrock (NetherNet) for the WaterdogPE tunnel" >}}
 
 The tunnel must point to WaterdogPE, rather than the vanilla server's port `19142`.
 
 Get the **NetherNet token** from the tunnel page. Also copy its hostname, public IPv4 address, and allocated UDP port.
+
+{{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin forwarding to local UDP port 19132 with Proxy Protocol set to None" >}}
 
 If you reuse an existing tunnel, stop its previous NXS host, such as Geyser. Use this token for the WaterdogPE instance serving the tunnel.
 

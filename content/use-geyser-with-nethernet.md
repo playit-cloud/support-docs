@@ -1,6 +1,6 @@
 +++
 title = "Setting up NetherNet with Geyser and playit"
-tags = ["Minecraft", "Guide", "GeyserMC", "Networking"]
+tags = ["minecraft", "guide", "geysermc", "networking"]
 description_file = "descriptions/use-geyser-with-nethernet.txt"
 +++
 
@@ -41,12 +41,17 @@ In the [tunnel dashboard](https://playit.gg/account/tunnels), create a tunnel wi
 - **Agent:** the agent that can reach your Geyser server.
 - **Local IP:** `127.0.0.1` when the agent and Geyser run on the same machine.
 - **Local port:** `19132`.
+- **Proxy Protocol:** None.
+
+{{< image src="post-img/minecraft-nethernet-tunnel-type.png" alt="Select Minecraft Bedrock (NetherNet) when creating the tunnel" >}}
 
 If Geyser runs in a container or on another machine, use an address the agent can reach. Allow UDP traffic from the agent to Geyser's local port.
 
 Open the tunnel page after creating it. Get the **NetherNet token** from the tunnel page.
 
 Also copy the tunnel's hostname, public IPv4 address, and allocated UDP port. These values serve different purposes in the following steps.
+
+{{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin forwarding to local UDP port 19132 with Proxy Protocol set to None" >}}
 
 ## 3. Configure Geyser
 

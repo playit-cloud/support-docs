@@ -17,6 +17,8 @@ Playit supports both version of the proxy protocol. Please note, proxy protocol 
 
 {{< image src="post-img/select-proxy-protocol.png" alt="select-proxy-protocol" >}}
 
+For Bedrock through NetherNet NXS, leave the tunnel's Proxy Protocol set to **None**. Follow {{< link "proxy-protocol-geysermc" >}} for Geyser.
+
 ### Guides
 * **{{< link "proxy-protocol-papermc" >}}**
 * **{{< link "proxy-protocol-geysermc" >}}**

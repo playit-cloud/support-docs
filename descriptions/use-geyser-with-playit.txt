@@ -1,1 +1,1 @@
-This guide will walk you through how to configure Geyser with playit.gg
+Choose the Paper, Fabric, or general Geyser guide for connecting Bedrock players through a playit NetherNet tunnel and NXS signaling.

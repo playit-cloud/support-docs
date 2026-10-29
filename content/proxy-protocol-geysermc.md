@@ -1,38 +1,50 @@
 +++
-title = "Setup Proxy Protocol in GeyserMC"
+title = "Geyser, NetherNet, and Proxy Protocol"
 tags = ["minecraft", "java", "bedrock", "geysermc", "proxy-protocol"]
 date = 2024-09-27T12:18:19-07:00
 description_file = "descriptions/proxy-protocol-geysermc.txt"
 +++
 
-> **{{< link "what-is-proxy-protocol" >}}**
-> The Proxy Protocol provides a way for your server to receive your client's true IP.
-{.green}
+The Proxy Protocol carries a player's address between applications that support it. See {{< link "what-is-proxy-protocol" >}} for the protocol details.
 
+## Bedrock connections through NetherNet
 
-## Enable The Proxy Protocol on GeyserMC
+Configure Geyser using {{< link "use-geyser-with-nethernet.md" >}}. Use a **Minecraft Bedrock (NetherNet)** tunnel with NXS signaling.
 
-<!--start-summary-->
+Leave **Proxy Protocol** set to **None** in the NetherNet tunnel's origin configuration:
 
-The configuration file for GeyserMC can be difficult to find. If you have GeyserMC installed as a plugin, the configuration should be located at `./plugins/Geyser-Spigot/config.yml`. Change the value of `bedrock.enable-proxy-protocol` from `false` to `true`.
+{{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin configuration with Proxy Protocol set to None" >}}
 
-{{< image src="post-img/geysermc-change-bed-proxy.png" alt="geysermc-change-bed-proxy" >}}
+The tested NetherNet NXS setup uses ordinary UDP forwarding. Do not enable the tunnel's Proxy Protocol option just because the Java server requires it.
 
+Keep this Geyser setting at its default for that setup:
 
-## Enable The Proxy Protocol in your Java Server and update GeyserMC
+```yaml
+advanced:
+  bedrock:
+    use-haproxy-protocol: false
+```
 
-It's not much use using the Proxy Protocol in GeyserMC if that data isn't forwarded to your Java Server. For an example on how to setup PaperMC see {{< link "proxy-protocol-papermc" >}}. We also need to tell GeyserMC to forward the client IP information to your Java Server. This can be done by editing the config file again and setting the value `remote.use-proxy-protocol` from `false` to `true`.
+This page does not configure original-IP forwarding through NXS. The NetherNet connection setup and a Java server's Proxy Protocol listener are separate settings.
 
-{{< image src="post-img/geysermc-change-remote-proxy.png" alt="geysermc-change-bed-proxy" >}}
+## Geyser connecting to a Java server that requires Proxy Protocol
 
-## Change your playit tunnel to use the Proxy Protocol
+Only configure this section if Geyser opens a TCP connection to a Java backend that requires Proxy Protocol headers.
 
-Navigate to your tunnel on [playit.gg](https://playit.gg/account/tunnels/). Down the page you should find the attribute "Proxy Protocol" with a button to change.
+For Paper, see {{< link "proxy-protocol-papermc" >}}. For Velocity, see {{< link "proxy-protocol-velocity" >}}.
 
-{{< image src="post-img/select-proxy-protocol.png" alt="select-proxy-protocol" >}}
+Set the following in Geyser's configuration:
 
-Change the protocol to `Proxy Protocol Version 2`.
+```yaml
+advanced:
+  java:
+    use-haproxy-protocol: true
+```
 
-## You should be all set
+Current Geyser versions use `advanced.java.use-haproxy-protocol`. The older `remote.use-proxy-protocol` setting is no longer the configuration shown by current versions.
 
-Now when you connect, the true client IP should be provided to your server. If it's not working, make sure you're using the latest version of the playit program. Support for the proxy protocol was added in version `0.15.26`.
+Geyser running directly inside Paper or Fabric normally uses its integrated connection. It does not need a TCP Proxy Protocol header for that connection.
+
+Keep the working NetherNet `bedrock.signaling` settings unchanged. Restart Geyser after changing its Java connection settings.
+
+A separate Minecraft Java tunnel must match the Java server's Proxy Protocol requirements. Changing that Java tunnel does not require enabling Proxy Protocol on the NetherNet tunnel.
