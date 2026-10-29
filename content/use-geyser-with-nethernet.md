@@ -4,9 +4,7 @@ tags = ["minecraft", "guide", "geysermc", "networking"]
 description_file = "descriptions/use-geyser-with-nethernet.txt"
 +++
 
-Geyser lets Minecraft Bedrock players join a Java Edition server. This guide configures Geyser to use playit's NetherNet tunnel and external signaling service (NXS).
-
-Playit handles signaling and forwards the UDP game traffic to Geyser. You do not need to forward ports on your router.
+Let Minecraft Bedrock players join your Java Edition server with Geyser and a playit NetherNet tunnel. You do not need to forward ports on your router.
 
 For a vanilla Bedrock server, follow {{< link "use-bedrock-with-waterdog.md" >}} instead.
 
@@ -19,7 +17,7 @@ You need:
 - An up-to-date [playit agent](https://playit.gg/download) with support for NetherNet through NXS.
 - [Playit Premium](https://playit.gg/premium), which is required to create a NetherNet tunnel.
 
-NetherNet support is experimental. This guide uses Paper with Geyser-Spigot; other Geyser platforms use the same Bedrock settings.
+For Paper, follow the installation steps below. If you use another Geyser platform, install its matching Geyser package and apply the same Bedrock settings.
 
 ## 1. Install Geyser and Floodgate
 
@@ -90,7 +88,7 @@ Check these settings:
 - `address: 0.0.0.0` lets Geyser's NetherNet listener accept connections. Do not bind Geyser to `127.0.0.1`, even when the agent runs locally.
 - `port: 19132` matches the tunnel's **local port**. It does not need to match playit's allocated UDP port.
 - `webrtc-port: 0` makes NetherNet use the UDP port selected by `port`.
-- `transport: nethernet` enables NetherNet. This example does not also enable RakNet.
+- `transport: nethernet` lets current Bedrock clients connect to your server.
 - `clone-remote-port: false` keeps the Geyser port separate from the Java server port.
 - `signaling.mode: nxs` registers Geyser with playit's external signaling service.
 - `signaling.advertise-addresses` tells the service which public UDP address reaches this tunnel. It belongs directly under `signaling`, alongside `nxs`.
@@ -124,9 +122,9 @@ Java Edition players need a separate Minecraft Java tunnel pointing to the Java 
 
 ## Troubleshooting
 
-### Geyser registers, but joining times out with "Door"
+### You get a "Door" error when joining
 
-Confirm that the agent supports NetherNet through NXS. Older NetherNet implementations may reject NXS STUN traffic even when registration succeeds.
+Update the playit agent and restart Geyser. Check that Geyser prints the successful registration message shown above.
 
 Check that the tunnel's local port matches Geyser's UDP port. Confirm that `advertise-addresses` contains the tunnel's public IPv4 address and allocated UDP port.
 

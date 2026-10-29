@@ -32,7 +32,7 @@ Start the playit agent and confirm it is connected to your account. Create a tun
 
 {{< image src="post-img/minecraft-nethernet-tunnel-type.png" alt="Minecraft Bedrock (NetherNet) selected in the new tunnel wizard" >}}
 
-Select the entry with **(NetherNet)** in its name. The older Minecraft Bedrock tunnel uses a different transport.
+Select **Minecraft Bedrock (NetherNet)**, as highlighted above.
 
 If the agent runs on another machine or outside the server's container, use an address it can reach over UDP.
 

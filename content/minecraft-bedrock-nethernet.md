@@ -4,7 +4,7 @@ tags = ["minecraft", "guide", "networking"]
 description_file = "descriptions/minecraft-bedrock-nethernet.txt"
 +++
 
-Use the **Minecraft Bedrock (NetherNet)** tunnel type for current Minecraft Bedrock clients. Playit handles external signaling (NXS) and forwards the UDP game traffic to your server or proxy.
+Let friends join your Minecraft Bedrock server with a **Minecraft Bedrock (NetherNet)** tunnel. Choose the guide below for your server software.
 
 NetherNet tunnels require [Playit Premium](https://playit.gg/premium) and an up-to-date [playit agent](https://playit.gg/download) with NXS support.
 
@@ -24,7 +24,7 @@ Install Geyser and, optionally, Floodgate. Follow the guide for your platform:
 
 Run WaterdogPE in front of the Microsoft server. Follow {{< link "use-bedrock-with-waterdog.md" >}}.
 
-The vanilla server does not provide NXS endpoint or token settings. WaterdogPE handles that registration and connects to the vanilla server locally.
+Install WaterdogPE on the same computer as your Bedrock server. Configure your tunnel to send traffic to WaterdogPE.
 
 ## Create the correct tunnel
 
@@ -34,30 +34,28 @@ Select **Minecraft Bedrock (NetherNet)** when creating your tunnel:
 
 Set the tunnel's local IP to `127.0.0.1` when the agent runs alongside Geyser or WaterdogPE. Set its local port to `19132`.
 
-Get the NetherNet token from the tunnel page. Configure your NXS host with that token and `https://nethernet.playit.gg`.
+Copy the NetherNet token from your tunnel page. Follow your server's guide to add that token and `https://nethernet.playit.gg` to Geyser or WaterdogPE.
 
 Follow the selected guide for the complete configuration. The examples use different ports for different purposes:
 
 - **Local UDP port:** `19132`, where Geyser or WaterdogPE receives traffic from the agent.
-- **Allocated public UDP port:** the port assigned by playit, used with the public IPv4 address in the NXS host's advertised addresses.
+- **Allocated public UDP port:** copy this from your tunnel page, together with the public IPv4 address, into Geyser or WaterdogPE's advertised addresses.
 - **Player join port:** `19132`, used with the tunnel hostname for signaling.
 
-## Moving from the older Bedrock setup
+## If you already have a Bedrock tunnel
 
 Create a Minecraft Bedrock (NetherNet) tunnel for your existing server. Configure Geyser or WaterdogPE with its token and public UDP endpoint.
 
-Replace older RakNet-only configuration with the NetherNet settings in the appropriate guide. Changing only `transport` does not configure NXS signaling.
+Apply the complete configuration from your server's guide, including the token, endpoint, and advertised address.
 
-Restart the NXS host and confirm that it prints a successful registration message. Share the new tunnel hostname and join port `19132` with players.
+Restart Geyser or WaterdogPE and check for a successful registration message. Share your new tunnel hostname and port `19132` with players.
 
 Keep an existing Minecraft Java tunnel if Java players still need it.
 
-This page replaces the earlier recommendation to switch Bedrock servers back to RakNet. Use the NetherNet setup above for current clients.
-
 ## If joining fails with "Door"
 
-Check that the NXS host registered successfully. Confirm that the tunnel points to its local UDP port and advertises the correct public IPv4 address and allocated UDP port.
+Check the Geyser or WaterdogPE console for a successful registration message. Check the tunnel's local port and your configured public IPv4 address and allocated UDP port.
 
-Keep Geyser or WaterdogPE listening on `0.0.0.0`. Use a playit agent that supports forwarding NetherNet traffic through NXS.
+Keep Geyser or WaterdogPE listening on `0.0.0.0`. Update your playit agent to the latest version.
 
-See the troubleshooting section in your server's setup guide for authentication, whitelist, and backend connection errors.
+See the troubleshooting section in your server's setup guide for account, whitelist, and server connection errors.

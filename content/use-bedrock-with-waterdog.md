@@ -4,17 +4,9 @@ tags = ["minecraft", "guide", "networking", "waterdogpe"]
 description_file = "descriptions/use-bedrock-with-waterdog.txt"
 +++
 
-This guide connects Minecraft Bedrock players to Microsoft's vanilla Bedrock Dedicated Server through WaterdogPE and a playit NetherNet tunnel.
+Let friends join your Minecraft Bedrock Dedicated Server through playit. Install WaterdogPE alongside your server to connect it to your NetherNet tunnel.
 
-The vanilla server has built-in NetherNet signaling, but it does not provide NXS endpoint or token settings. WaterdogPE registers with playit's external signaling service (NXS) and forwards players to the vanilla server.
-
-The connection follows this path:
-
-```text
-Bedrock player -> playit NetherNet tunnel -> WaterdogPE -> vanilla Bedrock server
-```
-
-You do not need Geyser or Floodgate for this setup. WaterdogPE itself provides the NetherNet proxy; the StarGate messaging plugin is not required.
+Follow the steps below on the Windows computer that will run your server, WaterdogPE, and the playit agent.
 
 ## Before you start
 
@@ -26,9 +18,7 @@ You need:
 - An up-to-date [playit agent](https://playit.gg/download) with support for NetherNet through NXS.
 - [Playit Premium](https://playit.gg/premium), which is required to create a NetherNet tunnel.
 
-This example runs all three programs on one Windows machine. It was tested with Bedrock Dedicated Server 26.60.6 and WaterdogPE 2.0.4.
-
-The WaterdogPE configuration below uses `listener.transport` and the nested `nethernet.signaling` section. Update WaterdogPE if your generated configuration does not contain these settings.
+Download the latest versions of Bedrock Dedicated Server and WaterdogPE. If your WaterdogPE configuration is missing the settings below, update WaterdogPE before continuing.
 
 ## 1. Configure the vanilla Bedrock server
 
@@ -48,15 +38,15 @@ allow-list=false
 
 Keep the other properties in the file.
 
-The backend listens on `127.0.0.1:19142`. WaterdogPE will use port `19132`, so the two programs need different local ports.
+These settings put your Bedrock server on `127.0.0.1:19142`. Keep port `19132` available for WaterdogPE.
 
-`server-udp-ports=19142` gives the backend a fixed UDP port for NetherNet. With `transport=nethernet`, the server uses `server-port` for its dual-stack signaling listener and ignores `server-portv6`.
+Keep `server-udp-ports` set to `19142` so WaterdogPE can reach your server at a fixed port.
 
-WaterdogPE authenticates players with Xbox Live. The backend must use `online-mode=false` to accept those proxied players.
+Set `online-mode=false` on your Bedrock server. WaterdogPE will check players' Xbox Live accounts before letting them join.
 
-Keep `server-ip=127.0.0.1` so players cannot bypass the proxy. Do not create a public tunnel to the backend.
+Keep `server-ip=127.0.0.1` so players must connect through WaterdogPE. Point your playit tunnel to WaterdogPE, not this server.
 
-Bedrock Dedicated Server refuses to start with an allowlist while online authentication is disabled. Set `allow-list=false` on this backend.
+Keep `allow-list=false` on your Bedrock server. Its built-in allowlist requires online authentication, which WaterdogPE handles in this setup.
 
 Start the server from its folder:
 
@@ -96,7 +86,7 @@ Get the **NetherNet token** from the tunnel page. Also copy its hostname, public
 
 {{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin forwarding to local UDP port 19132 with Proxy Protocol set to None" >}}
 
-If you reuse an existing tunnel, stop its previous NXS host, such as Geyser. Use this token for the WaterdogPE instance serving the tunnel.
+If you are moving an existing tunnel from Geyser to WaterdogPE, stop Geyser before starting WaterdogPE with that tunnel's token.
 
 ## 4. Configure WaterdogPE
 
@@ -150,12 +140,12 @@ Check these settings:
 - `advertise_addresses` contains the tunnel's public UDP endpoint. It belongs directly under `nethernet.signaling`.
 - `servers.vanilla.address` points to the vanilla server's local signaling port.
 - `server_type: nethernet` uses NetherNet between WaterdogPE and the vanilla server too.
-- `listener.priorities` names the backend entry, `vanilla`.
+- `listener.priorities` names your server entry, `vanilla`.
 - `online_mode: true` keeps Xbox Live authentication enabled at the proxy.
-- `use_login_extras: false` avoids adding proxy-specific login fields to the vanilla server's login data.
+- Keep `use_login_extras: false` when connecting to Microsoft's Bedrock Dedicated Server.
 - `enable_edu_features: false` keeps Education Edition features disabled for the vanilla server.
 
-The backend's `online-mode` property and WaterdogPE's `online_mode` setting serve different purposes. Keep the backend setting `false` and the proxy setting `true`.
+Keep `online-mode=false` in your Bedrock server's `server.properties` and `online_mode: true` in WaterdogPE's `config.yml`.
 
 ## 5. Start WaterdogPE and connect
 
@@ -175,32 +165,32 @@ In Minecraft Bedrock, add a server using:
 
 Enter the hostname without `https://`. Use the join address printed by WaterdogPE if it differs from the example.
 
-The allocated UDP port, such as `44079`, belongs in `advertise_addresses`. Players enter signaling port `19132`, not that allocated port or backend port `19142`.
+The allocated UDP port, such as `44079`, belongs in `advertise_addresses`. Players enter signaling port `19132`, not that allocated port or your Bedrock server's local port `19142`.
 
-After joining, WaterdogPE should log both an upstream player connection and a downstream connection to `vanilla`.
+Join the server to confirm that you can enter your world. Share the tunnel hostname and port `19132` with your friends.
 
 ## Troubleshooting
 
-### WaterdogPE registers, but players get "Door"
+### You get a "Door" error when joining
 
-Confirm that the playit agent supports NetherNet through NXS. Check that the tunnel forwards to WaterdogPE's UDP port `19132`.
+Update the playit agent. Check that your tunnel's local port is `19132` and that WaterdogPE is running.
 
 Check the public IPv4 address and allocated UDP port in `advertise_addresses`. Keep the listener bound to `0.0.0.0`, rather than loopback.
 
-### Players reach WaterdogPE but cannot join the vanilla server
+### You connect to WaterdogPE but cannot enter your world
 
-Confirm that the backend is running on `127.0.0.1:19142`. Check that `servers.vanilla.address` uses the same port.
+Check that your Bedrock server is running on `127.0.0.1:19142`. Set `servers.vanilla.address` in WaterdogPE to the same address and port.
 
-Keep the backend's `transport=nethernet` and `online-mode=false`. Keep WaterdogPE's `online_mode: true` and `use_login_extras: false`.
+Keep `transport=nethernet` and `online-mode=false` in your Bedrock server's `server.properties`. Keep `online_mode: true` and `use_login_extras: false` in WaterdogPE.
 
-Check that both server versions support the player's Bedrock version. Read both consoles for the downstream disconnect reason.
+Update your Bedrock server and WaterdogPE to versions that support your Minecraft client. Check both consoles for a disconnect message.
 
-### WaterdogPE cannot parse the backend configuration
+### WaterdogPE reports an invalid server address
 
 Keep `public_address` as a valid `host:port`, such as `127.0.0.1:19142`. Do not set it to an empty string.
 
 ### The vanilla server exits with an allowlist error
 
-Set `allow-list=false` on the loopback-only backend. This server cannot combine its allowlist with `online-mode=false`.
+Set `allow-list=false` in your Bedrock server's `server.properties`. Keep `online_mode: true` in WaterdogPE so players still authenticate with Xbox Live.
 
 For more information about WaterdogPE, see its [setup documentation](https://docs.waterdog.dev/waterdogpe-setup/starting-waterdog).
