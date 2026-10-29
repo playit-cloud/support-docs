@@ -82,7 +82,7 @@ Create a tunnel in the [tunnel dashboard](https://playit.gg/account/tunnels) wit
 
 The tunnel must point to WaterdogPE, rather than the vanilla server's port `19142`.
 
-Get the **NetherNet token** from the tunnel page. Also copy its hostname, public IPv4 address, and allocated UDP port.
+Copy the **NetherNet token** and **hostname** from the tunnel page. Playit handles the public connection address automatically.
 
 {{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin forwarding to local UDP port 19132 with Proxy Protocol set to None" >}}
 
@@ -92,7 +92,7 @@ If you are moving an existing tunnel from Geyser to WaterdogPE, stop Geyser befo
 
 Open WaterdogPE's `config.yml`. Merge these settings into the generated sections, keeping the other settings and `config_version` value.
 
-WaterdogPE uses underscores in these configuration keys.
+WaterdogPE uses underscores in these configuration keys. If you previously set `nethernet.signaling.advertise_addresses`, remove that setting.
 
 ```yaml
 listener:
@@ -114,8 +114,6 @@ nethernet:
   webrtc_port: 0
   signaling:
     mode: nxs
-    advertise_addresses:
-      - "203.0.113.10:44079"
     stun_discovery: false
     nxs:
       token: 'YOUR_NETHERNET_TOKEN'
@@ -129,15 +127,12 @@ enable_edu_features: false
 
 Replace `YOUR_NETHERNET_TOKEN` with the token from your tunnel page. Keep it private.
 
-Replace `203.0.113.10:44079` with the tunnel's **public IPv4 address and allocated UDP port**. The example address will not work as written.
-
 Check these settings:
 
 - `listener.host` binds WaterdogPE to local port `19132`, matching the tunnel's local port.
 - `listener.transport: nethernet` accepts NetherNet connections.
 - `nethernet.webrtc_port: 0` uses the listener port for UDP when the transport is `nethernet`.
 - `nethernet.signaling.mode: nxs` registers WaterdogPE with playit's signaling service.
-- `advertise_addresses` contains the tunnel's public UDP endpoint. It belongs directly under `nethernet.signaling`.
 - `servers.vanilla.address` points to the vanilla server's local signaling port.
 - `server_type: nethernet` uses NetherNet between WaterdogPE and the vanilla server too.
 - `listener.priorities` names your server entry, `vanilla`.
@@ -165,7 +160,7 @@ In Minecraft Bedrock, add a server using:
 
 Enter the hostname without `https://`. Use the join address printed by WaterdogPE if it differs from the example.
 
-The allocated UDP port, such as `44079`, belongs in `advertise_addresses`. Players enter signaling port `19132`, not that allocated port or your Bedrock server's local port `19142`.
+Players join on port `19132`, even if the tunnel page displays a different public port. Keep your Bedrock server's local port `19142` in WaterdogPE only.
 
 Join the server to confirm that you can enter your world. Share the tunnel hostname and port `19132` with your friends.
 
@@ -175,7 +170,7 @@ Join the server to confirm that you can enter your world. Share the tunnel hostn
 
 Update the playit agent. Check that your tunnel's local port is `19132` and that WaterdogPE is running.
 
-Check the public IPv4 address and allocated UDP port in `advertise_addresses`. Keep the listener bound to `0.0.0.0`, rather than loopback.
+Enter the tunnel hostname and port `19132` in Minecraft. Keep the WaterdogPE listener bound to `0.0.0.0`.
 
 ### You connect to WaterdogPE but cannot enter your world
 

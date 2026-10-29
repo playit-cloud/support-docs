@@ -36,17 +36,16 @@ Set the tunnel's local IP to `127.0.0.1` when the agent runs alongside Geyser or
 
 Copy the NetherNet token from your tunnel page. Follow your server's guide to add that token and `https://nethernet.playit.gg` to Geyser or WaterdogPE.
 
-Follow the selected guide for the complete configuration. The examples use different ports for different purposes:
+Follow the selected guide for the complete configuration. Use these ports when configuring your server and joining:
 
 - **Local UDP port:** `19132`, where Geyser or WaterdogPE receives traffic from the agent.
-- **Allocated public UDP port:** copy this from your tunnel page, together with the public IPv4 address, into Geyser or WaterdogPE's advertised addresses.
 - **Player join port:** `19132`, used with the tunnel hostname for signaling.
 
 ## If you already have a Bedrock tunnel
 
 Create a Minecraft Bedrock (NetherNet) tunnel for your existing server. Configure Geyser or WaterdogPE with its token and public UDP endpoint.
 
-Apply the complete configuration from your server's guide, including the token, endpoint, and advertised address.
+Apply the configuration from your server's guide, including your tunnel token and the playit endpoint.
 
 Restart Geyser or WaterdogPE and check for a successful registration message. Share your new tunnel hostname and port `19132` with players.
 
@@ -54,7 +53,7 @@ Keep an existing Minecraft Java tunnel if Java players still need it.
 
 ## If joining fails with "Door"
 
-Check the Geyser or WaterdogPE console for a successful registration message. Check the tunnel's local port and your configured public IPv4 address and allocated UDP port.
+Check the Geyser or WaterdogPE console for a successful registration message. Check the tunnel's local port and use its hostname with port `19132` in Minecraft.
 
 Keep Geyser or WaterdogPE listening on `0.0.0.0`. Update your playit agent to the latest version.
 

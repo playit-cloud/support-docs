@@ -15,6 +15,6 @@ For other Geyser platforms, follow {{< link "use-geyser-with-nethernet.md" >}} a
 
 Each guide includes the NetherNet tunnel, token, NXS endpoint, and Geyser configuration. Playit Premium and an agent with NetherNet NXS support are required.
 
-Bedrock players join with the tunnel hostname on port **19132**. Playit's allocated UDP port belongs in the advertised address in Geyser's configuration.
+Bedrock players join with the tunnel hostname on port **19132**. Playit handles the public connection address automatically.
 
 For a vanilla Bedrock server, use {{< link "use-bedrock-with-waterdog.md" >}} instead. That setup uses WaterdogPE rather than Geyser.

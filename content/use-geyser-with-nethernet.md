@@ -47,7 +47,7 @@ If Geyser runs in a container or on another machine, use an address the agent ca
 
 Open the tunnel page after creating it. Get the **NetherNet token** from the tunnel page.
 
-Also copy the tunnel's hostname, public IPv4 address, and allocated UDP port. These values serve different purposes in the following steps.
+Copy the tunnel's **hostname** for players to use when joining. Playit handles the public connection address automatically.
 
 {{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin forwarding to local UDP port 19132 with Proxy Protocol set to None" >}}
 
@@ -55,7 +55,7 @@ Also copy the tunnel's hostname, public IPv4 address, and allocated UDP port. Th
 
 On Paper, open `plugins/Geyser-Spigot/config.yml`. On Fabric, open `config/Geyser-Fabric/config.yml`.
 
-Merge the following settings into the existing `bedrock:` and `java:` sections. Keep the other settings in your file.
+Merge the following settings into the existing `bedrock:` and `java:` sections. Keep the other settings in your file. If you previously set `bedrock.signaling.advertise-addresses`, remove that setting.
 
 ```yaml
 bedrock:
@@ -67,8 +67,6 @@ bedrock:
 
   signaling:
     mode: nxs
-    advertise-addresses:
-      - "203.0.113.10:44079"
     stun-discovery: false
 
     nxs:
@@ -81,8 +79,6 @@ java:
 
 Replace `YOUR_NETHERNET_TOKEN` with the token from your tunnel page. Keep the token private.
 
-Replace `203.0.113.10:44079` with your tunnel's **public IPv4 address and allocated UDP port**. This is an example address; it will not work as written.
-
 Check these settings:
 
 - `address: 0.0.0.0` lets Geyser's NetherNet listener accept connections. Do not bind Geyser to `127.0.0.1`, even when the agent runs locally.
@@ -91,8 +87,7 @@ Check these settings:
 - `transport: nethernet` lets current Bedrock clients connect to your server.
 - `clone-remote-port: false` keeps the Geyser port separate from the Java server port.
 - `signaling.mode: nxs` registers Geyser with playit's external signaling service.
-- `signaling.advertise-addresses` tells the service which public UDP address reaches this tunnel. It belongs directly under `signaling`, alongside `nxs`.
-- `stun-discovery: false` uses the explicitly configured public address.
+- `stun-discovery: false` keeps automatic address discovery disabled.
 - `java.auth-type: floodgate` uses the Floodgate plugin installed earlier.
 
 If you are not using Floodgate, keep `java.auth-type: online`. Bedrock players will need to authenticate with a Java Edition account.
@@ -116,7 +111,7 @@ In Minecraft Bedrock, add a server using:
 
 Use the hostname without `https://`. Use the join address printed by Geyser if it differs from this example.
 
-Players use port **19132** for signaling. The allocated UDP port, such as **44079**, belongs in `advertise-addresses`; players do not enter it here.
+Players join on port **19132**, even if the tunnel page displays a different public port.
 
 Java Edition players need a separate Minecraft Java tunnel pointing to the Java server's port, usually `25565`.
 
@@ -126,7 +121,7 @@ Java Edition players need a separate Minecraft Java tunnel pointing to the Java 
 
 Update the playit agent and restart Geyser. Check that Geyser prints the successful registration message shown above.
 
-Check that the tunnel's local port matches Geyser's UDP port. Confirm that `advertise-addresses` contains the tunnel's public IPv4 address and allocated UDP port.
+Check that the tunnel's local port matches Geyser's UDP port. Enter the tunnel hostname and port `19132` in Minecraft.
 
 Keep Geyser's `bedrock.address` set to `0.0.0.0`. Allow the agent to reach Geyser over UDP if they run on separate machines or networks.
 

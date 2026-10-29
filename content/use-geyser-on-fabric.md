@@ -38,11 +38,11 @@ Select **Minecraft Bedrock (NetherNet)**, as highlighted above.
 
 If the agent runs on another machine or outside the server's container, use an address it can reach over UDP.
 
-Open the tunnel page. Get its **NetherNet token**, hostname, public IPv4 address, and allocated UDP port.
+Open the tunnel page. Copy its **NetherNet token** and **hostname**.
 
 {{< image src="post-img/minecraft-nethernet-origin.png" alt="NetherNet origin configuration with local IP 127.0.0.1, local port 19132, and no proxy protocol" >}}
 
-Keep the local port at `19132`. Playit's allocated UDP port belongs in the advertised address below, rather than the local port field.
+Keep the local port at `19132`. Playit handles the public connection address automatically.
 
 ## 3. Configure Geyser on Fabric
 
@@ -57,8 +57,6 @@ bedrock:
   clone-remote-port: false
   signaling:
     mode: nxs
-    advertise-addresses:
-      - "203.0.113.10:44079"
     stun-discovery: false
     nxs:
       token: 'YOUR_NETHERNET_TOKEN'
@@ -70,11 +68,9 @@ java:
 
 Replace `YOUR_NETHERNET_TOKEN` with the token from your tunnel page. Keep the token private.
 
-Replace `203.0.113.10:44079` with your tunnel's **public IPv4 address and allocated UDP port**. The example address will not work as written.
-
 `webrtc-port: 0` uses local UDP port `19132`. Keep `address: 0.0.0.0`, even when the agent forwards to `127.0.0.1`.
 
-`signaling.mode: nxs` registers Geyser with `https://nethernet.playit.gg`. Put `advertise-addresses` directly under `signaling`, alongside `nxs`.
+Keep `signaling.mode: nxs` and `endpoint: https://nethernet.playit.gg` as shown. If you previously set `bedrock.signaling.advertise-addresses`, remove that setting.
 
 If you are not using Floodgate, keep `java.auth-type: online`. Bedrock players will need to authenticate with a Java Edition account.
 
@@ -90,13 +86,13 @@ In Minecraft Bedrock, add the tunnel's **hostname** as the server address and **
 
 Enter the hostname without `https://`. Use the join address printed by Geyser if it differs from the example.
 
-Players use port `19132` for signaling. The allocated UDP port, such as `44079`, belongs in Geyser's `advertise-addresses`.
+Players join on port `19132`, even if the tunnel page displays a different public port.
 
 For Java players, create a separate Minecraft Java tunnel pointing to the Java server's port, usually `25565`.
 
 ## Troubleshooting
 
-If registration fails, check the token, endpoint, and tunnel status. If joining times out, check both the local UDP port and advertised public endpoint.
+If registration fails, check the token, endpoint, and tunnel status. If joining times out, check the local UDP port and the address entered in Minecraft.
 
 If a Floodgate player is rejected by the whitelist, run `fwhitelist add YourBedrockGamertag` in the server console.
 
