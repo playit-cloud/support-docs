@@ -6,6 +6,8 @@ description_file = "descriptions/minecraft-bedrock-nethernet.txt"
 
 > September 16, 2026
 
+For Geyser servers, follow {{< link "use-geyser-with-nethernet.md" >}} to use playit's NetherNet tunnel and external signaling service.
+
 Recently, the Minecraft Bedrock server sets the transport method to use `NetherNet` by default. As it stands now, you can still set it to use `RakNet`.
 
 

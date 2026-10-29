@@ -4,7 +4,9 @@ tags = ["Minecraft", "Guide", "GeyserMC"]
 description_file = "descriptions/use-geyser-with-playit.txt"
 +++
 
-There are two versions of this guide, depending on the server type you are using.
+For NetherNet, follow {{< link "use-geyser-with-nethernet.md" >}}. It includes the Geyser configuration for playit's external signaling service.
+
+The following platform guides cover the earlier Bedrock tunnel setup.
 
 ## Platform Guides
  - PaperMC: {{< link "use-geyser-on-paper.md" >}}

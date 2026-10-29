@@ -1,0 +1,136 @@
++++
+title = "Setting up NetherNet with Geyser and playit"
+tags = ["Minecraft", "Guide", "GeyserMC", "Networking"]
+description_file = "descriptions/use-geyser-with-nethernet.txt"
++++
+
+Geyser lets Minecraft Bedrock players join a Java Edition server. This guide configures Geyser to use playit's NetherNet tunnel and external signaling service (NXS).
+
+Playit handles signaling and forwards the UDP game traffic to Geyser. You do not need to forward ports on your router.
+
+## Before you start
+
+You need:
+
+- A working Minecraft Java server supported by your Geyser version.
+- An up-to-date [Geyser installation](https://geysermc.org/wiki/geyser/setup/) with NetherNet and NXS support.
+- An up-to-date [playit agent](https://playit.gg/download) with support for NetherNet through NXS.
+- [Playit Premium](https://playit.gg/premium), which is required to create a NetherNet tunnel.
+
+NetherNet support is experimental. This guide uses Paper with Geyser-Spigot; other Geyser platforms use the same Bedrock settings.
+
+## 1. Install Geyser and Floodgate
+
+For Paper, download `Geyser-Spigot.jar` from [Geyser's downloads page](https://geysermc.org/download/?project=geyser). Place it in your server's `plugins` folder.
+
+To let Bedrock players join without a Java Edition account, install [Floodgate](https://geysermc.org/wiki/floodgate/setup/) on the server too.
+
+Start the server once to generate the configuration files. Stop the server before editing them.
+
+Keep `online-mode=true` in the Java server's `server.properties`. Floodgate handles authentication for Bedrock players.
+
+## 2. Create a NetherNet tunnel
+
+Start the playit agent and confirm it is connected to your account.
+
+In the [tunnel dashboard](https://playit.gg/account/tunnels), create a tunnel with these settings:
+
+- **Tunnel type:** Minecraft Bedrock (NetherNet).
+- **Agent:** the agent that can reach your Geyser server.
+- **Local IP:** `127.0.0.1` when the agent and Geyser run on the same machine.
+- **Local port:** `19132`.
+
+If Geyser runs in a container or on another machine, use an address the agent can reach. Allow UDP traffic from the agent to Geyser's local port.
+
+Open the tunnel page after creating it. Get the **NetherNet token** from the tunnel page.
+
+Also copy the tunnel's hostname, public IPv4 address, and allocated UDP port. These values serve different purposes in the following steps.
+
+## 3. Configure Geyser
+
+On Paper, open `plugins/Geyser-Spigot/config.yml`. On Fabric, open `config/Geyser-Fabric/config.yml`.
+
+Merge the following settings into the existing `bedrock:` and `java:` sections. Keep the other settings in your file.
+
+```yaml
+bedrock:
+  address: 0.0.0.0
+  port: 19132
+  webrtc-port: 0
+  transport: nethernet
+  clone-remote-port: false
+
+  signaling:
+    mode: nxs
+    advertise-addresses:
+      - "203.0.113.10:44079"
+    stun-discovery: false
+
+    nxs:
+      token: 'YOUR_NETHERNET_TOKEN'
+      endpoint: https://nethernet.playit.gg
+
+java:
+  auth-type: floodgate
+```
+
+Replace `YOUR_NETHERNET_TOKEN` with the token from your tunnel page. Keep the token private.
+
+Replace `203.0.113.10:44079` with your tunnel's **public IPv4 address and allocated UDP port**. This is an example address; it will not work as written.
+
+Check these settings:
+
+- `address: 0.0.0.0` lets Geyser's NetherNet listener accept connections. Do not bind Geyser to `127.0.0.1`, even when the agent runs locally.
+- `port: 19132` matches the tunnel's **local port**. It does not need to match playit's allocated UDP port.
+- `webrtc-port: 0` makes NetherNet use the UDP port selected by `port`.
+- `transport: nethernet` enables NetherNet. This example does not also enable RakNet.
+- `clone-remote-port: false` keeps the Geyser port separate from the Java server port.
+- `signaling.mode: nxs` registers Geyser with playit's external signaling service.
+- `signaling.advertise-addresses` tells the service which public UDP address reaches this tunnel. It belongs directly under `signaling`, alongside `nxs`.
+- `stun-discovery: false` uses the explicitly configured public address.
+- `java.auth-type: floodgate` uses the Floodgate plugin installed earlier.
+
+If you are not using Floodgate, keep `java.auth-type: online`. Bedrock players will need to authenticate with a Java Edition account.
+
+## 4. Restart and check registration
+
+Restart the Minecraft server with the playit agent running. Look for a Geyser log message similar to:
+
+```text
+Registered with the external signaling service. Players can join at https://your-tunnel.tun.ply.gg:19132
+```
+
+If registration fails, check the token and endpoint in `bedrock.signaling.nxs`. Confirm that the tunnel is enabled and assigned to the connected agent.
+
+## 5. Connect from Bedrock
+
+In Minecraft Bedrock, add a server using:
+
+- **Server address:** your tunnel's hostname, such as `your-tunnel.tun.ply.gg`.
+- **Port:** `19132`.
+
+Use the hostname without `https://`. Use the join address printed by Geyser if it differs from this example.
+
+Players use port **19132** for signaling. The allocated UDP port, such as **44079**, belongs in `advertise-addresses`; players do not enter it here.
+
+Java Edition players need a separate Minecraft Java tunnel pointing to the Java server's port, usually `25565`.
+
+## Troubleshooting
+
+### Geyser registers, but joining times out with "Door"
+
+Confirm that the agent supports NetherNet through NXS. Older NetherNet implementations may reject NXS STUN traffic even when registration succeeds.
+
+Check that the tunnel's local port matches Geyser's UDP port. Confirm that `advertise-addresses` contains the tunnel's public IPv4 address and allocated UDP port.
+
+Keep Geyser's `bedrock.address` set to `0.0.0.0`. Allow the agent to reach Geyser over UDP if they run on separate machines or networks.
+
+### "You are not whitelisted on this server"
+
+The connection reached the Java server, but the player needs whitelist access. With Floodgate installed, run this command in the server console:
+
+```text
+fwhitelist add YourBedrockGamertag
+```
+
+Replace `YourBedrockGamertag` with the player's Xbox gamertag. Do not include Floodgate's username prefix. See [Floodgate's whitelist documentation](https://geysermc.org/wiki/floodgate/features/#whitelist-command).
