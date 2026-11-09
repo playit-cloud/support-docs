@@ -22,10 +22,10 @@ Launch `TerrariaServer.exe` once. Wait for **Choose World**, then close this ini
 
 ## Configure the server
 
-Create a folder named `playit-server` inside the Terraria installation, and a `worlds` folder inside it. In `playit-server`, create `serverconfig.txt` with these contents:
+Create a folder named `terraria-server` inside the Terraria installation, and a `worlds` folder inside it. In `terraria-server`, create `serverconfig.txt` with these contents:
 
 ```text
-world=D:\Steam\steamapps\common\Terraria\playit-server\worlds\PlayitWorld.wld
+world=D:\Steam\steamapps\common\Terraria\terraria-server\worlds\PlayitWorld.wld
 autocreate=1
 worldname=Terraria via playit.gg
 difficulty=0
@@ -47,12 +47,12 @@ Choose a password you don't use for any other account. Players will enter it whe
 
 Save the file as plain text. In File Explorer, enable **View → Show → File name extensions** and check that it is named `serverconfig.txt`, not `serverconfig.txt.txt`.
 
-Create `start-playit-server.bat` in the Terraria installation folder:
+Create `start-server.bat` in the Terraria installation folder:
 
 ```bat
 @echo off
 cd /d "%~dp0"
-TerrariaServer.exe -config "%~dp0playit-server\serverconfig.txt"
+TerrariaServer.exe -config "%~dp0terraria-server\serverconfig.txt"
 pause
 ```
 
