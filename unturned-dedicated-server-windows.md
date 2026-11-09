@@ -36,6 +36,10 @@ Create `StartUnturnedServer.bat` inside `U3DS` with the following contents:
 start "" "%~dp0ServerHelper.bat" +LanServer/UnturnedServer
 ```
 
+`%~dp0` tells Windows to use the drive and folder containing this `.bat` file. For example, if you save it in `D:\Steam\steamapps\common\U3DS`, then `%~dp0ServerHelper.bat` points to `D:\Steam\steamapps\common\U3DS\ServerHelper.bat`.
+
+Keep `%~dp0` exactly as shown; you don't need to replace it with your Steam library path. Save `StartUnturnedServer.bat` in the same folder as `ServerHelper.bat`, and keep the quotation marks so paths containing spaces work.
+
 If you need help creating a `.bat` file, see {{< link "creating-a-bat-file" >}}. Make sure the file isn't saved as `StartUnturnedServer.bat.txt`.
 
 `UnturnedServer` is the server ID. It controls which folder holds this server's settings and world. Keep the same ID each time you start it.
