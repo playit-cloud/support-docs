@@ -61,7 +61,7 @@ nano ~/terraria/serverconfig.txt
 Add these lines:
 
 ```text
-world=/home/server/terraria/worlds/PlayitWorld.wld
+world=/home/server/terraria/worlds/World.wld
 autocreate=1
 worldname=Terraria via playit.gg
 difficulty=0
