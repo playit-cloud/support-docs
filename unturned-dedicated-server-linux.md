@@ -34,6 +34,8 @@ This will install the Unturned Dedicated Server inside `~/unturned`. Wait for `S
 
 ## Starting the server
 
+First, change to the folder where you installed the server. `cd ~/unturned` makes that folder your working directory; `~` means your Linux user's home folder. If you installed the server somewhere else, replace `~/unturned` with that path. The `./ServerHelper.sh` command then runs the helper from your working directory.
+
 ```bash
 cd ~/unturned
 chmod +x ServerHelper.sh Unturned_Headless.x86_64
