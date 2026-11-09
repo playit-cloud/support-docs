@@ -25,7 +25,7 @@ Launch `TerrariaServer.exe` once. Wait for **Choose World**, then close this ini
 Create a folder named `terraria-server` inside the Terraria installation, and a `worlds` folder inside it. In `terraria-server`, create `serverconfig.txt` with these contents:
 
 ```text
-world=D:\Steam\steamapps\common\Terraria\terraria-server\worlds\PlayitWorld.wld
+world=D:\Steam\steamapps\common\Terraria\terraria-server\worlds\World.wld
 autocreate=1
 worldname=Terraria via playit.gg
 difficulty=0
