@@ -22,7 +22,7 @@ Launch `TerrariaServer.exe` once. Wait for **Choose World**, then close this ini
 
 ## Configure the server
 
-Create a folder named `terraria-server` inside the Terraria installation, and a `worlds` folder inside it. In `terraria-server`, create `serverconfig.txt` with these contents:
+Create a folder named `terraria-server` inside the Terraria installation, and a `worlds` folder inside it. Back up the existing `serverconfig.txt` beside `TerrariaServer.exe`, then replace its contents with:
 
 ```text
 world=D:\Steam\steamapps\common\Terraria\terraria-server\worlds\World.wld
@@ -51,12 +51,16 @@ Create `start-server.bat` in the Terraria installation folder:
 
 ```bat
 @echo off
-cd /d "%~dp0"
-TerrariaServer.exe -config "%~dp0terraria-server\serverconfig.txt"
-pause
+cls
+:start
+TerrariaServer.exe -config serverconfig.txt
+@echo.
+@echo Restarting server...
+@echo.
+goto start
 ```
 
-Double-click it to start the server. The first run generates the world and can take a few minutes. Continue when the console shows:
+Keep `start-server.bat`, `serverconfig.txt`, and `TerrariaServer.exe` in the same folder. Double-click `start-server.bat` in File Explorer to start the server. The first run generates the world and can take a few minutes. Continue when the console shows:
 
 ```text
 Listening on port 7777
@@ -115,9 +119,11 @@ Share your tunnel's hostname, public port, and optional server password with fri
 
 ## Save, stop, and update
 
-In the dedicated server console, enter `save` to save without stopping. Enter `exit` to save and shut down cleanly. Wait until saving finishes before closing anything. Avoid `exit-nosave` when you want to keep your changes.
+In the dedicated server console, enter `save` to save without stopping. Enter `exit` to save and restart the server. The batch file prints **Restarting server...** and starts it again with the same configuration. Avoid `exit-nosave` when you want to keep your changes.
 
-Back up the entire `playit-server` folder while the server is stopped. Restart with the same batch file to continue the saved world.
+To stop for a backup or update, open `start-server.bat`, replace the final `goto start` with `pause`, and save it. Then enter `exit` in the server console. Wait for saving to finish and **Press any key to continue . . .** before closing the window. Restore `goto start` in the batch file when you want automatic restarts again.
+
+Back up `serverconfig.txt` and the entire `terraria-server` folder while the server is stopped. Restart with the same batch file to continue the saved world.
 
 To update, stop the server, let Steam update **Terraria**, then restart with the same batch file. Update players' clients too. Keep your configuration and world backups separate from the game files you replace.
 
@@ -129,7 +135,7 @@ If the server reports `Could not load file or assembly 'Microsoft.Xna.Framework,
 
 ### The console still asks you to choose a world
 
-Check that the batch file points to your new configuration, and that its `world` line is an absolute path to `PlayitWorld.wld`. Create the parent folders first. The example configuration bundled with the game has most settings commented out; it isn't the configuration above.
+Check that `serverconfig.txt` is beside `TerrariaServer.exe` and `start-server.bat`, and that its `world` line is an absolute path to `World.wld`. Create the parent folders first. The example configuration bundled with the game has most settings commented out; it isn't the configuration above.
 
 ### Local joining fails
 
