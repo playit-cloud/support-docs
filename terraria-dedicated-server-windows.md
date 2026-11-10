@@ -43,8 +43,6 @@ For a private server, add a password on its own line:
 password=YourUniqueServerPassword
 ```
 
-Choose a password you don't use for any other account. Players will enter it when joining. No Steam Game Server Login Token is needed for this direct-IP setup.
-
 Save the file as plain text. In File Explorer, enable **View → Show → File name extensions** and check that it is named `serverconfig.txt`, not `serverconfig.txt.txt`.
 
 Create `start-server.bat` in the Terraria installation folder:
