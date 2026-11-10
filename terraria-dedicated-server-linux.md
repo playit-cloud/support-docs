@@ -81,8 +81,6 @@ For a private game, add a join password on its own line:
 password=YourUniqueServerPassword
 ```
 
-Use a password you don't use for another account. No Steam Game Server Login Token is needed for this direct-IP setup.
-
 Save in nano with **Ctrl+O**, press **Enter**, then exit with **Ctrl+X**.
 
 ## Keeping the server running
