@@ -12,7 +12,6 @@ We'll use `+LanServer` and connect directly through a playit tunnel. The server 
 
 * [Unturned](https://store.steampowered.com/app/304930/Unturned/) to join and test the server.
 * [Unturned Dedicated Server](https://store.steampowered.com/app/1110390/Unturned_Dedicated_Server/), installed separately through Steam.
-* A [playit account](https://playit.gg/) and an agent running on the server computer. The **Unturned** tunnel preset is available on the free plan.
 * A Steam account eligible to create a **Game Server Login Token (GSLT)**. We'll add the token before joining through playit.
 
 ## Find the server files
@@ -146,11 +145,11 @@ If the game is on a different computer in your home network, use the server comp
 
 Keep the playit agent running on the server computer. Open [your tunnels](https://playit.gg/account/tunnels) and choose **new tunnel**.
 
-1. Give the tunnel a name, such as **Unturned**.
-2. Choose **Unturned** as the tunnel type.
-3. Select **Playit Network → Global Anycast** for the free endpoint shown here.
-4. Select the agent running on your server computer.
-5. Set the origin configuration as follows, then create the tunnel:
+1. Give the tunnel a name, such as **Unturned**
+2. Choose **Unturned** as the tunnel type
+3. Select **Playit Network → Global Anycast** for the free endpoint shown here
+4. Select the agent running on your server computer
+5. Set the origin configuration as follows, then create the tunnel
 
 ```text
 Local IP: 127.0.0.1
