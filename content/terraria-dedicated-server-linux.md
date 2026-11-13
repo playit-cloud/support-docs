@@ -8,7 +8,7 @@ description_file = "descriptions/terraria-dedicated-server-linux.txt"
 
 ### Server
 
-We will use **Debian 13 on x86-64** for this guide. Run the server as a normal Linux user. You will also need a [playit account](https://playit.gg/) and a Terraria PC client to join.
+We will use **Debian 13 on x86-64** for this guide. Run the server as a normal Linux user.
 
 Download the dedicated server from [Terraria's official website](https://terraria.org/). The **PC Dedicated Server** download contains the Linux server and doesn't require SteamCMD or a Steam login. This guide was tested with **1.4.5.8**; the client and server versions must match. tModLoader servers use a different setup.
 
@@ -41,7 +41,7 @@ The `1458` folder is for version 1.4.5.8. For a newer release, use the download 
 
 ## Test running the server
 
-Run the server once:
+Run the server:
 
 ```bash
 ./TerrariaServer.bin.x86_64
@@ -81,7 +81,7 @@ For a private game, add a join password on its own line:
 password=YourUniqueServerPassword
 ```
 
-Save in nano with **Ctrl+O**, press **Enter**, then exit with **Ctrl+X**.
+Save in nano with **Ctrl+S**, followed by **Ctrl+X**.
 
 ## Keeping the server running
 
@@ -101,7 +101,7 @@ Type 'help' for a list of commands.
 : Server started
 ```
 
-Press **Ctrl+B**, release both keys, then press **D** to detach. Disconnect from SSH, reconnect, and attach to confirm that the console is still running:
+Press **Ctrl+B**, release both keys,and then press **D** to detach. Disconnect from SSH, reconnect, and attach to confirm that the console is still running:
 
 ```bash
 tmux attach -t terraria
@@ -115,11 +115,11 @@ Install and claim a playit agent on the **same Linux computer** as the Terraria 
 
 Open [your tunnels](https://playit.gg/account/tunnels), choose **new tunnel**, and use:
 
-1. **Name your tunnel:** Terraria Linux.
-2. **Tunnel Type:** Terraria.
-3. **Public Endpoint:** Playit Network → Global Anycast (Global · Free).
-4. **Assign to Agent:** the agent on your Linux server.
-5. **Origin Config:** Local IP `127.0.0.1`, Local Port `7777`, Proxy Protocol **None**.
+1. **Name your tunnel:** Terraria Linux
+2. **Tunnel Type:** Terraria
+3. **Public Endpoint:** Playit Network → Global Anycast (Global · Free)
+4. **Assign to Agent:** the agent on your Linux server
+5. **Origin Config:** Local IP `127.0.0.1`, Local Port `7777`, Proxy Protocol **None**
 
 Click **Next**, review the settings, then click **Create Tunnel**. The Terraria preset was tested on the **Free Network**. It forwards Terraria's TCP traffic to local port `7777`.
 
