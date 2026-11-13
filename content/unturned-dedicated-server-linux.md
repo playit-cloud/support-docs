@@ -108,7 +108,7 @@ GSLT PASTE_YOUR_TOKEN_HERE
 
 Replace `PASTE_YOUR_TOKEN_HERE` with your token, keeping it on one line. Remove any older `GSLT` entry. Keep the token private and give each running server its own token. Friends only need the playit address, first port, and optional join password.
 
-Save in nano with **Ctrl+O**, press **Enter**, then exit with **Ctrl+X**.
+Save in nano with **Ctrl+S**, followed by **Ctrl+X**.
 
 ## Keeping the server running
 
@@ -141,11 +141,11 @@ Install and claim a playit agent on the **same Linux computer** as the game serv
 
 Open [your tunnels](https://playit.gg/account/tunnels), choose **new tunnel**, and use:
 
-1. **Name:** Unturned, or another name you prefer.
-2. **Tunnel Type:** Unturned.
-3. **Public Endpoint:** Playit Network → Global Anycast (free).
-4. **Agent:** the agent running on your Linux server.
-5. **Origin Config:** the values below.
+1. **Name:** Unturned, or another name you prefer
+2. **Tunnel Type:** Unturned
+3. **Public Endpoint:** Playit Network → Global Anycast (free)
+4. **Agent:** the agent running on your Linux server
+5. **Origin Config:** the values below
 
 ```text
 Local IP: 127.0.0.1
