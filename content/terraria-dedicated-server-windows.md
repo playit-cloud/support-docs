@@ -18,7 +18,7 @@ Right-click **Terraria** in the Library list on the left, then choose **Manage �
 
 The folder contains `TerrariaServer.exe` and an example `serverconfig.txt`. Our installation is at `D:\Steam\steamapps\common\Terraria`; substitute your own installation folder in the paths below.
 
-Launch `TerrariaServer.exe` once. Wait for **Choose World**, then close this initial console before creating the configuration below. You don't need to select or modify an existing world.
+Launch `TerrariaServer.exe`. Wait for **Choose World**, then close this console before creating the configuration below. You don't need to select or modify an existing world.
 
 ## Configure the server
 
@@ -84,17 +84,15 @@ Install and claim the playit agent on the same Windows computer as the server. D
 
 Open [your tunnels](https://playit.gg/account/tunnels) and choose **new tunnel**. Complete these sections:
 
-1. **Name your tunnel:** Terraria Windows.
-2. **Tunnel Type:** Terraria.
-3. **Public Endpoint:** Playit Network → Global Anycast (Global · Free).
-4. **Assign to Agent:** the agent on your Windows server computer.
-5. **Origin Config:** Local IP `127.0.0.1`, Local Port `7777`, Proxy Protocol **None**.
+1. **Name your tunnel:** Terraria
+2. **Tunnel Type:** Terraria
+3. **Public Endpoint:** Playit Network → Global Anycast
+4. **Assign to Agent:** the agent on your Windows server computer
+5. **Origin Config:** Local IP `127.0.0.1`, Local Port `7777`, Proxy Protocol **None**
 
-Click **Next**, review the settings, then click **Create Tunnel**. The Terraria preset was tested on the **Free Network**.
+Click **Next**, review the settings, then click **Create Tunnel**.
 
 {{< image src="post-img/terraria-windows-tunnel.jpg" alt="Terraria Windows tunnel showing its public address and Windows agent origin at 127.0.0.1:7777" >}}
-
-If the agent selector says the tunnel type isn't supported, click **Refresh agents** and check again.
 
 ## Join through playit
 
