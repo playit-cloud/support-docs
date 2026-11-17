@@ -85,12 +85,10 @@ Save in nano with **Ctrl+S**, followed by **Ctrl+X**.
 
 ## Keeping the server running
 
-Use tmux so the server continues running when you disconnect from SSH:
+Run this command from your SSH shell. It starts Terraria directly inside a tmux session named `terraria`:
 
 ```bash
-tmux new -s terraria
-cd ~/terraria/1458/Linux
-./TerrariaServer.bin.x86_64 -config "$HOME/terraria/serverconfig.txt"
+tmux new-session -s terraria -c "$HOME/terraria/1458/Linux" ./TerrariaServer.bin.x86_64 -config "$HOME/terraria/serverconfig.txt"
 ```
 
 The first run generates the world and can take a few minutes. Continue when the console shows:
@@ -101,7 +99,7 @@ Type 'help' for a list of commands.
 : Server started
 ```
 
-Press **Ctrl+B**, release both keys,and then press **D** to detach. Disconnect from SSH, reconnect, and attach to confirm that the console is still running:
+Press **Ctrl+B**, release both keys, then press **D** to detach. Disconnect from SSH, reconnect, and attach to confirm that the console is still running:
 
 ```bash
 tmux attach -t terraria
@@ -156,7 +154,7 @@ Attach to the server console:
 tmux attach -t terraria
 ```
 
-Enter `save` to save without stopping, or `exit` to save and shut down. Wait for saving to finish and the shell prompt to return. Avoid `exit-nosave` when you want to keep changes.
+Enter `save` to save without stopping, or `exit` to save and shut down. Wait for saving to finish. When you use `exit`, the tmux session closes and you return to your SSH shell. Avoid `exit-nosave` when you want to keep changes.
 
 Back up `~/terraria/serverconfig.txt` and the entire `~/terraria/worlds` folder while the server is stopped.
 
@@ -170,7 +168,7 @@ curl -fL https://terraria.org/api/download/pc-dedicated-server/terraria-server-1
 unzip -o terraria-server-1458.zip
 ```
 
-Reattach to the existing tmux session if it is at a shell prompt, then run the startup commands again. If the session ended, create it with `tmux new -s terraria` first.
+Run the tmux startup command again to restart the server. If you installed a newer version, change the version folder in the command to match.
 
 ## Troubleshooting
 
