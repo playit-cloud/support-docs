@@ -37,9 +37,7 @@ This will install the Unturned Dedicated Server inside `~/unturned`. Wait for `S
 First, change to the folder where you installed the server. `cd ~/unturned` makes that folder your working directory; `~` means your Linux user's home folder. If you installed the server somewhere else, replace `~/unturned` with that path. The `./ServerHelper.sh` command then runs the helper from your working directory.
 
 ```bash
-cd ~/unturned
-chmod +x ServerHelper.sh Unturned_Headless.x86_64
-./ServerHelper.sh +LanServer/UnturnedServer
+tmux new-session -d -s unturned -c "$HOME/unturned" './ServerHelper.sh +LanServer/UnturnedServer'
 ```
 
 Inside the `unturned` folder, run `ServerHelper.sh` as shown above. This sets the Steam library path and starts the server without a desktop environment.
@@ -88,7 +86,7 @@ Create a game server account using:
 
 ```text
 App ID: 304930
-Memo: Unturned playit server
+Memo: Unturned Linux
 ```
 
 Use **304930**, the Unturned game's app ID. The memo can be anything you want; it's just a label to help you recognize the server. If you already have a valid Unturned token for this server, you can use it.
