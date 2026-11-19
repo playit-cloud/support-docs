@@ -120,9 +120,7 @@ sudo apt install tmux
 Create a session and start the server:
 
 ```bash
-tmux new -s unturned
-cd ~/unturned
-./ServerHelper.sh +LanServer/UnturnedServer
+tmux new-session -d -s unturned -c "$HOME/unturned" './ServerHelper.sh +LanServer/UnturnedServer'
 ```
 
 Wait for **Loading level: 100%**. To leave the server running, press **Ctrl+B**, release both keys, then press **D**. You can now disconnect from SSH.
