@@ -89,7 +89,7 @@ Create a game server account using:
 
 ```text
 App ID: 304930
-Memo: Unturned playit server
+Memo: Unturned
 ```
 
 Use **304930**, the Unturned game's app ID. You can change the memo to anything you want; it's just a label to help you recognize the server. If you already have a valid Unturned token for this server, you can use it.
