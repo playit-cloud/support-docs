@@ -60,8 +60,8 @@ However, if you get `Request timed out.` or nothing at all if you're on linux, y
 
 > You can visit this page for help
 >
-> [How to change your DNS server](https://playit.gg/support/update-your-dns/)
+> **[How to change your DNS server](https://playit.gg/support/update-your-dns/)**
 
-### Is it your ISP?
-An ISP is the company providing your Internet, and they may be filtering HTTP and game traffic using safebrowse.io, such as Xfinity, Cox, or Spectrum.
-You can read more at {{< link "disable-safebrowse-io.md" >}}
+> ### Is it your ISP?
+> An ISP is the company providing your Internet, and they may be filtering HTTP and game traffic using safebrowse.io, such as Xfinity, Cox, or Spectrum.
+> You can read more at **{{< link "disable-safebrowse-io.md" >}}**
